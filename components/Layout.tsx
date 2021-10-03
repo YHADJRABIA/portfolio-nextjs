@@ -5,7 +5,7 @@ import Footer from "./Footer/Footer";
 const Layout: FC = ({ children }) => {
   return (
     <>
-      <Nav />
+      {/*       <Nav /> */}
       <main>{children}</main>
       <Footer color="#fff" />
     </>

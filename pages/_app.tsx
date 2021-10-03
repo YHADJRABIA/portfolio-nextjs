@@ -33,7 +33,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     default:
       return (
         <Layout>
-          <Nav />
           <ToastContainer />
           <Component {...pageProps} />
         </Layout>
