@@ -7,7 +7,7 @@ const Layout: FC = ({ children }) => {
     <>
       <Nav />
       <main>{children}</main>
-      <Footer />
+      <Footer color="#fff" />
     </>
   );
 };

@@ -11,13 +11,18 @@ import links from "./links";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
 
-const Footer: FC = () => {
+interface IFooter {
+  color: string;
+}
+
+const Footer: FC<IFooter> = ({ color }) => {
   const { t } = useTranslation("common");
   const { locale, locales, defaultLocale, asPath } = useRouter();
   return (
     <>
       <svg
         className="footer-separator-svg"
+        style={{ backgroundColor: color }}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
@@ -28,8 +33,6 @@ const Footer: FC = () => {
         ></path>
       </svg>
       <footer>
-        {/*         <LanguageSwitch /> */}
-
         <address className="footer-links">
           {links.map((link, id) => (
             <a href={link.path} title={link.name} key={id} target="blank">

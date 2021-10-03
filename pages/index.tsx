@@ -8,6 +8,8 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
+import Header from "../components/Header/Header";
+import Nav from "../components/Header/Nav";
 
 // SVG
 import SeparatorSVG from "../resources/SeparatorSVG"; // Wave separating sections
@@ -39,10 +41,13 @@ const HomePage: NextPage = () => {
         <meta property="og:title" content={t("title")} />
         <meta property="og:description" content={t("description")} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/näkten.png" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/yhr-mern-app/image/upload/v1633269542/projects/N%C3%A4kten_qg7vym.jpg"
+        />
         <meta
           property="og:url"
-          content="https://yhadjrabia.github.io/ecommerce/"
+          content="https://yacine-hadj-rabia-portfolio-nextjs.vercel.app/"
         />
 
         {/* Icons */}
@@ -70,6 +75,8 @@ const HomePage: NextPage = () => {
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
 
+      <Header />
+      <Nav />
       <main>
         <About />
         <SeparatorSVG d="M0,256L60,229.3C120,203,240,149,360,154.7C480,160,600,224,720,240C840,256,960,224,1080,208C1200,192,1320,192,1380,192L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" />

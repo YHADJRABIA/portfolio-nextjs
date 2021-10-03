@@ -17,24 +17,23 @@ function MyApp({ Component, pageProps }: AppProps) {
     case "HomePage":
       return (
         <>
-          <Header />
-          <Nav />
           <ToastContainer />
           <Component {...pageProps} />
-          <Footer />
+          <Footer color="fff" />
         </>
       );
     case "PageNotFound":
       return (
         <>
           <Component {...pageProps} />
-          <Footer />
+          <Footer color="#f2f2f5" />
         </>
       );
 
     default:
       return (
         <Layout>
+          <Nav />
           <ToastContainer />
           <Component {...pageProps} />
         </Layout>
