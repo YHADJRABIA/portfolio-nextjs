@@ -1,0 +1,14 @@
+.truncated {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// For header offset
+a.anchor {
+  display: block;
+  position: relative;
+  top: -$nav-height;
+  visibility: hidden;
+}

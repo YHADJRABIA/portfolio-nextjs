@@ -1,0 +1,45 @@
+.footer-separator-svg {
+  background-color: $primary-white;
+  margin-bottom: -1rem;
+}
+
+footer {
+  @include flexCenter(column);
+  margin-top: -1rem;
+  background: $primary-black;
+  min-height: $footer-height;
+  color: $primary-white;
+  padding-bottom: 4rem;
+}
+.footer-links {
+  @include flexCenter(row, space-evenly, flex-start);
+  width: 75%;
+  min-height: 10rem;
+  & i {
+    opacity: 0.8;
+    &:hover {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+  }
+}
+
+.made-with {
+  text-align: center;
+  overflow: hidden;
+}
+
+.copyright {
+  @include flexCenter(column, flex-end);
+  text-align: center;
+  min-height: 9rem;
+}
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+  .footer-links {
+    width: 60rem;
+    // min-height: 10rem;
+  }
+}
+@include respond-to("large") {
+}

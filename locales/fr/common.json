@@ -1,0 +1,56 @@
+{
+  "firstName": "Yacine",
+  "lastName": "HADJ RABIA",
+  "myself": "Moi-même",
+  "languages": {
+    "en": "Anglais",
+    "fr": "Français",
+    "ru": "Russe",
+    "sv": "Suédois"
+  },
+
+  "occupations": {
+    "developer": "Développeur Full stack",
+    "translator": "Traducteur à temps partiel",
+    "polyglot": "Passionné de langues"
+  },
+
+  "navNames": {
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+
+  "about": {
+    "title": "Me concernant",
+    "content": "Diplômé d'un Master 2 en électronique reconverti en tant que Développeur Web full stack ReactJS et NodeJS en MERN stack.<br/> <br/> Polyglotte, traducteur et sous-titreur à temps partiel.<br/> Mes centres d'intérêt sont la pêche, les langues étrangères, l'informatique et l'électronique. <br/><br/> Développeur à Paris, pêcheur à Östersund !"
+  },
+
+  "skills": {
+    "title": "Compétences",
+    "content": "Issu d'un cursus en électronique, j'ai découvert la programmation relativement tôt à travers le codage de systèmes embarqués, circuits intégrés et autres microcontrôleurs.<br/><br/>Je parle également cinq langues – <a>me voici</a> en parlant une slave –, il m'arrive ainsi de faire de la traduction de series.<br/><br/>Étant donnée mon avidité d'apprendre, cette liste est susceptible de bientôt s'élargir."
+  },
+
+  "portfolio": {
+    "title": "Portfolio",
+    "content": "Quelques-unes de mes réalisations. Rendez-vous sur ma <a>page GitHub</a> pour en découvrir davantage.<br/> L'ensemble de mes projets web sont « responsives », dont la majorité en mobile-first."
+  },
+
+  "contact": {
+    "title": "Contactez-moi",
+    "johnSmith": "Michel DUPONT",
+    "name": "Nom",
+    "email": "Courriel",
+    "placeholder": "Je vous embauche !",
+    "submit": "Envoyer",
+    "emptyFields": "Champs non renseignés.",
+    "invalidEmail": "Courriel erroné.",
+    "untickedRecaptcha": "Case reCAPTCHA non cochée.",
+    "emailSent": "E-mail envoyé !",
+    "error": "Une erreur est survenue, veuillez réessayer."
+  },
+
+  "madeWith": "Conçu avec <a0><em>NextJS</em></a0> en utilisant <a1><em>TypeScript</em></a1>",
+  "inProgress": "En cours de réalisation"
+}

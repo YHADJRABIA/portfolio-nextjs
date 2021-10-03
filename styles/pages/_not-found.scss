@@ -1,0 +1,15 @@
+.page-not-found {
+  height: 80vh;
+  @include flexCenter(column);
+  background-color: $primary-gray;
+
+  a {
+    text-decoration: underline;
+    color: $secondary-blue;
+  }
+}
+
+@include respond-to("medium") {
+}
+@include respond-to("large") {
+}

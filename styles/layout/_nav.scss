@@ -1,0 +1,147 @@
+header {
+  @include flexCenter(column, space-between);
+  background-color: $primary-black;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.NavItems {
+  background-color: $primary-black;
+  box-shadow: 0 4px 26px -1px rgb(255, 255, 255, 0.13),
+    0 2px 4px 1px rgb(255, 255, 255, 0.5);
+
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+  transition: all 0.3s ease-in;
+  transition-property: background-color, color;
+  height: $nav-height;
+  @include flexCenter(row, space-around);
+
+  & > * {
+    color: white;
+
+    &.active {
+      color: $primary-gray;
+    }
+  }
+
+  &.active {
+    background-color: $primary-blue;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Logo */
+.nav-logo {
+  font-family: $secondary-font;
+  text-align: center;
+  font-size: 2rem;
+  &.active {
+    color: $primary-gray;
+  }
+}
+
+/* Content */
+.nav-menu {
+  @include flexCenter(column, flex-start);
+  position: absolute;
+  top: $nav-height; // Height of nav
+  left: -120%;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  transition-property: left, opacity;
+  width: 100vw;
+  background-color: $background-black;
+
+  &.toggled {
+    box-shadow: 0 4px 26px -1px rgba(255, 255, 255, 0.13),
+      0 2px 4px 1px rgba(255, 255, 255, 0.5);
+    background-color: $background-black;
+    opacity: 1;
+    left: 0;
+    z-index: 999;
+  }
+}
+
+.nav-links {
+  font-family: lobster;
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  width: 100vw;
+  display: table;
+  color: $primary-gray;
+  transition: 0.3s ease-out;
+  transition-property: background-color, color;
+  position: relative;
+
+  &:hover {
+    background-color: $secondary-blue;
+    color: $primary-gray;
+  }
+  .cart-badge {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 55%;
+    min-width: 2rem;
+    height: 2rem;
+    background-color: #6d76f7;
+    border-radius: 50%;
+    font-size: 2rem;
+    @include flexCenter(column);
+  }
+}
+
+/*----------- Responsive --------------*/
+@include respond-to("medium") {
+  .nav-menu {
+    @include initialProperties;
+    flex-direction: row;
+    justify-content: flex-end;
+    opacity: 1;
+    background-color: initial;
+    width: 80%;
+
+    &.toggled {
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    li a {
+      font-size: 1.8rem;
+    }
+  }
+
+  .nav-links {
+    transition: all 0.3s ease;
+    //color: $primary-black;
+    transition-property: border-radius, background-color, color, left;
+    width: initial;
+    &:hover {
+      border-radius: 0.4rem;
+    }
+
+    &.active {
+      color: $primary-gray;
+      &:hover {
+        background-color: transparent;
+        color: $primary-yellow;
+      }
+    }
+    .cart-badge {
+      left: 85%;
+    }
+  }
+}
+
+@include respond-to("large") {
+  .nav-menu {
+    li a {
+      font-size: 2.2rem;
+    }
+  }
+}

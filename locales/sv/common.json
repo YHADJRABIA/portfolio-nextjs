@@ -1,0 +1,49 @@
+{
+  "firstName": "Yacine",
+  "lastName": "Hadj Rabia",
+  "myself": "Mig själv",
+  "languages": {
+    "en": "Engelska",
+    "fr": "Franska",
+    "ru": "Ryska",
+    "sv": "Svenska"
+  },
+  "occupations": {
+    "developer": "Fullstackutvecklare",
+    "translator": "Deltidsöversättare",
+    "polyglot": "Språkälskare"
+  },
+  "navNames": {
+    "about": "Om mig",
+    "skills": "Kvalifikationer",
+    "projects": "Portfolio",
+    "contact": "Kontakt"
+  },
+  "about": {
+    "title": "Om mig",
+    "content": "Elektroteknikutbildad programmerare som omskolade sig till fullstack webbutveckling och som använder ReactJS/NodeJS med MERN stack för närvarande.<br/><br/> Polyglott, undertextare och deltidsöversättare.<br/> Lärar mig nya språk eller webbutvecklingsteknik på fritiden för det mesta, eller fiskar när jag åker till Sverige.<br/><br/> Är öppen för jobbmöjligheter inom Paris- och Östersundsregionerna."
+  },
+  "skills": {
+    "title": "Kvalifikationer",
+    "content": "Som elingenjör har kodning varit en allestädes närvarande del av min läroplan, har också introducerats för ganska tidigt genom inbäddade system, integrerade kretsar och mikrokontroller överlag.<br/><br/> Är femspråkig - <a>här får man se mig prata</a> nåt slaviskt språk - och använder mina kunskaper för serieöversättning bland annat.<br/><br/> Snart får den här listan troligen bredda sig - jag är liksom en ivrig lärare!"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "content": "Några av mina projekt. Besök gärna <a>min GitHub sida</a> om du vill ta reda på mer om mina återstående projekt. <br/> Alla mina webbapplikationer är responsiva, varav de flesta är mobile-first."
+  },
+  "contact": {
+    "title": "Skriv till mig",
+    "johnSmith": "Sven Svensson",
+    "name": "Namn",
+    "email": "E-post",
+    "placeholder": "Du är anställd!",
+    "submit": "Skicka",
+    "emptyFields": "Alla fält måste fyllas i.",
+    "invalidEmail": "Ogiltig e-post.",
+    "untickedRecaptcha": "Markera reCAPTCHA först.",
+    "emailSent": "E-mail har skickats!",
+    "error": "Något gick fel, försök igen."
+  },
+  "madeWith": "Skapat med <a0><em>NextJS</em></a0> och <a1><em>TypeScript</em></a1> ",
+  "inProgress": "Under konstruktion"
+}

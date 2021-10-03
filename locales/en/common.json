@@ -1,0 +1,58 @@
+{
+  "firstName": "Yacine",
+  "lastName": "Hadj Rabia",
+  "myself": "Myself",
+
+  "languages": {
+    "en": "English",
+    "fr": "French",
+    "ru": "Russian",
+    "sv": "Swedish"
+  },
+
+  "occupations": {
+    "developer": "Full Stack Developer",
+    "translator": "Part-time translator",
+    "polyglot": "Language enthusiast"
+  },
+
+  "navNames": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Portfolio",
+    "contact": "Contact"
+  },
+
+  "about": {
+    "title": "About me",
+
+    "content": "Electrical Engineering graduate who retrained as a ReactJS/NodeJS full stack Web Development currently using the MERN stack.<br/> <br/> Polyglot, subtitler and part-time translator.<br/> My leisure time is spent learning new languages or Web development technologies for the most part, or fishing when in Sweden.<br/> <br/> Open for job opportunities within the Paris and Östersund regions."
+  },
+
+  "skills": {
+    "title": "Skills",
+    "content": "As an Electrical Engineer, coding has been an ubiquitous part of my curriculum, I have been introduced to quite early on through embedded systems, integrated circuits and microcontrollers overall. <br/> <br/> I also speak five languages – <a>here I am</a> speaking a Slavic one –, and therefore use my linguistic skills for series translation.<br/><br/>Soon, this list may likely broaden — I am a keen learner after all!"
+  },
+
+  "portfolio": {
+    "title": "Portfolio",
+    "content": "Several projects among which I have been working on. Do check out my <a>Github page</a> to find out about the remaining ones.<br/><br/> All of my projects are responsive, most of which in mobile-first."
+  },
+
+  "contact": {
+    "title": "Contact me",
+    "johnSmith": "John Smith",
+    "name": "Name",
+    "email": "E-mail",
+    "placeholder": "You are hired!",
+    "submit": "Submit",
+    "emptyFields": "All fields must be filled out.",
+    "invalidEmail": "Invalid e-mail.",
+    "untickedRecaptcha": "Tick reCAPTCHA first.",
+    "emailSent": "E-mail sent!",
+    "error": "Something went wrong, try again."
+  },
+
+  "madeWith": "Made with <a0><em>NextJS</em></a0> using <a1><em>TypeScript</em></a1>",
+  "inProgress": "Under construction"
+}

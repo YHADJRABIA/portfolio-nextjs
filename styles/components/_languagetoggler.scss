@@ -1,0 +1,19 @@
+.language-container {
+  margin-bottom: 1rem;
+  > div {
+    border-color: transparent;
+  }
+}
+
+.flag-img {
+  border: 1px solid rgba(128, 127, 126, 0.4) !important;
+}
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+  .language-container {
+    margin-bottom: 0;
+    margin-left: 3rem;
+  }
+}
+@include respond-to("large") {
+}

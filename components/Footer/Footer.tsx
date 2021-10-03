@@ -1,0 +1,73 @@
+import React, { FC } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link"; // For better SEO
+import { AttentionSeeker } from "react-awesome-reveal"; // Reveal effect
+// Components
+import links from "./links";
+
+/* import LanguageSwitch from "../Header/LanguageSwitch"; */
+
+// Translation
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
+
+const Footer: FC = () => {
+  const { t } = useTranslation("common");
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  return (
+    <>
+      <svg
+        className="footer-separator-svg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="#1a1423"
+          fillOpacity="1"
+          d="M0,64L720,160L1440,64L1440,320L720,320L0,320Z"
+        ></path>
+      </svg>
+      <footer>
+        {/*         <LanguageSwitch /> */}
+
+        <address className="footer-links">
+          {links.map((link, id) => (
+            <a href={link.path} title={link.name} key={id} target="blank">
+              <i className={link.icon}></i>
+            </a>
+          ))}
+        </address>
+        <AttentionSeeker triggerOnce={true} effect="flash">
+          <h5 className="made-with">
+            <Trans
+              i18nKey="common:madeWith"
+              components={{
+                em: <em />,
+                a0: (
+                  <a
+                    href="https://nextjs.org/"
+                    title="Next.js"
+                    target="blank"
+                  />
+                ),
+                a1: (
+                  <a
+                    href="https://www.typescriptlang.org/"
+                    title="TypeScript"
+                    target="blank"
+                  />
+                ),
+              }}
+            />
+          </h5>
+        </AttentionSeeker>
+        <small className="copyright">
+          &copy;{new Date().getFullYear()}{" "}
+          {`${t("firstName")} ${t("lastName")}`}
+        </small>
+      </footer>
+    </>
+  );
+};
+
+export default Footer;
