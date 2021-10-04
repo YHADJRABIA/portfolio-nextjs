@@ -5,10 +5,10 @@ import Document, {
   Head,
   Main,
   NextScript,
-  DocumentInitialProps,
   DocumentContext,
 } from "next/document";
-import { useRouter } from "next/router";
+
+import { GA_TRACKING_ID } from "../lib/gtag";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -37,6 +37,32 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Permanent+Marker|Poppins|Audiowide|Oswald|Lobster&amp;lang=en&display=swap"
           />
+          <meta
+            name="google-site-verification"
+            content="M6aa3CbXmeU9R8s22ny5So7N0AQo9CmsNyQpZeytuKc"
+          />
+
+          {/* Google Analytics */}
+          <meta charSet="utf-8">
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+            />
+            <script
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+              }}
+            />
+          </meta>
         </Head>
         <body>
           <Main />

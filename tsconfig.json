@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/_app.jsx",
+    "**/*.d.ts",
+    "**/*.js",
     "components/Header/ParticleConfig.jsx",
     "components/Projects.tsx",
     "pages/api/sitemap.js"

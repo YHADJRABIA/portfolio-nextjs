@@ -1,17 +1,27 @@
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/app.scss";
 
-import React, { useEffect } from "react";
-import { ToastContainer } from "react-toastify";
 import type { AppProps } from "next/app";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import * as gtag from "../lib/gtag"; // Google Analytics
+import { ToastContainer } from "react-toastify";
 import Layout from "../components/Layout";
-import Header from "../components/Header/Header";
-import Nav from "../components/Header/Nav";
 import Footer from "../components/Footer/Footer";
 
-import { useRouter } from "next/router";
-
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   // Applying different layouts depending on page
   switch (Component.name) {
     case "HomePage":

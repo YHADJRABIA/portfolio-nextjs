@@ -2,7 +2,7 @@
 
 My portfolio made in 4 languages, with localisation and an emphasis on SEO (meta tags, favicons, lazy loading images, sitemap, robots.txt ...etc.).
 
-Viewable here: **https://yacine-hadj-rabia-portfolio-nextjs.vercel.app/api/sitemap**
+Viewable here: **https://yacine-hadj-rabia-portfolio-nextjs.vercel.app/**
 
 ## Setup:
 
