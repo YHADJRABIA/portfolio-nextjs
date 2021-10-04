@@ -10,6 +10,8 @@ import Document, {
 
 import { GA_TRACKING_ID } from "../lib/gtag";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -42,16 +44,17 @@ export default class MyDocument extends Document {
             content="M6aa3CbXmeU9R8s22ny5So7N0AQo9CmsNyQpZeytuKc"
           />
 
-          {/* Google Analytics */}
-
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: `
+          {/* Google Analytics (only during production) */}
+          {isProduction && (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+              />
+              <script
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                  __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -60,9 +63,12 @@ export default class MyDocument extends Document {
               page_path: window.location.pathname,
             });
           `,
-            }}
-          />
+                }}
+              />
+            </>
+          )}
         </Head>
+
         <body>
           <Main />
           <NextScript />
