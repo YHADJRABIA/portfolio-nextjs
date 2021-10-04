@@ -13,7 +13,7 @@ import Trans from "next-translate/Trans";
 
 const PageNotFound: NextPage = () => {
   const { t } = useTranslation("pageNotFound");
-  const [counter, setCounter] = useState(3);
+  const [counter, setCounter] = useState(300);
   const router: NextRouter = useRouter();
 
   // Redirects user after 3 seconds
