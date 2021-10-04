@@ -41,6 +41,7 @@
 
   "contact": {
     "title": "Contact me",
+    "content": "I will automatically acknowledge receipt in your language.",
     "johnSmith": "John Smith",
     "name": "Name",
     "email": "E-mail",

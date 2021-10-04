@@ -21,7 +21,8 @@
     "**/*.tsx",
     "pages/_app.jsx",
     "components/Header/ParticleConfig.jsx",
-    "components/Projects.tsx"
+    "components/Projects.tsx",
+    "pages/api/sitemap.js"
   ],
   "exclude": ["node_modules"]
 }

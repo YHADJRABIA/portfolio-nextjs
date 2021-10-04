@@ -19,7 +19,7 @@ const Skills: FC = () => {
         <h2>{t("skills.title")}</h2>
         <p>
           <Trans
-            i18nKey={t("common:skills.content")}
+            i18nKey="common:skills.content"
             components={{
               br: <br />,
               a: (

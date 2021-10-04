@@ -24,6 +24,9 @@ footer {
 }
 
 .made-with {
+  font-family: $primary-font;
+  color: $primary-white;
+  font-weight: bold;
   text-align: center;
   overflow: hidden;
 }

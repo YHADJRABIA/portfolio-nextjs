@@ -41,7 +41,7 @@ const Footer: FC<IFooter> = ({ color }) => {
           ))}
         </address>
         <AttentionSeeker triggerOnce={true} effect="flash">
-          <h5 className="made-with">
+          <p className="made-with">
             <Trans
               i18nKey="common:madeWith"
               components={{
@@ -62,7 +62,7 @@ const Footer: FC<IFooter> = ({ color }) => {
                 ),
               }}
             />
-          </h5>
+          </p>
         </AttentionSeeker>
         <small className="copyright">
           &copy;{new Date().getFullYear()}{" "}

@@ -24,6 +24,10 @@ textarea {
   min-width: 28rem;
   max-width: 28rem;
   height: 15rem;
+
+  &::-webkit-input-placeholder {
+    font-family: $secondary-font;
+  }
 }
 
 .form-field {
@@ -80,6 +84,7 @@ textarea {
 
   & label {
     transition: transform 0.3s ease-in-out;
+    font-family: $secondary-font;
     color: $secondary-black;
   }
 }

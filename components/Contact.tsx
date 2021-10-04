@@ -77,6 +77,7 @@ const Contact: FC = () => {
       ></a>
       <div className="section-text-container">
         <h2>{t("contact.title")}</h2>
+        <p className="contact-content">{t("contact.content")}</p>
       </div>
 
       <form

@@ -21,7 +21,7 @@ const Projects: FC = (props) => {
         <h2>{t("portfolio.title")}</h2>
         <p>
           <Trans
-            i18nKey={t("common:portfolio.content")}
+            i18nKey="common:portfolio.content"
             components={{
               br: <br />,
               a: (

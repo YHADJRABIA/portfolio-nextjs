@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yacine-hadj-rabia-portfolio-nextjs.vercel.app/api/sitemap

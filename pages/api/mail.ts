@@ -3,7 +3,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { isEmpty, isEmail, validateHuman } from "../../utilities/validator"; // Validators
 import { sendEmail, acknowledgeReceipt } from "../../utilities/sendGrid";
 
-type Data = {};
+type Data = {
+  status: string;
+  msg: string;
+};
 
 export default async function handler(
   req: NextApiRequest,

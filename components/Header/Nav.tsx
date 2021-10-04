@@ -86,7 +86,9 @@ const Nav: FC = () => {
             </Link>
           </li>
         ))}
-        <LanguageSwitch setToggled={setToggled} />
+        <li>
+          <LanguageSwitch setToggled={setToggled} />
+        </li>
       </ul>
     </nav>
   );

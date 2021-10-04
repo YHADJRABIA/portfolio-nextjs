@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -128,7 +128,6 @@ const LanguageSwitch = ({ setToggled }) => {
 
   return (
     <Select
-      id="long-value-select"
       instanceId="long-value-select"
       className="language-container"
       options={options.filter((option) => option.value !== locale)} // Filters out current flag

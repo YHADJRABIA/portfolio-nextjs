@@ -33,6 +33,7 @@
   },
   "contact": {
     "title": "Skriv till mig",
+    "content": "Ett bekräftelsemail skickas automatiskt på ditt språk.",
     "johnSmith": "Sven Svensson",
     "name": "Namn",
     "email": "E-post",

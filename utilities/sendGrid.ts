@@ -53,7 +53,7 @@ export const acknowledgeReceipt = async (
       break;
 
     case "sv":
-      outgoingEmail.title = "Mottagningsbevis";
+      outgoingEmail.title = "Bekräftelsemail";
       outgoingEmail.content = `
       Hej ${name},\r\n
       \r\n

@@ -48,9 +48,9 @@ const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
       </div>
 
       <div className="project-card-text">
-        <h4>{name}</h4>
+        <h3>{name}</h3>
         <div className="project-description">
-          <h5>{description}</h5>
+          <p>{description}</p>
         </div>
       </div>
 

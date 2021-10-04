@@ -7,7 +7,9 @@
   width: 80%;
   & > p {
     margin-top: 4rem;
-    text-align: left;
+    &:not(.contact-content) {
+      text-align: left;
+    }
   }
 
   & a {
@@ -57,15 +59,17 @@
         transition: all 0.5s ease;
         transition-property: transform color;
 
-        h5 {
+        p {
           margin-top: 5%;
+          font-weight: bold;
+          font-family: $primary-font;
         }
 
         &:hover {
           transform: translateY(-20%);
           background-color: $primary-blue;
           & i,
-          & h5 {
+          & p {
             color: $primary-gray;
           }
         }
@@ -174,6 +178,8 @@
     }
   }
 }
+
+/*-------------------------------------- Contact -----------------------------------*/
 
 /*------------ Reponsive -----------*/
 @include respond-to("medium") {
