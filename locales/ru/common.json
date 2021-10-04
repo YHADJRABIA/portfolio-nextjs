@@ -44,7 +44,7 @@
     "name": "Имя",
     "email": "Имейл",
     "placeholder": "Вы приняты на работу!",
-    "submit": "Присылать",
+    "submit": "Отправить",
     "emptyFields": "Все поля обязательны для заполнения.",
     "invalidEmail": "Неверный адрес.",
     "untickedRecaptcha": "reCAPTCHA должен быть отметен.",
