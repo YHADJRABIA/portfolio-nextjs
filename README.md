@@ -43,6 +43,7 @@ npm run dev
 - react-tsparticles for header particles.
 - React-select for dropdown menu.
 - Google reCAPTCHA for spam protection.
+- Google Analytics for...analytics.
 - SendGrid for sending e-mails.
 
 ## Upcoming features:
