@@ -50,7 +50,7 @@ const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
       <div className="project-card-text">
         <h3>{name}</h3>
         <div className="project-description">
-          <p>{description}</p>
+          <p className="ow">{description}</p>
         </div>
       </div>
 

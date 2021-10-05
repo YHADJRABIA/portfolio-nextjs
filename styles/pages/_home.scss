@@ -144,6 +144,10 @@
         min-height: 7rem;
       }
 
+      .project-description {
+        width: 100%;
+      }
+
       .project-link,
       .project-repo {
         @include flexCenter(row);
