@@ -132,7 +132,6 @@
 
       &-text {
         min-height: 25rem;
-        padding: 0 2rem;
         width: 100%;
         @include flexCenter(column);
       }
@@ -145,7 +144,7 @@
       }
 
       .project-description {
-        width: 100%;
+        width: 90%;
       }
 
       .project-link,
