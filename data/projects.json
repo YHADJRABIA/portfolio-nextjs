@@ -20,6 +20,14 @@
       ]
     },
     {
+      "name": "Movies app",
+      "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633913956/projects/movies_t2u82l.png",
+      "url": "https://yhadjrabia.github.io/movies-app/",
+      "description": "App displaying a list of movies that may be liked, disliked, removed and filtered by type. A pagination feature enables to limit the amount of movies per page.",
+      "repo": "https://github.com/YHADJRABIA/movies-app",
+      "tags": ["ReactJS", "Redux Toolkit", "Sass"]
+    },
+    {
       "name": "E-commerce",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633022248/projects/ecommerce_po1c6d.png",
       "url": "https://yhadjrabia.github.io/ecommerce/",
