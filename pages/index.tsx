@@ -45,10 +45,7 @@ const HomePage: NextPage = () => {
           property="og:image"
           content="https://res.cloudinary.com/yhr-mern-app/image/upload/v1633269542/projects/N%C3%A4kten_qg7vym.jpg"
         />
-        <meta
-          property="og:url"
-          content="https://yacine-hadj-rabia-portfolio-nextjs.vercel.app/"
-        />
+        <meta property="og:url" content="https://yhadjrabia.vercel.app/" />
 
         {/* Icons */}
         <link rel="icon" href="/favicon.ico" />
