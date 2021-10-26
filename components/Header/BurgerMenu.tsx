@@ -34,6 +34,7 @@ const BurgerMenu: FC<IBurgerMenu> = ({ toggled, setToggled, navbar }) => {
     <div
       className={`burger-icon + ${toggled ? "burger-toggled" : ""}`}
       onClick={toggleMenu}
+      data-testid="burger-menu"
       aria-label="Menu"
       role="button"
       aria-controls="navigation"

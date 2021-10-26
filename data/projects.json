@@ -3,7 +3,7 @@
     {
       "name": "Portfolio",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633021468/projects/NextTS_ro8ecm.png",
-      "description": "Current website with lazy-loading images, internationalisation and SEO emphasis.",
+      "description": "Current website with lazy-loading images, internationalisation and SEO emphasis and end-to-end testing with Cypress.",
       "repo": "https://github.com/YHADJRABIA/portfolio-nextjs",
       "tags": [
         "NextJS",
@@ -16,6 +16,7 @@
         "i18n",
         "Clourinary",
         "Context API",
+        "Cypress",
         "Sass"
       ]
     },
@@ -31,13 +32,13 @@
       "name": "E-commerce",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633022248/projects/ecommerce_po1c6d.png",
       "url": "https://yhadjrabia.github.io/ecommerce/",
-      "description": "Fully responsive mobile-first bilingual e-commerce app consuming and processing API data. Using React's context API and useReducer hook for state management and localStorage for saving preferences.",
+      "description": "Fully responsive mobile-first bilingual e-commerce app consuming and processing API data. Using Redux Toolkit for state management and localStorage for saving preferences.",
       "repo": "https://github.com/YHADJRABIA/ecommerce",
       "tags": [
         "ReactJS",
         "Axios",
         "i18n",
-        "useReducer",
+        "Redux",
         "localStorage",
         "REST API",
         "Sass",
@@ -66,7 +67,7 @@
       "name": "Jord Innovation",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633022456/projects/jord-innovation_rikstd.png",
       "url": "https://yhadjrabia.github.io/jord-innovation/",
-      "description": "Redesign and improvent of https://www.jordinnovation.com/, for full responsiveness and added features.",
+      "description": "Redesign, translation and improvement of https://www.jordinnovation.com/, for full responsiveness and added features.",
       "repo": "https://github.com/YHADJRABIA/jord-innovation",
       "tags": ["ReactJS", "i18n", "Sass", "Context API", "Dark theme"]
     },

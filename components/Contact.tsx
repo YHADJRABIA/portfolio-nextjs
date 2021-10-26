@@ -87,17 +87,28 @@ const Contact: FC = () => {
         className="form_card"
       >
         <div className="form-field">
-          <input placeholder={t("contact.johnSmith")} type="text" name="name" />
+          <input
+            placeholder={t("contact.johnSmith")}
+            type="text"
+            name="name"
+            data-testid="form-name"
+          />
           <label htmlFor="name">{t("contact.name")}</label>
         </div>
         <div className="form-field">
-          <input placeholder="email@domain.com" type="email" name="email" />
+          <input
+            placeholder="email@domain.com"
+            type="email"
+            name="email"
+            data-testid="form-email"
+          />
           <label htmlFor="email">{t("contact.email")}</label>
         </div>
         <div className="form-field">
           <textarea
             placeholder={t("contact.placeholder")}
             name="message"
+            data-testid="form-message"
           ></textarea>
         </div>
         <ReCAPTCHA
@@ -107,7 +118,10 @@ const Contact: FC = () => {
           onExpired={() => setToken(null)}
         />
         <p>
-          <button className="btn btn-primary" /* disabled={disabled} */>
+          <button
+            className="btn btn-primary"
+            data-testid="submit-form" /* disabled={disabled} */
+          >
             {!loading ? t("contact.submit") : <Animation />}
           </button>
         </p>
