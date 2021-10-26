@@ -9,7 +9,7 @@ import Trans from "next-translate/Trans";
 const Skills: FC = () => {
   const { t } = useTranslation("common");
   return (
-    <section className=" skills-section">
+    <section className="skills-section">
       <a
         id="skills"
         className="anchor"
@@ -35,7 +35,7 @@ const Skills: FC = () => {
         </p>
       </div>
       <div className="skills-card-container">
-        <ul className="skills-list">
+        <ul className="skills-list" data-testid="skills-list">
           {skills.data.map((skill, id) => (
             <Skill key={id} name={skill.name} icon={skill.icon} />
           ))}

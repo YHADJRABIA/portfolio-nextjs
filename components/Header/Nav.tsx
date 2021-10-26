@@ -17,21 +17,25 @@ const Nav: FC = () => {
       title: t("navNames.about"),
       url: "#about",
       cName: "nav-links",
+      dataId: "about-link",
     },
     {
       title: t("navNames.skills"),
       url: "#skills",
       cName: "nav-links",
+      dataId: "skills-link",
     },
     {
       title: t("navNames.projects"),
       url: "#projects",
       cName: "nav-links",
+      dataId: "projects-link",
     },
     {
       title: t("navNames.contact"),
       url: "#contact",
       cName: "nav-links",
+      dataId: "contact-link",
     },
   ];
 
@@ -63,7 +67,11 @@ const Nav: FC = () => {
   return (
     <nav ref={menuRef} className={`NavItems ${navbar ? "active" : ""}`}>
       <Link href="/" passHref>
-        <a className={`nav-logo ${navbar ? "active" : ""}`} title="Logo">
+        <a
+          className={`nav-logo ${navbar ? "active" : ""}`}
+          title="Logo"
+          data-testid="logo"
+        >
           Y H R
         </a>
       </Link>
@@ -78,6 +86,7 @@ const Nav: FC = () => {
             <Link href={item.url} passHref>
               <a
                 title={item.title}
+                data-testid={item.dataId}
                 className={`${item.cName} ${navbar ? "active" : ""}`}
                 onClick={() => setToggled(false)}
               >

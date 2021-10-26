@@ -19,6 +19,7 @@ const About: FC = () => {
           src="/me.jpg"
           alt={t("myself")}
           title={t("myself")}
+          data-testid="about-photo"
           width={400}
           height={400}
           objectFit="cover"
