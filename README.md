@@ -20,6 +20,12 @@ npm install
 npm run dev
 ```
 
+#### Tests:
+
+```
+npm run cypress
+```
+
 ## Features:
 
 - Fully responsive mobile-first server-side rendered website with emphasis on SEO (Updating HTML lang tag, title and description as the page changes).
@@ -35,6 +41,7 @@ npm run dev
 - TypeScript for less error-prone code.
 - Functional ReactJS (with hooks).
 - NodeJS for e-mail API.
+- Cypress for end-to-end tests.
 - Axios for HTTP requests to API.
 - next-translate for internationalization.
 - Sass using 7-1 pattern.
