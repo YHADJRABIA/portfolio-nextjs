@@ -72,10 +72,13 @@ textarea {
     &::-moz-placeholder {
       opacity: 0;
     }
+    &:focus::-moz-placeholder {
+      font-weight: initial;
+      opacity: 0.9;
+    }
 
     // Placeholder's styles
-    &:focus::-webkit-input-placeholder,
-    &:focus::-moz-placeholder {
+    &:focus::-webkit-input-placeholder {
       font-weight: initial;
       opacity: 0.9;
     }
@@ -105,6 +108,9 @@ input::-webkit-input-placeholder {
   top: 35%;
 }
 
+.recaptch-container {
+  height: 7.4rem;
+}
 /*------------ Reponsive -----------*/
 @include respond-to("medium") {
   .form_card {
