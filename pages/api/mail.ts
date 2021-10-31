@@ -3,6 +3,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { isEmpty, isEmail, validateHuman } from "../../utilities/validator"; // Validators
 import { sendEmail, acknowledgeReceipt } from "../../utilities/sendGrid";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 type Data = {
   status: string;
   msg: string;
@@ -39,11 +41,11 @@ export default async function handler(
 
   try {
     // Sending e-mail & acknowledging receipt
-
-    await Promise.all([
-      sendEmail(name, email, message),
-      acknowledgeReceipt(name, email, lang),
-    ]);
+    if (isProduction)
+      await Promise.all([
+        sendEmail(name, email, message),
+        acknowledgeReceipt(name, email, lang),
+      ]);
 
     return res.status(200).json({ status: "success", msg: "E-mail sent!" });
   } catch (err) {

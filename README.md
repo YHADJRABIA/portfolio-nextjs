@@ -1,6 +1,6 @@
 # Portfolio (in Next.js)
 
-My portfolio made in 4 languages, with localisation and an emphasis on SEO (meta tags, favicons, lazy loading images, sitemap, robots.txt ...etc.).
+My portfolio made in 4 languages, with localisation and an emphasis on SEO (meta tags, favicons, lazy loading images, sitemap, robots.txt ...etc.). Cypress tests included.
 
 Viewable here: **https://yhr.vercel.app/**
 
@@ -30,6 +30,7 @@ npm run cypress
 
 - Fully responsive mobile-first server-side rendered website with emphasis on SEO (Updating HTML lang tag, title and description as the page changes).
 - Site available in 4 languages with localised routing (Example: page switches automatically to Russian if "/ru" is added to the url).
+- End-to-end tests written with Cypress.
 - Lazy-loading images for better performance.
 - 404 routing when trying to access non-existent pages.
 - Fully validated contact form with automatic acknowledgement of receipt e-mail in the viewer's language with toaster for error handling.
@@ -41,7 +42,7 @@ npm run cypress
 - TypeScript for less error-prone code.
 - Functional ReactJS (with hooks).
 - NodeJS for e-mail API.
-- Cypress for end-to-end tests.
+- Cypress for end-to-end testing.
 - Axios for HTTP requests to API.
 - next-translate for internationalization.
 - Sass using 7-1 pattern.

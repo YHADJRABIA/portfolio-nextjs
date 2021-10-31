@@ -69,8 +69,13 @@ textarea {
       transform: translate(0, 2.125rem) scale(1.2);
     }
 
+    &::-moz-placeholder {
+      opacity: 0;
+    }
+
     // Placeholder's styles
-    &:focus::-webkit-input-placeholder {
+    &:focus::-webkit-input-placeholder,
+    &:focus::-moz-placeholder {
       font-weight: initial;
       opacity: 0.9;
     }

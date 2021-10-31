@@ -65,7 +65,7 @@ const ParticlesConfig = () => (
             area: 2000,
           },
           limit: 0,
-          value: 500,
+          value: 75,
         },
         opacity: {
           animation: {

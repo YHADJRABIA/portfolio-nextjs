@@ -6,11 +6,16 @@ describe("Links redirection", () => {
     cy.visit("/");
   });
 
-  it("Routes to the right page upon clicking the logo", () => {
+  it("Routes to the main page when clicking the logo", () => {
     // Homepage
     cy.get("nav").get("[data-testid=logo]").click();
     cy.url().should("eq", `${baseUrl}/`);
   });
+
+  /*   it("Routes to the corresponding locale when clicking a flag", () => {
+    cy.get("nav").get("#react-select-long-value-select-option-0").click();
+    cy.url().should("eq", `${baseUrl}/fr`);
+  }); */
 
   it("Scrolls down to the right section of the page after clicking nav links.", () => {
     cy.get("nav").get("[data-testid=about-link]").click();
@@ -28,7 +33,7 @@ describe("Links redirection", () => {
 
     cy.get("nav").get("[data-testid=contact-link]").click();
     cy.get(".contact-section")
-      .get("[data-testid=form-message]")
+      .get("[data-testid=contact-message]")
       .should("be.visible");
   });
 });
