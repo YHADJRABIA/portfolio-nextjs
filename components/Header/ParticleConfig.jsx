@@ -101,7 +101,7 @@ const ParticlesConfig = () => (
           radius: 10,
         },
         inlineArrangement: "equidistant",
-        scale: 0.6,
+        scale: 0.45,
         type: "inline",
         url: "https://particles.js.org/images/smalldeer.svg",
       },

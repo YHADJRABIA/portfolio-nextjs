@@ -111,13 +111,15 @@ const Contact: FC = () => {
             data-testid="contact-message"
           ></textarea>
         </div>
-        <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_CLIENT}
-          ref={reCaptchaRef}
-          data-testid="contact-recaptcha"
-          onChange={(token) => setToken(token)}
-          onExpired={() => setToken(null)}
-        />
+        <div className="recaptch-container">
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_CLIENT}
+            ref={reCaptchaRef}
+            data-testid="contact-recaptcha"
+            onChange={(token) => setToken(token)}
+            onExpired={() => setToken(null)}
+          />
+        </div>
         <p>
           <button
             className="btn btn-primary"
