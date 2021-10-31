@@ -91,7 +91,7 @@ const Contact: FC = () => {
             placeholder={t("contact.johnSmith")}
             type="text"
             name="name"
-            data-testid="form-name"
+            data-testid="contact-name"
           />
           <label htmlFor="name">{t("contact.name")}</label>
         </div>
@@ -100,7 +100,7 @@ const Contact: FC = () => {
             placeholder="email@domain.com"
             type="email"
             name="email"
-            data-testid="form-email"
+            data-testid="contact-email"
           />
           <label htmlFor="email">{t("contact.email")}</label>
         </div>
@@ -108,19 +108,21 @@ const Contact: FC = () => {
           <textarea
             placeholder={t("contact.placeholder")}
             name="message"
-            data-testid="form-message"
+            data-testid="contact-message"
           ></textarea>
         </div>
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_CLIENT}
           ref={reCaptchaRef}
+          data-testid="contact-recaptcha"
           onChange={(token) => setToken(token)}
           onExpired={() => setToken(null)}
         />
         <p>
           <button
             className="btn btn-primary"
-            data-testid="submit-form" /* disabled={disabled} */
+            data-testid="submit-contact-form"
+            disabled={loading}
           >
             {!loading ? t("contact.submit") : <Animation />}
           </button>
