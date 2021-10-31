@@ -20,6 +20,12 @@ npm install
 npm run dev
 ```
 
+#### Tests:
+
+```
+npm run cypress
+```
+
 ## Features:
 
 - Fully responsive mobile-first server-side rendered website with emphasis on SEO (Updating HTML lang tag, title and description as the page changes).
