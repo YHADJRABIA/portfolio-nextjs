@@ -5,7 +5,7 @@ const ThemeToggler: FC = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    console.log("test");
+    console.log("test", darkMode, toggleDarkMode);
     toggleDarkMode();
   };
   return (

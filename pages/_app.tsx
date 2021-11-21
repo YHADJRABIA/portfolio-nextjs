@@ -42,11 +42,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       return (
         <Provider store={store}>
           <ThemeProvider>
-            <AuthProvider>
-              <ToastContainer />
-              <Component {...pageProps} />
-              <Footer color="fff" />
-            </AuthProvider>
+            {/*             <AuthProvider> */}
+            <ToastContainer />
+            <Component {...pageProps} />
+            <Footer color="fff" />
+            {/*             </AuthProvider> */}
           </ThemeProvider>
         </Provider>
       );
