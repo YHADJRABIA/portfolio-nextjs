@@ -1,5 +1,4 @@
 .language-container {
-  margin-bottom: 1rem;
   > div {
     border-color: transparent;
   }
@@ -11,7 +10,6 @@
 /*------------ Reponsive -----------*/
 @include respond-to("medium") {
   .language-container {
-    margin-bottom: 0;
     margin-left: 3rem;
   }
 }

@@ -1,22 +1,33 @@
+// Styles
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/app.scss";
-import type { AppProps } from "next/app";
+
+// React & Next hooks
 import React, { useEffect } from "react";
+import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
+
+// Global state
+import { Provider } from "react-redux";
+import store from "../redux/store";
+import { AuthProvider } from "../context/UserContext";
+import { ThemeProvider } from "../context/ThemeContext";
+
 import * as gtag from "../lib/gtag"; // Google Analytics
 
 // Components
 import { ToastContainer } from "react-toastify";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import Footer from "../components/Footer/Footer";
 
 const isProduction = process.env.NODE_ENV === "production";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
-      /* Use analytics only for production */
+      /* Analytics for production only */
       if (isProduction) gtag.pageview(url);
     };
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -29,11 +40,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   switch (Component.name) {
     case "HomePage":
       return (
-        <>
-          <ToastContainer />
-          <Component {...pageProps} />
-          <Footer color="fff" />
-        </>
+        <Provider store={store}>
+          <ThemeProvider>
+            <AuthProvider>
+              <ToastContainer />
+              <Component {...pageProps} />
+              <Footer color="fff" />
+            </AuthProvider>
+          </ThemeProvider>
+        </Provider>
       );
     case "PageNotFound":
       return (

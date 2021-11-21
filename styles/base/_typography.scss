@@ -17,10 +17,12 @@ h1 {
 h2 {
   font-size: 3rem;
   font-family: $secondary-font;
+  transition: color 0.3s ease;
 }
 
 h3 {
   font-size: 2.2rem;
+  transition: color 0.3s ease;
 }
 h4 {
   font-size: 2rem;
@@ -42,6 +44,7 @@ p {
 label {
   font-size: 1.2rem;
   pointer-events: none;
+  transition: color 0.3s ease;
 }
 
 i {
@@ -78,4 +81,10 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+}
+
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+}
+@include respond-to("large") {
 }

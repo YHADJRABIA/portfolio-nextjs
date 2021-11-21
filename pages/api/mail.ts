@@ -40,7 +40,7 @@ export default async function handler(
       .json({ status: "error", msg: "Failed reCAPTCHA validation." });
 
   try {
-    // Sending e-mail & acknowledging receipt
+    // Sending e-mail & acknowledging receipt (only in production)
     if (isProduction)
       await Promise.all([
         sendEmail(name, email, message),
