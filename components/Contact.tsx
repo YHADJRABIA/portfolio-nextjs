@@ -1,5 +1,8 @@
-import React, { FC, useState, useRef } from "react";
+import React, { FC, useState, useRef, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
+
+// Global state management
+import { ThemeContext } from "../context/ThemeContext";
 
 // Components
 import Animation from "./Animation";
@@ -18,10 +21,28 @@ import useTranslation from "next-translate/useTranslation";
 
 const Contact: FC = () => {
   const { t } = useTranslation("common");
+  const { darkMode } = useContext(ThemeContext);
+  const [mobile, setMobile] = useState<boolean | null>(null);
   const { locale } = useRouter();
+  const [key, setKey] = useState(0);
   const [loading, setLoading] = useState(false);
   const [token, setToken] = useState<string | null>(null); //reCAPTCHA's token (sent to backend to be validated by Google)
   const reCaptchaRef = useRef<ReCAPTCHA>(null);
+
+  // Forcing re-mount of reCAPTCHA when language is switched or when view is shrunk
+  useEffect(() => {
+    setKey(key + 1);
+  }, [locale, darkMode, mobile]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  });
+
+  const handleResize = (): void => {
+    window.innerWidth < 400 ? setMobile(true) : setMobile(false);
+  };
 
   // Validating form + API call
   const handleOnSubmit = async (e: any) => {
@@ -111,24 +132,28 @@ const Contact: FC = () => {
             data-testid="contact-message"
           ></textarea>
         </div>
-        <div className="recaptch-container">
+
+        <div className="recaptcha-container">
           <ReCAPTCHA
+            size={!mobile ? "normal" : "compact"}
+            theme={!darkMode ? "light" : "dark"}
+            key={key}
             sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_CLIENT}
             ref={reCaptchaRef}
             data-testid="contact-recaptcha"
             onChange={(token) => setToken(token)}
+            hl={locale}
             onExpired={() => setToken(null)}
           />
         </div>
-        <p>
-          <button
-            className="btn btn-primary"
-            data-testid="submit-contact-form"
-            disabled={loading}
-          >
-            {!loading ? t("contact.submit") : <Animation />}
-          </button>
-        </p>
+
+        <button
+          className="btn btn-primary"
+          data-testid="submit-contact-form"
+          disabled={loading}
+        >
+          {!loading ? t("contact.submit") : <Animation />}
+        </button>
       </form>
     </section>
   );

@@ -3,10 +3,10 @@ import Link from "next/link";
 
 import useTranslation from "next-translate/useTranslation"; // Translation
 
-import LanguageSwitch from "../Header/LanguageSwitch";
-
 /* Components */
 import BurgerMenu from "./BurgerMenu";
+import ThemeToggler from "./ThemeToggler";
+import LanguageSwitch from "./LanguageSwitch";
 
 const Nav: FC = () => {
   const { t } = useTranslation("common");
@@ -75,7 +75,6 @@ const Nav: FC = () => {
           Y H R
         </a>
       </Link>
-
       {/*--- Phone only ---*/}
       <BurgerMenu toggled={toggled} setToggled={setToggled} navbar={navbar} />
       {/*--------*/}
@@ -97,6 +96,7 @@ const Nav: FC = () => {
         ))}
         <li>
           <LanguageSwitch setToggled={setToggled} />
+          <ThemeToggler />
         </li>
       </ul>
     </nav>

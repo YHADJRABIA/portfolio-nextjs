@@ -1,11 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link"; // For better SEO
+
 import { AttentionSeeker } from "react-awesome-reveal"; // Reveal effect
+
 // Components
 import links from "./links";
 
-/* import LanguageSwitch from "../Header/LanguageSwitch"; */
+// Global state management
+import { ThemeContext } from "../../context/ThemeContext";
 
 // Translation
 import useTranslation from "next-translate/useTranslation";
@@ -18,11 +20,13 @@ interface IFooter {
 const Footer: FC<IFooter> = ({ color }) => {
   const { t } = useTranslation("common");
   const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { darkMode } = useContext(ThemeContext);
+  /*   console.log(darkMode); */
   return (
     <>
       <svg
         className="footer-separator-svg"
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: !darkMode ? color : "#1b1a1a" }}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
@@ -64,6 +68,7 @@ const Footer: FC<IFooter> = ({ color }) => {
             />
           </p>
         </AttentionSeeker>
+
         <small className="copyright">
           &copy;{new Date().getFullYear()}{" "}
           {`${t("firstName")} ${t("lastName")}`}
