@@ -132,6 +132,7 @@ const Contact: FC = () => {
             data-testid="contact-message"
           ></textarea>
         </div>
+
         <div className="recaptcha-container">
           <ReCAPTCHA
             size={!mobile ? "normal" : "compact"}

@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 // Global state
 import { Provider } from "react-redux";
 import store from "../redux/store";
-import { AuthProvider } from "../context/UserContext";
+/* import { AuthProvider } from "../context/UserContext"; */
 import { ThemeProvider } from "../context/ThemeContext";
 
 import * as gtag from "../lib/gtag"; // Google Analytics
@@ -42,11 +42,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       return (
         <Provider store={store}>
           <ThemeProvider>
-            <AuthProvider>
-              <ToastContainer />
-              <Component {...pageProps} />
-              <Footer color="fff" />
-            </AuthProvider>
+            <ToastContainer />
+            <Component {...pageProps} />
+            <Footer color="fff" />
           </ThemeProvider>
         </Provider>
       );
@@ -60,10 +58,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     default:
       return (
-        <Layout>
-          <ToastContainer />
-          <Component {...pageProps} />
-        </Layout>
+        <Provider store={store}>
+          <ThemeProvider>
+            <Layout>
+              <ToastContainer />
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </Provider>
       );
   }
 }
