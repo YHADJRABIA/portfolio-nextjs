@@ -40,6 +40,7 @@
         "i18n",
         "Redux",
         "localStorage",
+        "Paypal",
         "REST API",
         "Sass",
         "Cypress"
