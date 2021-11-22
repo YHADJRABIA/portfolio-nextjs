@@ -22,7 +22,7 @@ const getInitialMode = () => {
   const savedMode = localStorage.getItem("dark-mode") === "true" ? true : false;
   const userPrefersDark = getPrefColorScheme(); // Gets user's colour preference.
 
-  // If mode was saved ► return saved mode else get users general preference.
+  // If mode was saved ► return saved mode else get user's general preference.
   return isReturningUser ? savedMode : userPrefersDark ? true : false;
 };
 
