@@ -45,7 +45,7 @@ export const acknowledgeReceipt = async (
       Chère/Cher ${name},\r\n
       \r\n
       Merci pour votre message !\r\n
-      Je reviendrais vers vous dès que possible.\r\n
+      Je reviendrai vers vous dès que possible.\r\n
       \r\n
       Bien à vous,\r\n
       \r\n

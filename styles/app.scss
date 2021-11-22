@@ -9,8 +9,10 @@
 
 @import "layout/nav", "layout/main", "layout/footer", "layout/forms";
 
-@import "components/buttons", "components/skills", "components/burger",
-  "components/herobanner", "components/notifications",
-  "components/languagetoggler";
+@import "components/buttons", "components/burger", "components/herobanner",
+  "components/notifications", "components/languagetoggler",
+  "components/themetoggler";
 
-@import "pages/home", "pages/cart", "pages/not-found";
+@import "pages/home", "pages/not-found";
+
+@import "themes/dark";

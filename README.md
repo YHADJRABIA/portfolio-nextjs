@@ -3,6 +3,7 @@
 My portfolio made in 4 languages, with localisation and SEO emphasis (meta tags, favicons, lazy loading images, sitemap, robots.txt ...etc.). Comes with Cypress tests.
 
 Viewable here: **https://yhr.vercel.app/**
+
 Tests viewable here: **https://dashboard.cypress.io/projects/t4gjjp/runs/1/specs**
 
 ## Setup:
@@ -36,6 +37,7 @@ npm run cypress
 - 404 routing when trying to access non-existent pages.
 - Fully validated contact form with automatic acknowledgement-of-receipt e-mail in the viewer's language with form validation and error handling.
 - Google reCAPTCHA preventing unwanted use of contact form.
+- Dark mode theme taking into account browser preferences and persisting user's changes on localStorage.
 
 ## Technologies:
 
@@ -48,6 +50,7 @@ npm run cypress
 - next-translate for internationalization.
 - Sass using 7-1 pattern for styles.
 - regex for frontend and backend form validation.
+- Global state management for Authentication and Theme (context providers).
 - Emotion (CSS in JS) for dropdown menu.
 - react-tsparticles for header particles.
 - React-select for dropdown menu.
@@ -57,5 +60,5 @@ npm run cypress
 
 ## Upcoming features:
 
-- Dark mode.
 - Dynamic route generation.
+- Authentication section.
