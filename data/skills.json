@@ -5,6 +5,7 @@
     { "name": "JavaScript", "icon": "devicon-javascript-plain" },
     { "name": "TypeScript", "icon": "devicon-typescript-plain" },
     { "name": "NextJS", "icon": "devicon-nextjs-original colored" },
+    { "name": "Gatsby", "icon": "devicon-gatsby-plain" },
     { "name": "ReactJS", "icon": "devicon-react-original" },
     { "name": "Redux", "icon": "devicon-redux-original" },
     { "name": "Node.js", "icon": "fab fa-node" },
