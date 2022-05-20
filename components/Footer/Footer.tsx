@@ -21,7 +21,6 @@ const Footer: FC<IFooter> = ({ color }) => {
   const { t } = useTranslation("common");
   const { locale, locales, defaultLocale, asPath } = useRouter();
   const { darkMode } = useContext(ThemeContext);
-  /*   console.log(darkMode); */
   return (
     <>
       <svg
