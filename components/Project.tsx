@@ -1,21 +1,17 @@
-import React, { FC } from "react";
+import React, { FC } from "react"
 
 // NextJS
-import Image from "next/image";
-import Link from "next/link";
-
-// Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import Image from "next/image"
+import Link from "next/link"
 
 interface IProject {
-  name: string;
-  img: string;
-  url?: string;
-  repo?: string;
-  description: string;
-  tags: string[];
-  id?: number;
+  name: string
+  img: string
+  url?: string
+  repo?: string
+  description: string
+  tags: string[]
+  id?: number
 }
 
 const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
@@ -75,7 +71,7 @@ const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
         )}
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project

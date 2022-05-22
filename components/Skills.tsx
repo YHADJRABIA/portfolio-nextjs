@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import Skill from "./Skill";
-import skills from "../data/skills.json";
+import React, { FC } from "react"
+import Skill from "./Skill"
+import skills from "../data/skills.json"
 
 // Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import useTranslation from "next-translate/useTranslation"
+import Trans from "next-translate/Trans"
 
 const Skills: FC = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("common")
   return (
     <section className="skills-section">
       <a
@@ -42,7 +42,7 @@ const Skills: FC = () => {
         </ul>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

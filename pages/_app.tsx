@@ -1,40 +1,40 @@
 // Styles
-import "react-toastify/dist/ReactToastify.css";
-import "../styles/app.scss";
+import "react-toastify/dist/ReactToastify.css"
+import "../styles/app.scss"
 
 // React & Next hooks
-import React, { useEffect } from "react";
-import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
+import React, { useEffect } from "react"
+import type { AppProps } from "next/app"
+import { useRouter } from "next/router"
 
 // Global state
-import { Provider } from "react-redux";
-import store from "../redux/store";
+import { Provider } from "react-redux"
+import store from "../redux/store"
 /* import { AuthProvider } from "../context/UserContext"; */
-import { ThemeProvider } from "../context/ThemeContext";
+import { ThemeProvider } from "../context/ThemeContext"
 
-import * as gtag from "../lib/gtag"; // Google Analytics
+import * as gtag from "../lib/gtag" // Google Analytics
 
 // Components
-import { ToastContainer } from "react-toastify";
-import Layout from "../components/Layout/Layout";
-import Footer from "../components/Footer/Footer";
+import { ToastContainer } from "react-toastify"
+import Layout from "../components/Layout/Layout"
+import Footer from "../components/Footer/Footer"
 
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === "production"
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
       /* Analytics for production only */
-      if (isProduction) gtag.pageview(url);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
+      if (isProduction) gtag.pageview(url)
+    }
+    router.events.on("routeChangeComplete", handleRouteChange)
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
+      router.events.off("routeChangeComplete", handleRouteChange)
+    }
+  }, [router.events])
 
   // Applying different layouts depending on page
   switch (Component.name) {
@@ -47,14 +47,14 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Footer color="fff" />
           </ThemeProvider>
         </Provider>
-      );
+      )
     case "PageNotFound":
       return (
         <>
           <Component {...pageProps} />
           <Footer color="#f2f2f5" />
         </>
-      );
+      )
 
     default:
       return (
@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </Layout>
           </ThemeProvider>
         </Provider>
-      );
+      )
   }
 }
-export default MyApp;
+export default MyApp

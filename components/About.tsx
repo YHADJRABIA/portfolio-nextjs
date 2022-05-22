@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import Image from "next/image"; // For lazy-loading images and size optimisation
+import React, { FC } from "react"
+import Image from "next/image" // For lazy-loading images and size optimisation
 
 // Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import useTranslation from "next-translate/useTranslation"
+import Trans from "next-translate/Trans"
 
 const About: FC = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("common")
   return (
     <section className="about-section">
       <a
@@ -33,7 +33,7 @@ const About: FC = () => {
         </p>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const DeerImage = () => {
   return (
@@ -28,7 +28,7 @@ const DeerImage = () => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default DeerImage;
+export default DeerImage

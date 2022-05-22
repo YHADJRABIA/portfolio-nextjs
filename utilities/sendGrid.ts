@@ -1,29 +1,35 @@
-const sendgrid = require("@sendgrid/mail");
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+import { Locale } from "../types/locales"
 
-export const sendEmail = async (
-  name: string,
-  email: string,
-  message: string
-) => {
+const sendgrid = require("@sendgrid/mail")
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
+
+interface ISendEmail {
+  (name: string, email: string, message: string): Promise<void>
+}
+
+interface IAcknowledgeReceipt {
+  (name: string, email: string, locale: Locale): Promise<void>
+}
+
+export const sendEmail: ISendEmail = async (name, email, message) => {
   const incomingEmail = `
     From: ${name}\r\n
     Email: ${email}\r\n
     Message: ${message}
-  `;
+  `
   await sendgrid.send({
     to: process.env.RECEIVING_EMAIL,
     from: process.env.SENDGRID_SENDER_EMAIL,
     subject: "New portfolio message!",
     text: incomingEmail,
     html: incomingEmail.replace(/\r\n/g, "<br>"),
-  });
-};
+  })
+}
 
-export const acknowledgeReceipt = async (
-  name: string,
-  email: string,
-  lang: string
+export const acknowledgeReceipt: IAcknowledgeReceipt = async (
+  name,
+  email,
+  lang
 ) => {
   const outgoingEmail = {
     title: "Acknowledgement of receipt",
@@ -36,11 +42,11 @@ export const acknowledgeReceipt = async (
     Best regards,\r\n
     \r\n
     Yacine H.R.`,
-  };
+  }
 
   switch (lang) {
     case "fr":
-      outgoingEmail.title = "Accusé de réception";
+      outgoingEmail.title = "Accusé de réception"
       outgoingEmail.content = `
       Chère/Cher ${name},\r\n
       \r\n
@@ -49,11 +55,11 @@ export const acknowledgeReceipt = async (
       \r\n
       Bien à vous,\r\n
       \r\n
-      Yacine H.R.`;
-      break;
+      Yacine H.R.`
+      break
 
     case "sv":
-      outgoingEmail.title = "Bekräftelsemail";
+      outgoingEmail.title = "Bekräftelsemail"
       outgoingEmail.content = `
       Hej ${name},\r\n
       \r\n
@@ -62,11 +68,11 @@ export const acknowledgeReceipt = async (
       \r\n
       Med vänliga hälsningar,\r\n
       \r\n
-      Yacine H.R.`;
-      break;
+      Yacine H.R.`
+      break
 
     case "ru":
-      outgoingEmail.title = "Подтверждение получения";
+      outgoingEmail.title = "Подтверждение получения"
       outgoingEmail.content = `
       Уважаемая/Уважаемый ${name},\r\n
       \r\n
@@ -75,11 +81,11 @@ export const acknowledgeReceipt = async (
       \r\n
       С уважением,\r\n
       \r\n
-      Ясин Х.Р.`;
-      break;
+      Ясин Х.Р.`
+      break
 
     default:
-      break;
+      break
   }
 
   await sendgrid.send({
@@ -88,5 +94,5 @@ export const acknowledgeReceipt = async (
     subject: outgoingEmail.title,
     text: outgoingEmail.content,
     html: outgoingEmail.content.replace(/\r\n/g, "<br>"),
-  });
-};
+  })
+}

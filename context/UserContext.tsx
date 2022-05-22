@@ -1,41 +1,41 @@
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode, useState } from "react"
 
 type userContextType = {
-  user: boolean;
-  login: () => void;
-  logout: () => void;
-};
+  user: boolean
+  login: () => void
+  logout: () => void
+}
 
 type Props = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 const initialValues: userContextType = {
   user: false,
   login: () => {},
   logout: () => {},
-};
+}
 
-const UserContext = createContext<userContextType>(initialValues);
+const UserContext = createContext<userContextType>(initialValues)
 
-export const useAuth = () => useContext(UserContext);
+export const useAuth = () => useContext(UserContext)
 
 export const AuthProvider = ({ children }: Props) => {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(false)
 
   const login = () => {
-    setUser(true);
-  };
+    setUser(true)
+  }
 
   const logout = () => {
-    setUser(false);
-  };
+    setUser(false)
+  }
 
   const value = {
     user,
     login,
     logout,
-  };
+  }
 
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
-};
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>
+}

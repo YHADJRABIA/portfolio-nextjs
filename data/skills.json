@@ -1,18 +1,5 @@
 {
   "data": [
-    { "name": "HTML", "icon": "devicon-html5-plain", "category": "frontend" },
-    { "name": "CSS", "icon": "devicon-css3-plain", "category": "frontend" },
-    { "name": "Sass", "icon": "devicon-sass-original", "category": "frontend" },
-    {
-      "name": "JavaScript",
-      "icon": "devicon-javascript-plain",
-      "category": ["frontend", "backend"]
-    },
-    {
-      "name": "TypeScript",
-      "icon": "devicon-typescript-plain",
-      "category": ["frontend", "backend"]
-    },
     {
       "name": "NextJS",
       "icon": "devicon-nextjs-original colored",
@@ -32,6 +19,19 @@
       "name": "Redux",
       "icon": "devicon-redux-original",
       "category": "frontend"
+    },
+    { "name": "HTML", "icon": "devicon-html5-plain", "category": "frontend" },
+    { "name": "CSS", "icon": "devicon-css3-plain", "category": "frontend" },
+    { "name": "Sass", "icon": "devicon-sass-original", "category": "frontend" },
+    {
+      "name": "JavaScript",
+      "icon": "devicon-javascript-plain",
+      "category": ["frontend", "backend"]
+    },
+    {
+      "name": "TypeScript",
+      "icon": "devicon-typescript-plain",
+      "category": ["frontend", "backend"]
     },
     {
       "name": "Node.js",

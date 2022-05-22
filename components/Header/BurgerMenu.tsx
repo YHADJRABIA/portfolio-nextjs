@@ -1,34 +1,32 @@
-import React, { FC, Dispatch, useEffect } from "react";
+import React, { FC, Dispatch, useEffect } from "react"
 
 interface IBurgerMenu {
-  toggled: boolean;
-  navbar: boolean;
-  setToggled: Dispatch<React.SetStateAction<boolean>>;
+  toggled: boolean
+  navbar: boolean
+  setToggled: Dispatch<React.SetStateAction<boolean>>
 }
 interface KeyboardEvent {
-  key: string;
+  key: string
 }
 
 /* Props from Nav component */
 const BurgerMenu: FC<IBurgerMenu> = ({ toggled, setToggled, navbar }) => {
   useEffect(() => {
-    document.addEventListener("keydown", keyboardHandler, true);
+    document.addEventListener("keydown", keyboardHandler, true)
     return () => {
-      document.removeEventListener("keydown", keyboardHandler, true);
-    };
-  });
+      document.removeEventListener("keydown", keyboardHandler, true)
+    }
+  })
 
   // On/Off menu button
-  const toggleMenu = (): void => {
-    setToggled(!toggled);
-  };
+  const toggleMenu = (): void => setToggled(!toggled)
 
   // Closes menu if escape key pressed
   const keyboardHandler = (e: KeyboardEvent): void => {
     if (e.key === "Escape") {
-      setToggled(false);
+      setToggled(false)
     }
-  };
+  }
 
   return (
     <div
@@ -39,14 +37,14 @@ const BurgerMenu: FC<IBurgerMenu> = ({ toggled, setToggled, navbar }) => {
       role="button"
       aria-controls="navigation"
     >
-      {[1, 2, 3].map((i) => (
+      {[1, 2, 3].map(i => (
         <div
           className={`burger-line-${i} ${navbar ? "active" : ""}`}
           key={i}
         ></div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default BurgerMenu;
+export default BurgerMenu

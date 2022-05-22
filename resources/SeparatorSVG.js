@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const SeparatorSVG = ({ d, darkMode }) => {
   return (
@@ -15,7 +15,7 @@ const SeparatorSVG = ({ d, darkMode }) => {
         d={d}
       ></path>
     </svg>
-  );
-};
+  )
+}
 
-export default SeparatorSVG;
+export default SeparatorSVG

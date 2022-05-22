@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from "react"
 
 interface IAnimation {
-  content?: string;
+  content?: string
 }
 
 const Animation: FC<IAnimation> = ({ content }) => {
@@ -11,7 +11,7 @@ const Animation: FC<IAnimation> = ({ content }) => {
 
       {content}
     </div> */
-  );
-};
+  )
+}
 
-export default Animation;
+export default Animation

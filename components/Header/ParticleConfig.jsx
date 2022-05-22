@@ -1,4 +1,4 @@
-import Particles from "react-tsparticles";
+import Particles from "react-tsparticles"
 
 const ParticlesConfig = () => (
   <Particles
@@ -107,6 +107,6 @@ const ParticlesConfig = () => (
       },
     }}
   />
-);
+)
 
-export default ParticlesConfig;
+export default ParticlesConfig

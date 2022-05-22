@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC } from "react"
 
 interface ISkill {
-  name: string;
-  icon: string;
+  name: string
+  icon: string
 }
 
 const Skill: FC<ISkill> = ({ name, icon }) => {
@@ -11,7 +11,7 @@ const Skill: FC<ISkill> = ({ name, icon }) => {
       <i className={icon}></i>
       <p>{name}</p>
     </li>
-  );
-};
+  )
+}
 
-export default Skill;
+export default Skill
