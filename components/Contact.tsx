@@ -18,6 +18,7 @@ import axios from "axios" // API fetcher
 
 // Translation
 import useTranslation from "next-translate/useTranslation"
+import InvisibleAnchor from "./InvisibleAnchor"
 
 const Contact: FC = () => {
   const { t } = useTranslation("common")
@@ -89,11 +90,7 @@ const Contact: FC = () => {
 
   return (
     <section className="contact-section">
-      <a
-        id="contact"
-        className="anchor"
-        href="https://github.com/YHADJRABIA/"
-      ></a>
+      <InvisibleAnchor id="contact" />
       <div className="section-text-container">
         <h2>{t("contact.title")}</h2>
         <p className="contact-content">{t("contact.content")}</p>

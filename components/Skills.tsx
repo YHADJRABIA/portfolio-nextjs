@@ -5,16 +5,13 @@ import skills from "../data/skills.json"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
+import InvisibleAnchor from "./InvisibleAnchor"
 
 const Skills: FC = () => {
   const { t } = useTranslation("common")
   return (
     <section className="skills-section">
-      <a
-        id="skills"
-        className="anchor"
-        href="https://github.com/YHADJRABIA/"
-      ></a>
+      <InvisibleAnchor id="skills" />
       <div className="section-text-container">
         <h2>{t("skills.title")}</h2>
         <p>

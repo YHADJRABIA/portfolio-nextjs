@@ -5,16 +5,13 @@ import projects from "../data/projects.json"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
+import InvisibleAnchor from "./InvisibleAnchor"
 
 const Projects: FC = props => {
   const { t } = useTranslation("common")
   return (
     <section className="projects-section">
-      <a
-        id="projects"
-        className="anchor"
-        href="https://github.com/YHADJRABIA/"
-      ></a>
+      <InvisibleAnchor id="projects" />
       <div className="section-text-container">
         <h2>{t("portfolio.title")}</h2>
         <p>
