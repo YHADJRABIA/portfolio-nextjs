@@ -1,10 +1,10 @@
-import React, { FC } from "react"
+import React from "react"
 
 // NextJS
 import Image from "next/image"
 import Link from "next/link"
 
-interface IProject {
+interface PropsType {
   name: string
   img: string
   url?: string
@@ -14,7 +14,14 @@ interface IProject {
   id?: number
 }
 
-const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
+const ProjectCard = ({
+  name,
+  img,
+  url,
+  description,
+  repo,
+  tags,
+}: PropsType) => {
   return (
     <li className="project-card">
       <div className="project-card-image">
@@ -74,4 +81,4 @@ const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
   )
 }
 
-export default Project
+export default ProjectCard

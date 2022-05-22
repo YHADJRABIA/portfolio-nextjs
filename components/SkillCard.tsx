@@ -1,11 +1,11 @@
-import React, { FC } from "react"
+import React from "react"
 
-interface ISkill {
+interface PropsType {
   name: string
   icon: string
 }
 
-const Skill: FC<ISkill> = ({ name, icon }) => {
+const SkillCard = ({ name, icon }: PropsType) => {
   return (
     <li title={name} className="skill-card">
       <i className={icon}></i>
@@ -14,4 +14,4 @@ const Skill: FC<ISkill> = ({ name, icon }) => {
   )
 }
 
-export default Skill
+export default SkillCard

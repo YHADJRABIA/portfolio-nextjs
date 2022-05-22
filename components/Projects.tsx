@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import Project from "./Project"
+import ProjectCard from "./ProjectCard"
 import projects from "../data/projects.json"
 
 // Translation
@@ -32,7 +32,7 @@ const Projects: FC = props => {
       </div>
       <ul className="projects-card-container">
         {projects.data.map((project, id) => (
-          <Project
+          <ProjectCard
             key={id}
             name={project.name}
             img={project.img}

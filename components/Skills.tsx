@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import Skill from "./Skill"
+import SkillCard from "./SkillCard"
 import skills from "../data/skills.json"
 
 // Translation
@@ -34,7 +34,7 @@ const Skills: FC = () => {
       <div className="skills-card-container">
         <ul className="skills-list" data-testid="skills-list">
           {skills.data.map((skill, id) => (
-            <Skill key={id} name={skill.name} icon={skill.icon} />
+            <SkillCard key={id} name={skill.name} icon={skill.icon} />
           ))}
         </ul>
       </div>
