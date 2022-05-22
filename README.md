@@ -4,7 +4,7 @@ My portfolio made in 4 languages, with localisation and SEO emphasis (meta tags,
 
 Viewable here: **https://yhr.vercel.app/**
 
-Tests viewable here: **https://dashboard.cypress.io/projects/t4gjjp/runs/1/specs**
+Tests viewable here: **https://dashboard.cypress.io/projects/t4gjjp/runs/2/test-results**
 
 ## Setup:
 
