@@ -3,6 +3,8 @@ import Link from "next/link"
 
 import useTranslation from "next-translate/useTranslation" // Translation
 
+import cn from "classnames"
+
 /* Components */
 import BurgerMenu from "./BurgerMenu"
 import ThemeToggler from "./ThemeToggler"
@@ -59,10 +61,10 @@ const Nav: FC = () => {
   const closeMenu = (): void => setToggled(false)
 
   return (
-    <nav ref={menuRef} className={`NavItems ${navbar ? "active" : ""}`}>
+    <nav ref={menuRef} className={cn("NavItems", { active: navbar })}>
       <Link href="/" passHref>
         <a
-          className={`nav-logo ${navbar ? "active" : ""}`}
+          className={cn("nav-logo", { active: navbar })}
           title="Logo"
           data-testid="logo"
         >
@@ -73,14 +75,14 @@ const Nav: FC = () => {
       <BurgerMenu toggled={toggled} setToggled={setToggled} navbar={navbar} />
       {/*--------*/}
 
-      <ul className={`nav-menu ${toggled ? "toggled" : ""}`}>
+      <ul className={cn("nav-menu", { toggled: toggled })}>
         {navItems.map((item, id) => (
           <li key={id}>
             <Link href={item.url} passHref>
               <a
                 title={item.title}
                 data-testid={item.dataId}
-                className={`nav-links ${navbar ? "active" : ""}`}
+                className={cn("nav-links", { active: navbar })}
                 onClick={closeMenu}
               >
                 {item.title}

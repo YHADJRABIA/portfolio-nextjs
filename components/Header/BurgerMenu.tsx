@@ -1,16 +1,14 @@
 import React, { FC, Dispatch, useEffect } from "react"
+import cn from "classnames"
 
-interface IBurgerMenu {
+interface PropsType {
   toggled: boolean
   navbar: boolean
   setToggled: Dispatch<React.SetStateAction<boolean>>
 }
-interface KeyboardEvent {
-  key: string
-}
 
 /* Props from Nav component */
-const BurgerMenu: FC<IBurgerMenu> = ({ toggled, setToggled, navbar }) => {
+const BurgerMenu: FC<PropsType> = ({ toggled, setToggled, navbar }) => {
   useEffect(() => {
     document.addEventListener("keydown", keyboardHandler, true)
     return () => {
@@ -30,7 +28,7 @@ const BurgerMenu: FC<IBurgerMenu> = ({ toggled, setToggled, navbar }) => {
 
   return (
     <div
-      className={`burger-icon + ${toggled ? "burger-toggled" : ""}`}
+      className={cn("burger-icon", { "burger-toggled": toggled })}
       onClick={toggleMenu}
       data-testid="burger-menu"
       aria-label="Menu"
@@ -39,7 +37,7 @@ const BurgerMenu: FC<IBurgerMenu> = ({ toggled, setToggled, navbar }) => {
     >
       {[1, 2, 3].map(i => (
         <div
-          className={`burger-line-${i} ${navbar ? "active" : ""}`}
+          className={cn(`burger-line-${i}`, { active: navbar })}
           key={i}
         ></div>
       ))}

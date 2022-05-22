@@ -11,6 +11,8 @@ import Contact from "../components/Contact"
 import Header from "../components/Header/Header"
 import Nav from "../components/Header/Nav"
 
+import cn from "classnames"
+
 // Theme
 import { ThemeContext } from "../context/ThemeContext"
 
@@ -80,7 +82,7 @@ const HomePage: NextPage = () => {
 
       <Header />
       <Nav />
-      <main className={darkMode ? "dark-mode" : ""}>
+      <main className={cn({ "dark-mode": darkMode })}>
         <About />
         <SeparatorSVG
           darkMode={darkMode}
