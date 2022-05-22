@@ -1,22 +1,17 @@
-import React, { FC } from "react";
-import Project from "./Project";
-import projects from "../data/projects.json";
-
-//import axios from "axios"; // API fetcher
+import React, { FC } from "react"
+import ProjectCard from "./ProjectCard"
+import projects from "../data/projects.json"
 
 // Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import useTranslation from "next-translate/useTranslation"
+import Trans from "next-translate/Trans"
+import InvisibleAnchor from "./InvisibleAnchor"
 
-const Projects: FC = (props) => {
-  const { t } = useTranslation("common");
+const Projects: FC = props => {
+  const { t } = useTranslation("common")
   return (
     <section className="projects-section">
-      <a
-        id="projects"
-        className="anchor"
-        href="https://github.com/YHADJRABIA/"
-      ></a>
+      <InvisibleAnchor id="projects" />
       <div className="section-text-container">
         <h2>{t("portfolio.title")}</h2>
         <p>
@@ -37,7 +32,7 @@ const Projects: FC = (props) => {
       </div>
       <ul className="projects-card-container">
         {projects.data.map((project, id) => (
-          <Project
+          <ProjectCard
             key={id}
             name={project.name}
             img={project.img}
@@ -49,8 +44,8 @@ const Projects: FC = (props) => {
         ))}
       </ul>
     </section>
-  );
-};
+  )
+}
 
 // Fetching from database to be implemented
 /* export const getStaticProps = async () => {
@@ -69,4 +64,4 @@ const Projects: FC = (props) => {
   }
 }; */
 
-export default Projects;
+export default Projects

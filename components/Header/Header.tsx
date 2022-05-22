@@ -1,13 +1,12 @@
-import React, { FC } from "react";
-import Hero from "./Hero";
-import Nav from "./Nav";
+import React, { FC } from "react"
+import Hero from "./Hero"
 
 const Header: FC = () => {
   return (
     <header>
       <Hero />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

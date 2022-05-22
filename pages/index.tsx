@@ -1,35 +1,37 @@
-import type { NextPage } from "next";
+import type { NextPage } from "next"
 
 // Next tags
-import Head from "next/head"; // For better SEO
+import Head from "next/head" // For better SEO
 
 // Components
-import About from "../components/About";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
-import Contact from "../components/Contact";
-import Header from "../components/Header/Header";
-import Nav from "../components/Header/Nav";
+import About from "../components/About"
+import Projects from "../components/Projects"
+import Skills from "../components/Skills"
+import Contact from "../components/Contact"
+import Header from "../components/Header/Header"
+import Nav from "../components/Header/Nav"
+
+import cn from "classnames"
 
 // Theme
-import { ThemeContext } from "../context/ThemeContext";
+import { ThemeContext } from "../context/ThemeContext"
 
 // SVG
-import SeparatorSVG from "../resources/SeparatorSVG"; // Wave separating sections
+import SeparatorSVG from "../resources/SeparatorSVG" // Wave separating sections
 
-import useTranslation from "next-translate/useTranslation"; // Translation
-import { useContext } from "react";
+import useTranslation from "next-translate/useTranslation" // Translation
+import { useContext } from "react"
 
 declare global {
   interface Window {
-    grecaptcha: any;
+    grecaptcha: any
   }
 }
 
 const HomePage: NextPage = () => {
-  const { t } = useTranslation("meta");
+  const { t } = useTranslation("meta")
 
-  const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext)
 
   return (
     <>
@@ -80,7 +82,7 @@ const HomePage: NextPage = () => {
 
       <Header />
       <Nav />
-      <main className={darkMode ? "dark-mode" : ""}>
+      <main className={cn({ "dark-mode": darkMode })}>
         <About />
         <SeparatorSVG
           darkMode={darkMode}
@@ -99,7 +101,7 @@ const HomePage: NextPage = () => {
         <Contact />
       </main>
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

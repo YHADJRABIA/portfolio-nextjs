@@ -1,24 +1,27 @@
-import React, { FC } from "react";
+import React from "react"
 
 // NextJS
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
-// Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
-
-interface IProject {
-  name: string;
-  img: string;
-  url?: string;
-  repo?: string;
-  description: string;
-  tags: string[];
-  id?: number;
+interface PropsType {
+  name: string
+  img: string
+  url?: string
+  repo?: string
+  description: string
+  tags: string[]
+  id?: number
 }
 
-const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
+const ProjectCard = ({
+  name,
+  img,
+  url,
+  description,
+  repo,
+  tags,
+}: PropsType) => {
   return (
     <li className="project-card">
       <div className="project-card-image">
@@ -75,7 +78,7 @@ const Project: FC<IProject> = ({ name, img, url, description, repo, tags }) => {
         )}
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default Project;
+export default ProjectCard

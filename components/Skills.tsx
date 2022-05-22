@@ -1,20 +1,17 @@
-import React, { FC } from "react";
-import Skill from "./Skill";
-import skills from "../data/skills.json";
+import React, { FC } from "react"
+import SkillCard from "./SkillCard"
+import skills from "../data/skills.json"
 
 // Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import useTranslation from "next-translate/useTranslation"
+import Trans from "next-translate/Trans"
+import InvisibleAnchor from "./InvisibleAnchor"
 
 const Skills: FC = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("common")
   return (
     <section className="skills-section">
-      <a
-        id="skills"
-        className="anchor"
-        href="https://github.com/YHADJRABIA/"
-      ></a>
+      <InvisibleAnchor id="skills" />
       <div className="section-text-container">
         <h2>{t("skills.title")}</h2>
         <p>
@@ -37,12 +34,12 @@ const Skills: FC = () => {
       <div className="skills-card-container">
         <ul className="skills-list" data-testid="skills-list">
           {skills.data.map((skill, id) => (
-            <Skill key={id} name={skill.name} icon={skill.icon} />
+            <SkillCard key={id} name={skill.name} icon={skill.icon} />
           ))}
         </ul>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

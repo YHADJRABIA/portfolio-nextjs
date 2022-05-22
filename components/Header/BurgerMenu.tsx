@@ -1,52 +1,48 @@
-import React, { FC, Dispatch, useEffect } from "react";
+import React, { FC, Dispatch, useEffect } from "react"
+import cn from "classnames"
 
-interface IBurgerMenu {
-  toggled: boolean;
-  navbar: boolean;
-  setToggled: Dispatch<React.SetStateAction<boolean>>;
-}
-interface KeyboardEvent {
-  key: string;
+interface PropsType {
+  toggled: boolean
+  navbar: boolean
+  setToggled: Dispatch<React.SetStateAction<boolean>>
 }
 
 /* Props from Nav component */
-const BurgerMenu: FC<IBurgerMenu> = ({ toggled, setToggled, navbar }) => {
+const BurgerMenu: FC<PropsType> = ({ toggled, setToggled, navbar }) => {
   useEffect(() => {
-    document.addEventListener("keydown", keyboardHandler, true);
+    document.addEventListener("keydown", keyboardHandler, true)
     return () => {
-      document.removeEventListener("keydown", keyboardHandler, true);
-    };
-  });
+      document.removeEventListener("keydown", keyboardHandler, true)
+    }
+  })
 
   // On/Off menu button
-  const toggleMenu = (): void => {
-    setToggled(!toggled);
-  };
+  const toggleMenu = (): void => setToggled(!toggled)
 
   // Closes menu if escape key pressed
   const keyboardHandler = (e: KeyboardEvent): void => {
     if (e.key === "Escape") {
-      setToggled(false);
+      setToggled(false)
     }
-  };
+  }
 
   return (
     <div
-      className={`burger-icon + ${toggled ? "burger-toggled" : ""}`}
+      className={cn("burger-icon", { "burger-toggled": toggled })}
       onClick={toggleMenu}
       data-testid="burger-menu"
       aria-label="Menu"
       role="button"
       aria-controls="navigation"
     >
-      {[1, 2, 3].map((i) => (
+      {[1, 2, 3].map(i => (
         <div
-          className={`burger-line-${i} ${navbar ? "active" : ""}`}
+          className={cn(`burger-line-${i}`, { active: navbar })}
           key={i}
         ></div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default BurgerMenu;
+export default BurgerMenu

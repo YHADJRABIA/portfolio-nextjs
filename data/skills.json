@@ -1,36 +1,135 @@
 {
   "data": [
-    { "name": "HTML", "icon": "devicon-html5-plain" },
-    { "name": "CSS", "icon": "devicon-css3-plain" },
-    { "name": "JavaScript", "icon": "devicon-javascript-plain" },
-    { "name": "TypeScript", "icon": "devicon-typescript-plain" },
-    { "name": "NextJS", "icon": "devicon-nextjs-original colored" },
-    { "name": "Gatsby", "icon": "devicon-gatsby-plain" },
-    { "name": "ReactJS", "icon": "devicon-react-original" },
-    { "name": "Redux", "icon": "devicon-redux-original" },
-    { "name": "Node.js", "icon": "fab fa-node" },
-    { "name": "ExpressJS", "icon": "devicon-express-original-wordmark" },
-    { "name": "npm", "icon": "devicon-npm-original-wordmark" },
-    { "name": "Sass", "icon": "devicon-sass-original" },
-    { "name": "Bootstrap", "icon": "devicon-bootstrap-plain" },
-    { "name": "jQuery", "icon": "devicon-jquery-plain" },
-    { "name": "Jest", "icon": "devicon-jest-plain" },
-    { "name": "MongoDB", "icon": "devicon-mongodb-plain" },
-    { "name": "MySQL", "icon": "devicon-mysql-plain" },
-    { "name": "PHP", "icon": "devicon-php-plain" },
-    { "name": "Python", "icon": "devicon-python-plain" },
-    { "name": "C++", "icon": "devicon-cplusplus-plain" },
-    { "name": "Gimp", "icon": "devicon-gimp-plain" },
-    { "name": "git", "icon": "devicon-git-plain" },
-    { "name": "Google Cloud", "icon": "devicon-googlecloud-plain" },
-    { "name": "Heroku", "icon": "devicon-heroku-plain" },
-    { "name": "Jira", "icon": "devicon-jira-plain" },
-    { "name": "Trello", "icon": "devicon-trello-plain" },
-    { "name": "VS Code", "icon": "devicon-vscode-plain" },
-    { "name": "Embedded C", "icon": "devicon-embeddedc-plain" },
-    { "name": "Arduino", "icon": "devicon-arduino-plain" },
-    { "name": "VHDL", "icon": "fas fa-microchip" },
-    { "name": "MATLAB", "icon": "devicon-matlab-plain" },
-    { "name": "LabView", "icon": "devicon-labview-plain" }
+    {
+      "name": "NextJS",
+      "icon": "devicon-nextjs-original colored",
+      "category": ["frontend", "backend"]
+    },
+    {
+      "name": "Gatsby",
+      "icon": "devicon-gatsby-plain",
+      "category": "frontend"
+    },
+    {
+      "name": "ReactJS",
+      "icon": "devicon-react-original",
+      "category": "frontend"
+    },
+    {
+      "name": "Redux",
+      "icon": "devicon-redux-original",
+      "category": "frontend"
+    },
+    { "name": "HTML", "icon": "devicon-html5-plain", "category": "frontend" },
+    { "name": "CSS", "icon": "devicon-css3-plain", "category": "frontend" },
+    { "name": "Sass", "icon": "devicon-sass-original", "category": "frontend" },
+    {
+      "name": "JavaScript",
+      "icon": "devicon-javascript-plain",
+      "category": ["frontend", "backend"]
+    },
+    {
+      "name": "TypeScript",
+      "icon": "devicon-typescript-plain",
+      "category": ["frontend", "backend"]
+    },
+    {
+      "name": "Node.js",
+      "icon": "fab fa-node",
+      "category": "backend"
+    },
+    {
+      "name": "ExpressJS",
+      "icon": "devicon-express-original-wordmark",
+      "category": ["api", "backend"]
+    },
+    {
+      "name": "Jamstack",
+      "icon": "devicon-jamstack-original",
+      "category": "architecture"
+    },
+    { "name": "GraphQL", "icon": "devicon-graphql-plain", "category": "api" },
+    {
+      "name": "npm",
+      "icon": "devicon-npm-original-wordmark",
+      "category": "ide"
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "devicon-bootstrap-plain",
+      "category": "frontend"
+    },
+    {
+      "name": "jQuery",
+      "icon": "devicon-jquery-plain",
+      "category": "frontend"
+    },
+    { "name": "Jest", "icon": "devicon-jest-plain", "category": "testing" },
+    {
+      "name": "MongoDB",
+      "icon": "devicon-mongodb-plain",
+      "category": ["database", "backend"]
+    },
+    {
+      "name": "MySQL",
+      "icon": "devicon-mysql-plain",
+      "category": ["database", "backend"]
+    },
+    { "name": "PHP", "icon": "devicon-php-plain", "category": "backend" },
+    { "name": "Python", "icon": "devicon-python-plain", "category": "backend" },
+    { "name": "C++", "icon": "devicon-cplusplus-plain", "category": "backend" },
+    {
+      "name": "Figma",
+      "icon": "devicon-figma-plain",
+      "category": ["ux-ui", "frontend"]
+    },
+    {
+      "name": "git",
+      "icon": "devicon-git-plain",
+      "category": "version-control"
+    },
+    {
+      "name": "GitHub",
+      "icon": "devicon-github-plain",
+      "category": ["project-management", "devops", "version-control"]
+    },
+    {
+      "name": "Jira",
+      "icon": "devicon-jira-plain",
+      "category": "project-management"
+    },
+    {
+      "name": "Trello",
+      "icon": "devicon-trello-plain",
+      "category": "project-management"
+    },
+    {
+      "name": "Google Cloud",
+      "icon": "devicon-googlecloud-plain",
+      "category": "devops"
+    },
+    { "name": "Heroku", "icon": "devicon-heroku-plain", "category": "devops" },
+    { "name": "VS Code", "icon": "devicon-vscode-plain", "category": "ide" },
+    {
+      "name": "Embedded C",
+      "icon": "devicon-embeddedc-plain",
+      "category": "electronics"
+    },
+    {
+      "name": "Arduino",
+      "icon": "devicon-arduino-plain",
+      "category": "electronics"
+    },
+    { "name": "VHDL", "icon": "fas fa-microchip", "category": "electronics" },
+    {
+      "name": "MATLAB",
+      "icon": "devicon-matlab-plain",
+      "category": "electronics"
+    },
+    {
+      "name": "LabView",
+      "icon": "devicon-labview-plain",
+      "category": "electronics"
+    }
   ]
 }

@@ -1,19 +1,16 @@
-import React, { FC } from "react";
-import Image from "next/image"; // For lazy-loading images and size optimisation
+import React, { FC } from "react"
+import Image from "next/image" // For lazy-loading images and size optimisation
 
 // Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import useTranslation from "next-translate/useTranslation"
+import Trans from "next-translate/Trans"
+import InvisibleAnchor from "./InvisibleAnchor"
 
 const About: FC = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("common")
   return (
     <section className="about-section">
-      <a
-        id="about"
-        href="https://github.com/YHADJRABIA/"
-        className="anchor"
-      ></a>
+      <InvisibleAnchor id="about" />
       <div className="about-photo-container">
         <Image
           src="/me.jpg"
@@ -33,7 +30,7 @@ const About: FC = () => {
         </p>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

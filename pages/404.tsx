@@ -1,43 +1,45 @@
-import React, { useState, useEffect } from "react";
-import type { NextPage } from "next";
-import Link from "next/link";
-import { NextRouter, useRouter } from "next/router";
-import Head from "next/head";
+import React, { useState, useEffect } from "react"
+import type { NextPage } from "next"
+import Link from "next/link"
+import { NextRouter, useRouter } from "next/router"
+import Head from "next/head"
 
 // Svg
-import NotFoundImage from "../resources/NotFoundImage";
+import NotFoundImage from "../resources/NotFoundImage"
 
 // Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import useTranslation from "next-translate/useTranslation"
+import Trans from "next-translate/Trans"
+
+const TIMER_COUNT = 3
 
 const PageNotFound: NextPage = () => {
-  const { t } = useTranslation("pageNotFound");
-  const [counter, setCounter] = useState(3);
-  const router: NextRouter = useRouter();
+  const { t } = useTranslation("pageNotFound")
+  const [counter, setCounter] = useState(TIMER_COUNT)
+  const router: NextRouter = useRouter()
 
   // Redirects user after 3 seconds
   const redirect = (isMounted: boolean): void => {
     if (isMounted) {
       let timer: NodeJS.Timeout = setTimeout(() => {
-        setCounter(counter - 1);
-      }, 1000);
+        setCounter(counter - 1)
+      }, 1000)
 
       if (counter === 0) {
-        clearTimeout(timer);
-        router.push("/");
+        clearTimeout(timer)
+        router.push("/")
       }
     }
-  };
+  }
 
   useEffect(() => {
-    let isMounted = true;
-    redirect(isMounted);
+    let isMounted = true
+    redirect(isMounted)
 
     return () => {
-      isMounted = false;
-    };
-  }, [counter, router]);
+      isMounted = false
+    }
+  }, [counter, router])
 
   return (
     <>
@@ -62,7 +64,7 @@ const PageNotFound: NextPage = () => {
         </h4>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default PageNotFound;
+export default PageNotFound

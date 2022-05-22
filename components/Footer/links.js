@@ -14,6 +14,6 @@ const links = [
     path: "https://stackoverflow.com/users/9902344/y-h-r",
     icon: "fab fa-stack-overflow",
   },
-];
+]
 
-export default links;
+export default links

@@ -1,27 +1,26 @@
-import React, { FC, useContext } from "react";
-import { useRouter } from "next/router";
+import React, { FC, useContext } from "react"
+import { useRouter } from "next/router"
 
-import { AttentionSeeker } from "react-awesome-reveal"; // Reveal effect
+import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
 
 // Components
-import links from "./links";
+import links from "./links"
 
 // Global state management
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext"
 
 // Translation
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import useTranslation from "next-translate/useTranslation"
+import Trans from "next-translate/Trans"
 
 interface IFooter {
-  color: string;
+  color: string
 }
 
 const Footer: FC<IFooter> = ({ color }) => {
-  const { t } = useTranslation("common");
-  const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { darkMode } = useContext(ThemeContext);
-  /*   console.log(darkMode); */
+  const { t } = useTranslation("common")
+  const { locale, locales, defaultLocale, asPath } = useRouter()
+  const { darkMode } = useContext(ThemeContext)
   return (
     <>
       <svg
@@ -75,7 +74,7 @@ const Footer: FC<IFooter> = ({ color }) => {
         </small>
       </footer>
     </>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

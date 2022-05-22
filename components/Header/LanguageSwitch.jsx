@@ -1,12 +1,12 @@
-import React from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
+import React from "react"
+import { useRouter } from "next/router"
+import Image from "next/image"
 
-import useTranslation from "next-translate/useTranslation"; // Translation
+import useTranslation from "next-translate/useTranslation" // Translation
 
-import Select, { components } from "react-select";
+import Select, { components } from "react-select"
 
-const flag = (param) => {
+const flag = param => {
   return (
     <Image
       className="flag-img"
@@ -18,29 +18,29 @@ const flag = (param) => {
       height={25}
       priority
     />
-  );
-};
+  )
+}
 
-const { Option } = components;
+const { Option } = components
 
-const CustomSelectOption = (props) => (
+const CustomSelectOption = props => (
   <Option {...props}>
     {flag(props.data)}
     <small title={props.data.title}>{props.data.label}</small>
   </Option>
-);
+)
 
-const CustomSelectValue = (props) => <>{flag(props.data)}</>;
+const CustomSelectValue = props => <>{flag(props.data)}</>
 
 const customStyles = {
-  control: (provided) => ({
+  control: provided => ({
     ...provided,
     cursor: "pointer",
     backgroundColor: "transparent",
     transition: "all 300ms",
   }),
 
-  placeholder: (provided) => ({
+  placeholder: provided => ({
     ...provided,
     display: "flex",
     alignItems: "center",
@@ -54,7 +54,7 @@ const customStyles = {
     color: "white",
   }),
 
-  valueContainer: (provided) => ({
+  valueContainer: provided => ({
     ...provided,
     display: "flex",
     alignItems: "center",
@@ -67,9 +67,9 @@ const customStyles = {
     backgroundColor: yellow,
   }),
 
-  indicatorSeparator: (provided) => ({ ...provided, width: "0" }),
+  indicatorSeparator: provided => ({ ...provided, width: "0" }),
 
-  dropdownIndicator: (provided) => ({
+  dropdownIndicator: provided => ({
     ...provided,
     color: "gray",
     transition: "color 300ms",
@@ -78,12 +78,12 @@ const customStyles = {
     },
   }),
 
-  menu: (provided) => ({
+  menu: provided => ({
     ...provided,
     marginTop: "0",
     zIndex: 2,
   }),
-  menuList: (provided) => ({
+  menuList: provided => ({
     ...provided,
     padding: "2px",
     height: "120px",
@@ -103,36 +103,36 @@ const customStyles = {
     padding: "3px 2px",
     width: "100%",
   }),
-};
+}
 
 const LanguageSwitch = ({ setToggled }) => {
-  const { t } = useTranslation("common");
-  const router = useRouter();
-  const { locale, pathname, locales, asPath } = router;
+  const { t } = useTranslation("common")
+  const router = useRouter()
+  const { locale, pathname, locales, asPath } = router
 
-  const options = locales.map((locale) => {
+  const options = locales.map(locale => {
     return {
       value: locale,
       label: locale.toLocaleUpperCase(),
       flag: locale === "sv" ? "se" : locale === "en" ? "gb" : locale,
       title: t(`languages.${locale}`),
-    };
-  });
+    }
+  })
 
-  const changeLanguage = (e) => {
+  const changeLanguage = e => {
     // LocalStorage
-    setToggled(false);
-    const locale = e.value;
-    router.push(pathname, asPath, { locale, scroll: false });
-  };
+    setToggled(false)
+    const locale = e.value
+    router.push(pathname, asPath, { locale, scroll: false })
+  }
 
   return (
     <Select
       instanceId="long-value-select"
       className="language-container"
-      options={options.filter((option) => option.value !== locale)} // Filters out current flag
+      options={options.filter(option => option.value !== locale)} // Filters out current flag
       defaultValue={locale}
-      placeholder={flag(options.filter((option) => option.value === locale)[0])}
+      placeholder={flag(options.filter(option => option.value === locale)[0])}
       onChange={changeLanguage}
       components={{
         Option: CustomSelectOption,
@@ -141,7 +141,7 @@ const LanguageSwitch = ({ setToggled }) => {
       isSearchable={false}
       styles={customStyles}
     />
-  );
-};
+  )
+}
 
-export default LanguageSwitch;
+export default LanguageSwitch

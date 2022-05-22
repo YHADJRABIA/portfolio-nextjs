@@ -1,8 +1,13 @@
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
+import { APIStatus } from "../types/api"
 
-toast.configure();
+toast.configure()
 
-export const notify = (status: string, msg: string) => {
+interface INotify {
+  (status: APIStatus, msg: string): void
+}
+
+export const notify: INotify = (status, msg) => {
   // Provide toastId to prevent duplicates
   /*     {
       toastId: "custom-id-yes",
@@ -12,17 +17,17 @@ export const notify = (status: string, msg: string) => {
     case "success":
       toast.success(msg, {
         position: toast.POSITION.TOP_RIGHT,
-      });
+      })
 
-      break;
+      break
 
     case "error":
       toast.error(msg, {
         position: toast.POSITION.TOP_CENTER,
-      });
-      break;
+      })
+      break
 
     default:
-      break;
+      break
   }
-};
+}

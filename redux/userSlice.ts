@@ -1,16 +1,16 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-import type { AppState, AppThunk } from "./store";
+import type { AppState, AppThunk } from "./store"
 
 export interface UserState {
-  value: number;
-  status: "idle" | "loading" | "failed";
+  value: number
+  status: "idle" | "loading" | "failed"
 }
 
 const initialState: UserState = {
   value: 0,
   status: "idle",
-};
+}
 
 /* export const incrementAsync = createAsyncThunk(
   "user/fetchCount",
@@ -27,10 +27,10 @@ export const userSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     login: (state, action: PayloadAction<string>) => {},
-    logout: (state) => {},
+    logout: state => {},
   },
 
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     /*     builder
       .addCase(incrementAsync.pending, (state) => {
         state.status = "loading";
@@ -40,10 +40,10 @@ export const userSlice = createSlice({
         state.value += action.payload;
       }); */
   },
-});
+})
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout } = userSlice.actions
 
-export const selectUser = (state: AppState) => state.user.value;
+export const selectUser = (state: AppState) => state.user.value
 
-export default userSlice.reducer;
+export default userSlice.reducer
