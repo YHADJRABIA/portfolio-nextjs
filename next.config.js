@@ -11,6 +11,15 @@ module.exports = {
   images: {
     domains: ["res.cloudinary.com", "flagcdn.com"], // Enables use of external images
   },
+  webpack(config) {
+    // Allows use of SVGs as dynamic component without being compelled to use Next Image
+    config.module.rules.push({
+      test: /\.svg$/, // If file is SVG...
+      use: ["@svgr/webpack"], // use SVGR
+    })
+
+    return config
+  },
 
   ...nextTranslate(), // Refers to i18n.json
 }
