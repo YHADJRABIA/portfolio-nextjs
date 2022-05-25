@@ -19,7 +19,7 @@ const getPrefColorScheme = () => {
 // Gets previously stored theme if it exists.
 const getInitialMode = () => {
   const isReturningUser = "dark-mode" in localStorage // Returns true if user already used the website.
-  const savedMode = localStorage.getItem("dark-mode") === "true" ? true : false
+  const savedMode = localStorage.getItem("dark-mode") === "true"
   const userPrefersDark = getPrefColorScheme() // Gets user's colour preference.
 
   // If mode was saved ► return saved mode else get user's general preference.

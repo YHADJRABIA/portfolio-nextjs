@@ -22,12 +22,6 @@ import SeparatorSVG from "../resources/SeparatorSVG" // Wave separating sections
 import useTranslation from "next-translate/useTranslation" // Translation
 import { useContext } from "react"
 
-declare global {
-  interface Window {
-    grecaptcha: any
-  }
-}
-
 const HomePage: NextPage = () => {
   const { t } = useTranslation("meta")
 

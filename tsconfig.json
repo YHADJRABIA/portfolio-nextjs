@@ -16,14 +16,11 @@
     "incremental": true
   },
   "include": [
-    "additional.d.ts",
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.d.ts",
     "**/*.js",
-    "components/Header/ParticleConfig.jsx",
-    "pages/api/sitemap.js"
+    "components/Header/ParticleConfig.jsx"
   ],
   "exclude": ["node_modules"]
 }

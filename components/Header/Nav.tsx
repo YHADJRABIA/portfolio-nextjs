@@ -71,9 +71,9 @@ const Nav: FC = () => {
           Y H R
         </a>
       </Link>
-      {/*--- Phone only ---*/}
+      {/* --- Phone only ---*/}
       <BurgerMenu toggled={toggled} setToggled={setToggled} navbar={navbar} />
-      {/*--------*/}
+      {/* --------*/}
 
       <ul className={cn("nav-menu", { toggled: toggled })}>
         {navItems.map((item, id) => (

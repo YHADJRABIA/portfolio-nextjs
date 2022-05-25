@@ -7,10 +7,10 @@ interface IAnimation {
 const Animation: FC<IAnimation> = ({ content }) => {
   return (
     <i className="fas fa-cog fa-spin"></i>
-    /*     <div className="loading-animation">
-
-      {content}
-    </div> */
+    // <div className="loading-animation">
+    //
+    // {content}
+    // </div>
   )
 }
 

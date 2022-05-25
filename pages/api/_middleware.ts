@@ -7,7 +7,7 @@ export default async function middleware(req: NextRequest) {
   const time = Date.now()
   const timeStr = new Date(time).toLocaleDateString()
 
-  const logData = {
+  const logData = await {
     time: timeStr,
     url: req.url,
     ip: req.ip,

@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo '🏗️👷 Styling, testing & building the project before committing'
+
+# Check Prettier standards
+npm run check-format ||
+(
+    echo '❌ Styling errors — Prettier check failed. ❌
+            Run npm run format, add changes and try to commit again.';
+    false;
+)
+
+# Check ESLint Standards
+npm run check-lint ||
+(
+        echo '❌ Linting errors — ESLint check failed. ❌
+                Make the required changes listed above, add changes and try to commit again.'
+        false; 
+)
+
+# Check tsconfig standards
+npm run check-types ||
+(
+    echo '❌ Typing errors — tsconfig check failed. ❌
+            Make the above required changes.'
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✅ Code is properly typed, linted & formatted ➜ proceeding with build. ✅'
+
+npm run build ||
+(
+    echo '❌ NextJS build failed. ❌
+            View the errors above to see why. 
+    '
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '🏆🥳🎉 Successful build ➜ committing changes. 🎉🥳🏆'

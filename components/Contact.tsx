@@ -27,7 +27,7 @@ const Contact: FC = () => {
   const { locale } = useRouter()
   const [key, setKey] = useState(0)
   const [loading, setLoading] = useState(false)
-  const [token, setToken] = useState<string | null>(null) //reCAPTCHA's token (sent to backend to be validated by Google)
+  const [token, setToken] = useState<string | null>(null) // reCAPTCHA's token (sent to backend to be validated by Google)
   const reCaptchaRef = useRef<ReCAPTCHA>(null)
 
   // Forcing re-mount of reCAPTCHA when language is switched or when view is shrunk
@@ -78,7 +78,7 @@ const Contact: FC = () => {
       setLoading(false)
       notify("success", t("contact.emailSent"))
     } catch (err) {
-      console.log(err)
+      console.error(err)
       setLoading(false)
       notify("error", t("contact.error"))
     }
