@@ -9,9 +9,9 @@ interface INotify {
 
 export const notify: INotify = (status, msg) => {
   // Provide toastId to prevent duplicates
-  /*     {
-      toastId: "custom-id-yes",
-    } */
+  // {
+  //   toastId: "custom-id-yes",
+  // }
 
   switch (status) {
     case "success":

@@ -62,9 +62,9 @@ const customStyles = {
     padding: "2px 10px",
   }),
 
-  indicatorContainer: (provided, state) => ({
+  indicatorContainer: provided => ({
     ...provided,
-    backgroundColor: yellow,
+    backgroundColor: "yellow",
   }),
 
   indicatorSeparator: provided => ({ ...provided, width: "0" }),

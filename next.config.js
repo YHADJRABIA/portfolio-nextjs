@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-require("dotenv").config({ path: __dirname + "/config/.env.local" })
+require("dotenv").config({ path: `${__dirname}/config/.env.local` })
 const path = require("path")
 const nextTranslate = require("next-translate")
 

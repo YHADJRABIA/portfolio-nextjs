@@ -7,7 +7,7 @@ import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "./InvisibleAnchor"
 
-const Projects: FC = props => {
+const Projects: FC = () => {
   const { t } = useTranslation("common")
   return (
     <section className="projects-section">
@@ -48,20 +48,20 @@ const Projects: FC = props => {
 }
 
 // Fetching from database to be implemented
-/* export const getStaticProps = async () => {
-  const username = "YHADJRABIA";
-  try {
-    const res = await axios.get(
-      `https://api.github.com/users/${username}/repos`
-    );
-    const repos = res.data;
-    console.log(repos);
-    return {
-      props: { projects: projects },
-    };
-  } catch (err) {
-
-  }
-}; */
+// export const getStaticProps = async () => {
+// const username = "YHADJRABIA";
+// try {
+//     const res = await axios.get(
+//       `https://api.github.com/users/${username}/repos`
+//     );
+//     const repos = res.data;
+//     console.log(repos);
+//     return {
+//       props: { projects: projects },
+//     };
+// } catch (err) {
+//
+// }
+// };
 
 export default Projects

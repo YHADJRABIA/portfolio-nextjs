@@ -21,7 +21,8 @@ const PageNotFound: NextPage = () => {
   // Redirects user after 3 seconds
   const redirect = (isMounted: boolean): void => {
     if (isMounted) {
-      let timer: NodeJS.Timeout = setTimeout(() => {
+      // eslint-disable-next-line no-undef
+      const timer: NodeJS.Timeout = setTimeout(() => {
         setCounter(counter - 1)
       }, 1000)
 
@@ -54,7 +55,7 @@ const PageNotFound: NextPage = () => {
           <Trans
             i18nKey={t("redirectionIn")}
             components={[
-              <Link href="/" passHref>
+              <Link key={0} href="/" passHref>
                 <a title="Home page"></a>
               </Link>,
             ]}
