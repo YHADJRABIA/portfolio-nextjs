@@ -33,7 +33,6 @@
     "spaced-comment": ["warn", "always", { "exceptions": ["*"] }],
     "dot-notation": "error",
     "eqeqeq": "warn",
-    "multiline-comment-style": ["warn", "separate-lines"],
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-empty": "error",
     "no-extra-boolean-cast": "error",

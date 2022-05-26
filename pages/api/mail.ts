@@ -3,8 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import { isEmpty, isEmail, validateHuman } from "../../utilities/formValidator" // Validators
 import { sendEmail, acknowledgeReceipt } from "../../utilities/sendGrid"
 import { APIResponse } from "../../types/api"
-
-const isProduction = process.env.NODE_ENV === "production"
+import { isProduction } from "../../utilities/general"
 
 export default async function handler(
   req: NextApiRequest,

@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useState, useEffect } from "react"
 
 type themeContextType = {
-  darkMode: boolean | null
+  darkMode: boolean
   toggleDarkMode: () => void
 }
 
@@ -32,7 +32,7 @@ export const ThemeContext = createContext<themeContextType>(
 
 export const ThemeProvider = ({ children }: Props) => {
   // The server doesn't have a localStorage so we need to ensure that we are on the browser (window)
-  const [darkMode, setDarkMode] = useState<boolean | null>(null)
+  const [darkMode, setDarkMode] = useState<boolean>(false)
 
   // Getting theme from local storage
   useEffect(() => setDarkMode(getInitialMode), [])

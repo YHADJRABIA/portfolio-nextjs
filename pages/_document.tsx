@@ -9,8 +9,7 @@ import Document, {
 } from "next/document"
 
 import { GA_TRACKING_ID } from "../lib/gtag"
-
-const isProduction = process.env.NODE_ENV === "production"
+import { isProduction } from "../utilities/general"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -44,7 +43,7 @@ export default class MyDocument extends Document {
             content="M6aa3CbXmeU9R8s22ny5So7N0AQo9CmsNyQpZeytuKc"
           />
 
-          {/* Google Analytics (only during production) */}
+          {/* Google Analytics (only in production) */}
           {isProduction && (
             <>
               <script

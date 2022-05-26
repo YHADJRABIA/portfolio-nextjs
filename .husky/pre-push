@@ -1,13 +1,15 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '🏗️👷 Styling, testing & building the project before committing'
+echo '🏗️👷 Styling, testing & building the project before pushing'
+
+# TODO: Add testing script
 
 # Check Prettier standards
 npm run check-format ||
 (
     echo '❌ Styling errors — Prettier check failed. ❌
-            Run npm run format, add changes and try to commit again.';
+            Run npm run format, add changes and try to push again.';
     false;
 )
 
@@ -15,7 +17,7 @@ npm run check-format ||
 npm run check-lint ||
 (
         echo '❌ Linting errors — ESLint check failed. ❌
-                Make the required changes listed above, add changes and try to commit again.'
+                Make the required changes listed above, add changes and try to push again.'
         false; 
 )
 
@@ -27,16 +29,15 @@ npm run check-types ||
     false;
 )
 
-# If everything passes... Now we can commit
+# If linting, formatting & typing pass, proceed with build
 echo '✅ Code is properly typed, linted & formatted ➜ proceeding with build. ✅'
 
 npm run build ||
 (
     echo '❌ NextJS build failed. ❌
-            View the errors above to see why. 
-    '
+            View the errors above to see why.'
     false;
 )
 
-# If everything passes... Now we can commit
-echo '🏆🥳🎉 Successful build ➜ committing changes. 🎉🥳🏆'
+# Everything passes — time to push
+echo '🏆🥳🎉 Successful build ➜ pushing changes. 🎉🥳🏆'

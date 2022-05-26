@@ -19,8 +19,7 @@ import * as gtag from "../lib/gtag" // Google Analytics
 import { ToastContainer } from "react-toastify"
 import Layout from "../components/Layout/Layout"
 import Footer from "../components/Footer/Footer"
-
-const isProduction = process.env.NODE_ENV === "production"
+import { isProduction } from "../utilities/general"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
