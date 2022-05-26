@@ -1,7 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '🏗️👷 Styling, testing & building the project before pushing'
+echo '🏗️👷 Styling, testing & building the project before pushing.'
+
+# npm run dev shouldn't be running, or this hook will fail
+echo '⚠️ Terminate localhost process or this will fail. ⚠️'
+
 
 # TODO: Add testing script
 
@@ -9,7 +13,7 @@ echo '🏗️👷 Styling, testing & building the project before pushing'
 npm run check-format ||
 (
     echo '❌ Styling errors — Prettier check failed. ❌
-            Run npm run format, add changes and try to push again.';
+            Run npm run format, add changes and try to push again.'
     false;
 )
 
