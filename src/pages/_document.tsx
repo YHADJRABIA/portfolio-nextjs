@@ -8,8 +8,8 @@ import Document, {
   DocumentContext,
 } from "next/document"
 
-import { GA_TRACKING_ID } from "../lib/gtag"
 import { isProduction } from "../utilities/general"
+import GAnalytics from "../lib/GAnalytics"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -44,28 +44,7 @@ export default class MyDocument extends Document {
           />
 
           {/* Google Analytics (only in production) */}
-          {isProduction && (
-            <>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-              />
-              <script
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{
-                  __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-                }}
-              />
-            </>
-          )}
+          {isProduction && <GAnalytics />}
         </Head>
 
         <body>
