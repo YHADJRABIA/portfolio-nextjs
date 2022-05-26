@@ -9,7 +9,7 @@ echo '🏗️👷 Styling, testing & building the project before pushing'
 npm run check-format ||
 (
     echo '❌ Styling errors — Prettier check failed. ❌
-            Run npm run format, add changes and try to push again.';
+            Run npm run format, add changes and try to push again.'
     false;
 )
 

@@ -20,7 +20,7 @@
     "**/*.tsx",
     "**/*.d.ts",
     "**/*.js",
-    "components/Header/ParticleConfig.jsx"
+    "src/components/Header/ParticleConfig.jsx"
   ],
   "exclude": ["node_modules"]
 }
