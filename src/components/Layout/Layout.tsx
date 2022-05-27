@@ -1,10 +1,10 @@
 import React, { FC } from "react"
-import Footer from "../Footer/Footer"
+import Footer from "@/components/Footer/Footer"
 
 // Global state
 import { Provider } from "react-redux"
-import store from "../../redux/store"
-import { AuthProvider } from "../../context/UserContext"
+import store from "@/redux/store"
+import { AuthProvider } from "@/context/UserContext"
 
 const Layout: FC = ({ children }) => {
   return (

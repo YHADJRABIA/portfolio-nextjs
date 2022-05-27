@@ -1,6 +1,6 @@
 // Styles
 import "react-toastify/dist/ReactToastify.css"
-import "../styles/app.scss"
+import "@/styles/app.scss"
 
 // React & Next hooks
 import React, { useEffect } from "react"
@@ -9,17 +9,17 @@ import { useRouter } from "next/router"
 
 // Global state
 import { Provider } from "react-redux"
-import store from "../redux/store"
-/* import { AuthProvider } from "../context/UserContext"; */
-import { ThemeProvider } from "../context/ThemeContext"
+import store from "@/redux/store"
+/* import { AuthProvider } from "@/context/UserContext"; */
+import { ThemeProvider } from "@/context/ThemeContext"
 
-import * as gtag from "../lib/gtag" // Google Analytics
+import * as gtag from "@/lib/gtag" // Google Analytics
 
 // Components
 import { ToastContainer } from "react-toastify"
-import Layout from "../components/Layout/Layout"
-import Footer from "../components/Footer/Footer"
-import { isProduction } from "../utilities/general"
+import Layout from "@/components/Layout/Layout"
+import Footer from "@/components/Footer/Footer"
+import { isProduction } from "@/utilities/general"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()

@@ -4,20 +4,20 @@ import type { NextPage } from "next"
 import Head from "next/head" // For better SEO
 
 // Components
-import About from "../components/About"
-import Projects from "../components/Projects"
-import Skills from "../components/Skills"
-import Contact from "../components/Contact"
-import Header from "../components/Header/Header"
-import Nav from "../components/Header/Nav"
+import About from "@/components/About"
+import Projects from "@/components/Projects"
+import Skills from "@/components/Skills"
+import Contact from "@/components/Contact"
+import Header from "@/components/Header/Header"
+import Nav from "@/components/Header/Nav"
 
 import cn from "classnames"
 
 // Theme
-import { ThemeContext } from "../context/ThemeContext"
+import { ThemeContext } from "@/context/ThemeContext"
 
 // SVG
-import SeparatorSVG from "../svgs/SeparatorSVG" // Wave separating sections
+import SeparatorSVG from "@/svgs/SeparatorSVG" // Wave separating sections
 
 import useTranslation from "next-translate/useTranslation" // Translation
 import { useContext } from "react"

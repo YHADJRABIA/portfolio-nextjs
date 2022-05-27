@@ -5,7 +5,7 @@ import { NextRouter, useRouter } from "next/router"
 import Head from "next/head"
 
 // Svg
-import NotFoundImage from "../resources/NotFoundImage"
+import NotFoundImage from "@/resources/NotFoundImage"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"

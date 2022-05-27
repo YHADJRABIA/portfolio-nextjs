@@ -7,7 +7,7 @@ import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
 import links from "./links"
 
 // Global state management
-import { ThemeContext } from "../../context/ThemeContext"
+import { ThemeContext } from "@/context/ThemeContext"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"

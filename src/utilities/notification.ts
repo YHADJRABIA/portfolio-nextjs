@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { APIStatus } from "../types/api"
+import { APIStatus } from "@/types/api"
 
 toast.configure()
 

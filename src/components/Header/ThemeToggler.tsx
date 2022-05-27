@@ -1,5 +1,5 @@
 import React, { FC, useContext } from "react"
-import { ThemeContext } from "../../context/ThemeContext"
+import { ThemeContext } from "@/context/ThemeContext"
 import useTranslation from "next-translate/useTranslation"
 
 const ThemeToggler: FC = () => {
