@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import ProjectCard from "./ProjectCard"
-import projects from "../data/projects.json"
+import projects from "@/data/projects.json"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"

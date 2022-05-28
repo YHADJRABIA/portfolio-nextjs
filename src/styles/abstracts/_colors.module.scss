@@ -29,3 +29,12 @@ $black-linear-gradient: linear-gradient(315deg, #000000 0%, #414141 74%);
 // Text
 
 // Buttons
+
+// Enables use of Sass variables in JS
+
+:export {
+  primaryGray: $primary-gray;
+  secondaryGray: $secondary-gray;
+  primaryBlack: $primary-black;
+  secondaryBlack: $secondary-black;
+}

@@ -1,25 +1,18 @@
 // Styles
 import "react-toastify/dist/ReactToastify.css"
-import "../styles/app.scss"
+import "@/styles/app.scss"
 
 // React & Next hooks
 import React, { useEffect } from "react"
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router"
 
-// Global state
-import { Provider } from "react-redux"
-import store from "../redux/store"
-/* import { AuthProvider } from "../context/UserContext"; */
-import { ThemeProvider } from "../context/ThemeContext"
+import * as gtag from "@/lib/gtag" // Google Analytics
 
-import * as gtag from "../lib/gtag" // Google Analytics
-
-// Components
-import { ToastContainer } from "react-toastify"
-import Layout from "../components/Layout/Layout"
-import Footer from "../components/Footer/Footer"
-import { isProduction } from "../utilities/general"
+import Layout from "@/components/Layout/Layout"
+import Footer from "@/components/Footer/Footer"
+import { isProduction } from "@/utilities/general"
+import ContextTree from "@/components/ContextTree"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -36,35 +29,22 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   // Applying different layouts depending on page
-  switch (Component.name) {
+  switch (Component.displayName) {
     case "HomePage":
       return (
-        <Provider store={store}>
-          <ThemeProvider>
-            <ToastContainer />
-            <Component {...pageProps} />
-            <Footer color="fff" />
-          </ThemeProvider>
-        </Provider>
+        <ContextTree>
+          <Component {...pageProps} />
+          <Footer color="white" />
+        </ContextTree>
       )
     case "PageNotFound":
-      return (
-        <>
-          <Component {...pageProps} />
-          <Footer color="#f2f2f5" />
-        </>
-      )
+      return <Component {...pageProps} />
 
     default:
       return (
-        <Provider store={store}>
-          <ThemeProvider>
-            <Layout>
-              <ToastContainer />
-              <Component {...pageProps} />
-            </Layout>
-          </ThemeProvider>
-        </Provider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       )
   }
 }

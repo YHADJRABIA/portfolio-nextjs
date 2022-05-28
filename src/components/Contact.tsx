@@ -2,17 +2,17 @@ import React, { FC, useState, useRef, useEffect, useContext } from "react"
 import { useRouter } from "next/router"
 
 // Global state management
-import { ThemeContext } from "../context/ThemeContext"
+import { ThemeContext } from "@/context/ThemeContext"
 
 // Components
 import Animation from "./Animation"
 
 // Validators
-import { isEmpty, isEmail } from "../utilities/formValidator"
+import { isEmpty, isEmail } from "@/utilities/formValidator"
 import ReCAPTCHA from "react-google-recaptcha"
 
-// Norifications
-import { notify } from "../utilities/notification"
+// Notifications
+import { notify } from "@/utilities/notification"
 
 import axios from "axios" // API fetcher
 

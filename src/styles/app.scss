@@ -2,7 +2,7 @@
 
 /*--- Imports ---*/
 
-@import "abstracts/variables", "abstracts/colors", "abstracts/functions",
+@import "abstracts/variables", "abstracts/colors.module", "abstracts/functions",
   "abstracts/mixins";
 
 @import "base/typography", "base/reset", "base/animations", "base/svg";

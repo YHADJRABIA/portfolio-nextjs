@@ -8,8 +8,8 @@ import Document, {
   DocumentContext,
 } from "next/document"
 
-import { isProduction } from "../utilities/general"
-import GAnalytics from "../lib/GAnalytics"
+import { isProduction } from "@/utilities/general"
+import GAnalytics from "@/lib/GAnalytics"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
