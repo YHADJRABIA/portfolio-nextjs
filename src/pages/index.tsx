@@ -89,4 +89,6 @@ const HomePage: NextPage = () => {
   )
 }
 
+HomePage.displayName = "HomePage"
+
 export default HomePage

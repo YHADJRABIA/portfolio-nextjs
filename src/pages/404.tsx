@@ -11,6 +11,7 @@ import NotFoundImage from "@/resources/NotFoundImage"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 
+// In seconds
 const TIMER_COUNT = 3
 
 const PageNotFound: NextPage = () => {
@@ -67,5 +68,8 @@ const PageNotFound: NextPage = () => {
     </>
   )
 }
+
+// To avoid build's minified name not matching development's Component.name
+PageNotFound.displayName = "PageNotFound"
 
 export default PageNotFound

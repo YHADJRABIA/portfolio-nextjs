@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   // Applying different layouts depending on page
-  switch (Component.name) {
+  switch (Component.displayName) {
     case "HomePage":
       return (
         <ContextTree>
