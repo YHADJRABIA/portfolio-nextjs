@@ -24,7 +24,8 @@ import { useContext } from "react"
 import { GET_ALL_SKILLS_QUERY } from "@/graphql/skills"
 import { apolloClient } from "@/lib/apolloClient"
 
-const HomePage: NextPage = ({ skills }) => {
+// TODO: update typing
+const HomePage: NextPage = ({ skills }: any) => {
   const { t } = useTranslation("meta")
 
   const { darkMode } = useContext(ThemeContext)

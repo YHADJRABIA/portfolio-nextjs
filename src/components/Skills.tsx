@@ -1,6 +1,5 @@
-import React, { FC } from "react"
+import React from "react"
 import SkillCard from "./SkillCard"
-import skills from "@/data/skills.json"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"
