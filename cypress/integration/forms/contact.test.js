@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-//scrollBehavior set to center to avoid bug from sticky nav hidding elements
+// scrollBehavior set to center to avoid bug from sticky nav hidding elements
 describe("Form actions", { scrollBehavior: "center" }, () => {
   beforeEach(() => {
     cy.visit("/")
