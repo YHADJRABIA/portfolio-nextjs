@@ -1,7 +1,7 @@
 import type { NextPage } from "next"
 
 // Next tags
-import Head from "next/head" // For better SEO
+import Head from "next/head"
 
 // Components
 import About from "@/components/About"
@@ -21,8 +21,10 @@ import SeparatorSVG from "@/svgs/SeparatorSVG" // Wave separating sections
 
 import useTranslation from "next-translate/useTranslation" // Translation
 import { useContext } from "react"
+import { GET_ALL_SKILLS_QUERY } from "@/graphql/skills"
+import { apolloClient } from "@/lib/apolloClient"
 
-const HomePage: NextPage = () => {
+const HomePage: NextPage = ({ skills }) => {
   const { t } = useTranslation("meta")
 
   const { darkMode } = useContext(ThemeContext)
@@ -79,7 +81,7 @@ const HomePage: NextPage = () => {
       <main className={cn({ "dark-mode": darkMode })}>
         <About />
         <SeparatorSVG darkMode={darkMode} direction="down" />
-        <Skills />
+        <Skills data={skills.data} />
         <SeparatorSVG darkMode={darkMode} direction="up" />
         <Projects />
         <SeparatorSVG darkMode={darkMode} direction="down" />
@@ -92,3 +94,16 @@ const HomePage: NextPage = () => {
 HomePage.displayName = "HomePage"
 
 export default HomePage
+
+export const getStaticProps = async () => {
+  const { data } = await apolloClient.query({ query: GET_ALL_SKILLS_QUERY })
+
+  // To weed out Apollo's annoying __typename property
+  const { __typename, ...rest } = data.skills
+
+  return {
+    props: {
+      skills: rest,
+    },
+  }
+}

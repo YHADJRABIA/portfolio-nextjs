@@ -6,8 +6,15 @@ import skills from "@/data/skills.json"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "./InvisibleAnchor"
+import { Skill } from "@/models/skill"
 
-const Skills: FC = () => {
+interface PropsType {
+  data: {
+    attributes: Skill
+  }[]
+}
+
+const Skills = ({ data }: PropsType) => {
   const { t } = useTranslation("common")
   return (
     <section className="skills-section">
@@ -33,8 +40,12 @@ const Skills: FC = () => {
       </div>
       <div className="skills-card-container">
         <ul className="skills-list" data-testid="skills-list">
-          {skills.data.map((skill, id) => (
-            <SkillCard key={id} name={skill.name} icon={skill.icon} />
+          {data.map((skill, id) => (
+            <SkillCard
+              key={id}
+              name={skill.attributes.name}
+              icon={skill.attributes.icon}
+            />
           ))}
         </ul>
       </div>
