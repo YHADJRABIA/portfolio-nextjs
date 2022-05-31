@@ -1,4 +1,5 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"
+import { apolloClient } from "@/lib/apolloClient"
+import { ApolloProvider } from "@apollo/client"
 import { ReactNode } from "react"
 
 interface PropsType {
@@ -6,12 +7,7 @@ interface PropsType {
 }
 
 const StrapiApolloProvider = ({ children }: PropsType) => {
-  const client = new ApolloClient({
-    uri: `${process.env.STRAPI_API}/graphql`,
-    cache: new InMemoryCache(),
-  })
-
-  return <ApolloProvider client={client}>{children}</ApolloProvider>
+  return <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
 }
 
 export default StrapiApolloProvider
