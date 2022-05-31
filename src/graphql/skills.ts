@@ -2,7 +2,7 @@ import { gql } from "@apollo/client"
 
 export const GET_ALL_SKILLS_QUERY = gql`
   query AllSkills {
-    skills {
+    skills(pagination: { limit: 50 }) {
       data {
         id
         attributes {
