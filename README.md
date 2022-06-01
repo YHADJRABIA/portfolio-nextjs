@@ -60,6 +60,6 @@ npm run cypress
 
 ## Upcoming features:
 
-- Make it Jamstack using Strapi CMS.
+- Make it Jamstack with Strapi CMS & fetch data through GraphQL.
 - Dynamic route generation.
 - Authentication section.
