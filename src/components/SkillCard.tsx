@@ -1,11 +1,11 @@
 import React from "react"
 
-interface PropsType {
+interface PropTypes {
   name: string
   icon: string
 }
 
-const SkillCard = ({ name, icon }: PropsType) => {
+const SkillCard = ({ name, icon }: PropTypes) => {
   return (
     <li title={name} className="skill-card">
       <i className={icon}></i>

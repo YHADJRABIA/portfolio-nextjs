@@ -6,11 +6,11 @@ import React, { ReactNode } from "react"
 import { Provider } from "react-redux"
 import { ToastContainer } from "react-toastify"
 
-interface PropsType {
+interface PropTypes {
   children: ReactNode
 }
 
-const ContextTree = ({ children }: PropsType) => {
+const ContextTree = ({ children }: PropTypes) => {
   return (
     <Provider store={store}>
       <ThemeProvider>
