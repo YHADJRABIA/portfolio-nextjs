@@ -1,19 +1,21 @@
 import React, { FC } from "react"
-import Image from "next/image" // For lazy-loading images and size optimisation
 
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "./Utilities/InvisibleAnchor"
+import HoverImage from "./Utilities/HoverImage"
 
 const About: FC = () => {
   const { t } = useTranslation("common")
+
   return (
     <section className="about-section">
       <InvisibleAnchor id="about" />
       <div className="about-photo-container">
-        <Image
+        <HoverImage
           src="/me.jpg"
+          hoverSrc="/me-with-pysen.jpg"
           alt={t("myself")}
           title={t("myself")}
           data-testid="about-photo"
