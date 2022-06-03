@@ -5,7 +5,7 @@ import skills from "@/data/skills.json"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "./Utilities/InvisibleAnchor"
 
 const Skills: FC = () => {
   const { t } = useTranslation("common")

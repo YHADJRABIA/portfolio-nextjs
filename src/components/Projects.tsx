@@ -5,7 +5,7 @@ import projects from "@/data/projects.json"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "./Utilities/InvisibleAnchor"
 
 const Projects: FC = () => {
   const { t } = useTranslation("common")
