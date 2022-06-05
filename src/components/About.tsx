@@ -3,8 +3,8 @@ import React, { FC } from "react"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./utilities/InvisibleAnchor"
-import HoverImage from "./utilities/HoverImage"
+import InvisibleAnchor from "./InvisibleAnchor"
+import HoverImage from "./HoverImage"
 
 const About: FC = () => {
   const { t } = useTranslation("common")
