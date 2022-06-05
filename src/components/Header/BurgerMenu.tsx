@@ -1,14 +1,14 @@
 import React, { FC, Dispatch, useEffect } from "react"
 import cn from "classnames"
 
-interface PropsType {
+interface PropTypes {
   toggled: boolean
   navbar: boolean
   setToggled: Dispatch<React.SetStateAction<boolean>>
 }
 
 /* Props from Nav component */
-const BurgerMenu: FC<PropsType> = ({ toggled, setToggled, navbar }) => {
+const BurgerMenu: FC<PropTypes> = ({ toggled, setToggled, navbar }) => {
   useEffect(() => {
     document.addEventListener("keydown", keyboardHandler, true)
     return () => {

@@ -36,7 +36,6 @@
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-empty": "error",
     "no-extra-boolean-cast": "error",
-    "no-undefined": "error",
     "no-unneeded-ternary": "error",
     "no-var": "error",
     "require-await": "error"

@@ -10,9 +10,9 @@ import { useRouter } from "next/router"
 import * as gtag from "@/lib/gtag" // Google Analytics
 
 import Layout from "@/components/Layout/Layout"
-import Footer from "@/components/Footer/Footer"
 import { isProduction } from "@/utilities/general"
-import ContextTree from "@/components/ContextTree"
+import ContextTree from "@/context/ContextTree"
+import Footer from "@/components/Footer/Footer"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
