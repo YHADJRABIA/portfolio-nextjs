@@ -3,8 +3,8 @@ import React, { FC } from "react"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./Utilities/InvisibleAnchor"
-import HoverImage from "./Utilities/HoverImage"
+import InvisibleAnchor from "./utilities/InvisibleAnchor"
+import HoverImage from "./utilities/HoverImage"
 
 const About: FC = () => {
   const { t } = useTranslation("common")
@@ -14,8 +14,8 @@ const About: FC = () => {
       <InvisibleAnchor id="about" />
       <div className="about-photo-container">
         <HoverImage
-          src="/me.jpg"
-          hoverSrc="/me-with-pysen.jpg"
+          src="/me-with-pysen.jpg"
+          hoverSrc="/me.jpg"
           alt={t("myself")}
           title={t("myself")}
           data-testid="about-photo"

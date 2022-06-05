@@ -18,7 +18,7 @@ import axios from "axios" // API fetcher
 
 // Translation
 import useTranslation from "next-translate/useTranslation"
-import InvisibleAnchor from "./Utilities/InvisibleAnchor"
+import InvisibleAnchor from "./utilities/InvisibleAnchor"
 
 const Contact: FC = () => {
   const { t } = useTranslation("common")
