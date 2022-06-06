@@ -32,10 +32,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   switch (Component.displayName) {
     case "HomePage":
       return (
-        <ContextTree>
+        <Layout>
           <Component {...pageProps} />
-          <Footer color="white" />
-        </ContextTree>
+        </Layout>
       )
     case "PageNotFound":
       return <Component {...pageProps} />
