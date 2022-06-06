@@ -9,7 +9,7 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["res.cloudinary.com", "flagcdn.com"], // Enables use of external images
+    domains: ["res.cloudinary.com", "flagcdn.com"], // Enables use of images from external URLs
   },
   webpack(config) {
     // Allows use of SVGs as dynamic component without being compelled to use Next Image

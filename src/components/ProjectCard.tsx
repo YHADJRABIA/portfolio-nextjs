@@ -1,10 +1,9 @@
 import React from "react"
 
-// NextJS
 import Image from "next/image"
 import Link from "next/link"
 
-interface PropsType {
+interface PropTypes {
   name: string
   img: string
   url?: string
@@ -21,7 +20,7 @@ const ProjectCard = ({
   description,
   repo,
   tags,
-}: PropsType) => {
+}: PropTypes) => {
   return (
     <li className="project-card">
       <div className="project-card-image">
