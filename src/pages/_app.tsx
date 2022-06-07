@@ -11,8 +11,6 @@ import * as gtag from "@/lib/gtag" // Google Analytics
 
 import Layout from "@/components/Layout/Layout"
 import { isProduction } from "@/utilities/general"
-import ContextTree from "@/context/ContextTree"
-import Footer from "@/components/Footer/Footer"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
