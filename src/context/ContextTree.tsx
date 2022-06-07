@@ -7,11 +7,11 @@ import React, { ReactNode } from "react"
 import { Provider } from "react-redux"
 import { ToastContainer } from "react-toastify"
 
-
 interface PropTypes {
   children: ReactNode
 }
 
+// TODO: Wrap with StrapiApolloProvider when Strapi is deployed
 const ContextTree = ({ children }: PropTypes) => {
   return (
     <Provider store={store}>
