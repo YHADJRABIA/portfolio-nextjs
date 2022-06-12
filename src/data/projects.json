@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "name": "Chefclub",
+      "name": "Chefclub.tv",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1655048429/projects/Chefclub_kcmzb2.png",
       "description": "Jamstack multilingual website using Gatsby production framework, with emphasis on SEO & performance.",
       "url": "https://chefclub.tv",
