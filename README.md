@@ -57,7 +57,7 @@ npm run cypress
 - Google reCAPTCHA for spam protection;
 - Google Analytics for... analytics;
 - SendGrid for sending e-mails;
-- Husky, ESLint and Prettier, for git hooks, better code consistency and security. 
+- Husky, ESLint and Prettier, for git hooks, better code consistency and security.
 
 ## Upcoming features:
 
