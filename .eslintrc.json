@@ -1,7 +1,34 @@
 {
-  "extends": ["next/core-web-vitals"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "next",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "unused-imports",
+    "@next/next",
+    "@typescript-eslint"
+  ],
   "rules": {
+    "react/prop-types": "warn",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "next/no-img-element": "warn",
+    "next/no-html-link-for-pages": "warn",
+    "next/link-passhref": "warn",
+    "next/no-head-import-in-document": "warn",
+    "react/jsx-fragments": "warn",
+    "react/jsx-no-target-blank": "warn",
     "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "warn",
     "no-const-assign": "error",
     "no-compare-neg-zero": "error",
     "no-cond-assign": "error",
