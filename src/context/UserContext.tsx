@@ -12,8 +12,14 @@ type Props = {
 
 const initialValues: userContextType = {
   user: false,
-  login: () => {},
-  logout: () => {},
+
+  // TODO: Update this when feature is implemented
+  login: () => {
+    return null
+  },
+  logout: () => {
+    return null
+  },
 }
 
 const UserContext = createContext<userContextType>(initialValues)
