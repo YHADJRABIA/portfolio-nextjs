@@ -1,4 +1,11 @@
 {
+  "root": true,
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
   "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
@@ -18,13 +25,24 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "react/jsx-pascal-case": [
+      "warn",
+      {
+        "allowAllCaps": true,
+        "ignore": []
+      }
+    ],
     "react/prop-types": "warn",
     "react/react-in-jsx-scope": "off",
+    "react/no-direct-mutation-state": "warn",
+    "react/style-prop-object": "warn",
+    "react/require-render-return": "error",
+    "react/no-deprecated": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
-    "next/no-img-element": "warn",
-    "next/no-html-link-for-pages": "warn",
-    "next/link-passhref": "warn",
-    "next/no-head-import-in-document": "warn",
+    "@typescript-eslint/no-var-requires": "warn",
+    "@next/next/no-img-element": "warn",
+    "@next/next/no-html-link-for-pages": "warn",
+    "@next/next/no-head-import-in-document": "warn",
     "react/jsx-fragments": "warn",
     "react/jsx-no-target-blank": "warn",
     "no-unused-vars": "off",
