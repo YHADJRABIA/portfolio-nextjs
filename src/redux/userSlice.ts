@@ -26,8 +26,8 @@ export const userSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    login: (state, action: PayloadAction<string>) => {},
-    logout: state => {},
+    /*     login: (state, action: PayloadAction<string>) => {},
+    logout: state => {}, */
   },
 
   extraReducers: builder => {
@@ -42,7 +42,7 @@ export const userSlice = createSlice({
   },
 })
 
-export const { login, logout } = userSlice.actions
+/* export const { login, logout } = userSlice.actions */
 
 export const selectUser = (state: AppState) => state.user.value
 
