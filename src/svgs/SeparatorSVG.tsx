@@ -1,4 +1,4 @@
-import React, { SVGProps } from "react"
+import { SVGProps } from "react"
 
 import colors from "@/styles/abstracts/_colors.module.scss"
 

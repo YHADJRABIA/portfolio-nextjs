@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from "react"
+import { FC, useState, useRef, useEffect } from "react"
 import Link from "next/link"
 
 import useTranslation from "next-translate/useTranslation" // Translation

@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import Typewriter from "typewriter-effect"
 import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
 import Particles from "./ParticleConfig" // Interactive background

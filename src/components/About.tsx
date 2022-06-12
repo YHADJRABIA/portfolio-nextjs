@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"

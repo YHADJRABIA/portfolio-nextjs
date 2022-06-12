@@ -1,9 +1,8 @@
 // Global state
 /* import { AuthProvider } from "@/context/UserContext"; */
 import { ThemeProvider } from "@/context/ThemeContext"
-import StrapiApolloProvider from "@/graphql/StrapiApolloProvider"
 import store from "@/redux/store"
-import React, { ReactNode } from "react"
+import { ReactNode } from "react"
 import { Provider } from "react-redux"
 import { ToastContainer } from "react-toastify"
 
