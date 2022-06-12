@@ -1,4 +1,3 @@
-// This file only runs on the server, CSS and click events won't work here
 import { ReactElement } from "react"
 import Document, {
   Html,
@@ -11,6 +10,7 @@ import Document, {
 import { isProduction } from "@/utilities/general"
 import GAnalytics from "@/lib/GAnalytics"
 
+// This file only runs on the server, CSS and click events won't work here
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)

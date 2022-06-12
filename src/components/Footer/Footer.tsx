@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react"
+import { FC, useContext } from "react"
 import { useRouter } from "next/router"
 
 import colors from "@/styles/abstracts/_colors.module.scss"

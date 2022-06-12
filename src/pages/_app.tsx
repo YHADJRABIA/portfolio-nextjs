@@ -3,7 +3,7 @@ import "react-toastify/dist/ReactToastify.css"
 import "@/styles/app.scss"
 
 // React & Next hooks
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router"
 
