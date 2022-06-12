@@ -32,19 +32,23 @@ const ProjectCard = ({
           quality={60}
           layout="responsive"
         />
-        <div className="project-card-overlay" title={name}>
-          <div className="project-overlay">
-            <div className="project-tags-container">
-              <ul className="project-tags">
-                {tags.map((tag, id) => (
-                  <li className="project-tag truncated" key={id}>
-                    <small>{tag}</small>
-                  </li>
-                ))}
-              </ul>
+        <Link href={url ?? repo ?? "/"} passHref>
+          <a title={url}>
+            <div className="project-card-overlay" title={name}>
+              <div className="project-overlay">
+                <div className="project-tags-container">
+                  <ul className="project-tags">
+                    {tags.map((tag, id) => (
+                      <li className="project-tag truncated" key={id}>
+                        <small>{tag}</small>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </a>
+        </Link>
       </div>
 
       <div className="project-card-text">
