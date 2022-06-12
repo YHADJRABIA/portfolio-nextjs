@@ -1,6 +1,23 @@
 {
   "data": [
     {
+      "name": "Chefclub.tv",
+      "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1655048429/projects/Chefclub_kcmzb2.png",
+      "description": "Jamstack multilingual website using Gatsby production framework, with emphasis on SEO & performance.",
+      "url": "https://chefclub.tv",
+      "tags": [
+        "Gatsby",
+        "ReactJS",
+        "TypeScript",
+        "Redux",
+        "GraphQL",
+        "Algolia",
+        "Prismic CMS",
+        "Jest",
+        "Postman"
+      ]
+    },
+    {
       "name": "Portfolio",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633021468/projects/NextTS_ro8ecm.png",
       "description": "Current website with lazy-loading images, internationalisation and SEO emphasis and end-to-end testing with Cypress.",
@@ -24,7 +41,7 @@
       "name": "Movies app",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633913956/projects/movies_t2u82l.png",
       "url": "https://yhadjrabia.github.io/movies-app/",
-      "description": "App displaying a list of movies that may be liked, disliked, removed and filtered by type. A pagination feature enables to limit the amount of movies per page.",
+      "description": "App displaying a list of movies that may be liked, disliked, removed and filtered by type. A pagination system enables to limit the amount of movies per page.",
       "repo": "https://github.com/YHADJRABIA/movies-app",
       "tags": ["ReactJS", "Redux Toolkit", "Sass"]
     },
@@ -32,7 +49,7 @@
       "name": "E-commerce",
       "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633022248/projects/ecommerce_po1c6d.png",
       "url": "https://yhadjrabia.github.io/ecommerce/",
-      "description": "Fully responsive mobile-first bilingual e-commerce app consuming and processing API data. Using Redux Toolkit for state management and localStorage for saving preferences.",
+      "description": "Fully responsive mobile-first bilingual e-commerce app consuming API data. Using Redux Toolkit for state management and localStorage for saving preferences.",
       "repo": "https://github.com/YHADJRABIA/ecommerce",
       "tags": [
         "ReactJS",
@@ -62,15 +79,6 @@
         "CORS",
         "OAuth2"
       ]
-    },
-
-    {
-      "name": "Jord Innovation",
-      "img": "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633022456/projects/jord-innovation_rikstd.png",
-      "url": "https://yhadjrabia.github.io/jord-innovation/",
-      "description": "Redesign, translation and improvement of https://www.jordinnovation.com/, for full responsiveness and added features.",
-      "repo": "https://github.com/YHADJRABIA/jord-innovation",
-      "tags": ["ReactJS", "i18n", "Sass", "Context API", "Dark theme"]
     },
     {
       "name": "Restaurant",
