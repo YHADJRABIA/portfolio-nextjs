@@ -1,7 +1,5 @@
 /* eslint-disable no-undef */
 
-const { baseUrl } = Cypress.config()
-
 describe("Homepage rendering", () => {
   beforeEach(() => {
     cy.visit("/")
@@ -41,7 +39,9 @@ describe("Homepage rendering", () => {
     cy.get("nav").should("have.class", "active")
   })
 
-  it("Leads to the right section after clicking the navbar links", () => {})
+  it("Leads to the right section after clicking the navbar links", () => {
+    pass
+  })
 })
 
 describe("Reponsive layout rendering on mobile", () => {
