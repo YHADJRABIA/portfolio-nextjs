@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect, useContext } from "react"
+import { FC, useState, useRef, useEffect, useContext } from "react"
 import { useRouter } from "next/router"
 
 // Global state management

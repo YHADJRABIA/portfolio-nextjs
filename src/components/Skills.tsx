@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import SkillCard from "./SkillCard"
 import skills from "@/data/skills.json"
 

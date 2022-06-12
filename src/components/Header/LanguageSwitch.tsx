@@ -1,19 +1,30 @@
-import React from "react"
 import { useRouter } from "next/router"
 import Image from "next/image"
 
 import useTranslation from "next-translate/useTranslation" // Translation
 
-import Select, { components } from "react-select"
+import Select, {
+  components,
+  CSSObjectWithLabel,
+  StylesConfig,
+} from "react-select"
 
-const flag = param => {
+type FlagProps = {
+  title?: string
+  flag?: string
+}
+
+interface PropTypes {
+  setToggled: (toggle: boolean) => void
+}
+
+const Flag = ({ title, flag }: FlagProps) => {
   return (
     <Image
       className="flag-img"
-      alt={param.title}
-      title={param.title}
-      src={`https://flagcdn.com/w40/${param.flag}.png`}
-      srcSet={`https://flagcdn.com/w80/${param.flag}.png 2x`}
+      alt={title}
+      title={title}
+      src={`https://flagcdn.com/w40/${flag}.png`}
       width={35}
       height={25}
       priority
@@ -23,38 +34,40 @@ const flag = param => {
 
 const { Option } = components
 
-const CustomSelectOption = props => (
+const CustomSelectOption = (props: any) => (
   <Option {...props}>
-    {flag(props.data)}
+    <Flag title={props.data.title} flag={props.data.flag} />
     <small title={props.data.title}>{props.data.label}</small>
   </Option>
 )
 
-const CustomSelectValue = props => <>{flag(props.data)}</>
+const CustomSelectValue = ({ data }: any) => (
+  <Flag title={data.title} flag={data.flag} />
+)
 
-const customStyles = {
-  control: provided => ({
+const customStyles: StylesConfig = {
+  control: (provided: CSSObjectWithLabel) => ({
     ...provided,
     cursor: "pointer",
     backgroundColor: "transparent",
     transition: "all 300ms",
   }),
 
-  placeholder: provided => ({
+  placeholder: (provided: CSSObjectWithLabel) => ({
     ...provided,
     display: "flex",
     alignItems: "center",
     color: "white",
   }),
 
-  singleValue: (provided, state) => ({
+  singleValue: (provided: CSSObjectWithLabel, { isDisabled }) => ({
     ...provided,
-    opacity: state.isDisabled ? 0.5 : 1,
+    opacity: isDisabled ? 0.5 : 1,
     transition: "opacity 300ms",
     color: "white",
   }),
 
-  valueContainer: provided => ({
+  valueContainer: (provided: CSSObjectWithLabel) => ({
     ...provided,
     display: "flex",
     alignItems: "center",
@@ -62,14 +75,12 @@ const customStyles = {
     padding: "2px 10px",
   }),
 
-  indicatorContainer: provided => ({
+  indicatorSeparator: (provided: CSSObjectWithLabel) => ({
     ...provided,
-    backgroundColor: "yellow",
+    width: "0",
   }),
 
-  indicatorSeparator: provided => ({ ...provided, width: "0" }),
-
-  dropdownIndicator: provided => ({
+  dropdownIndicator: (provided: CSSObjectWithLabel) => ({
     ...provided,
     color: "gray",
     transition: "color 300ms",
@@ -78,12 +89,12 @@ const customStyles = {
     },
   }),
 
-  menu: provided => ({
+  menu: (provided: CSSObjectWithLabel) => ({
     ...provided,
     marginTop: "0",
     zIndex: 2,
   }),
-  menuList: provided => ({
+  menuList: (provided: CSSObjectWithLabel) => ({
     ...provided,
     padding: "2px",
     height: "120px",
@@ -92,10 +103,10 @@ const customStyles = {
     justifyContent: "space-around",
     flexDirection: "column",
   }),
-  option: (provided, state) => ({
+  option: (provided: CSSObjectWithLabel, { isSelected }) => ({
     ...provided,
     borderBottom: "1px solid white",
-    color: state.isSelected ? "white" : "black",
+    color: isSelected ? "white" : "black",
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
@@ -105,12 +116,12 @@ const customStyles = {
   }),
 }
 
-const LanguageSwitch = ({ setToggled }) => {
+const LanguageSwitch = ({ setToggled }: PropTypes) => {
   const { t } = useTranslation("common")
   const router = useRouter()
   const { locale, pathname, locales, asPath } = router
 
-  const options = locales.map(locale => {
+  const options = locales?.map(locale => {
     return {
       value: locale,
       label: locale.toLocaleUpperCase(),
@@ -119,7 +130,9 @@ const LanguageSwitch = ({ setToggled }) => {
     }
   })
 
-  const changeLanguage = e => {
+  const currentFlag = options?.filter(option => option.value === locale)[0]
+
+  const changeLanguage = (e: { value: string }) => {
     // LocalStorage
     setToggled(false)
     const locale = e.value
@@ -130,10 +143,10 @@ const LanguageSwitch = ({ setToggled }) => {
     <Select
       instanceId="long-value-select"
       className="language-container"
-      options={options.filter(option => option.value !== locale)} // Filters out current flag
+      options={options?.filter(option => option.value !== locale)} // Filters out current flag
       defaultValue={locale}
-      placeholder={flag(options.filter(option => option.value === locale)[0])}
-      onChange={changeLanguage}
+      placeholder={<Flag flag={currentFlag?.flag} title={currentFlag?.title} />}
+      onChange={changeLanguage as any}
       components={{
         Option: CustomSelectOption,
         SingleValue: CustomSelectValue,

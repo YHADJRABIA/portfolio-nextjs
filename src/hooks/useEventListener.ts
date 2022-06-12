@@ -2,7 +2,7 @@ import { RefObject, useEffect, useRef } from "react"
 
 const useEventListener = (
   eventName: string,
-  handler: Function,
+  handler: () => void,
   element?: RefObject<HTMLElement>
 ) => {
   // Create a ref that stores handler

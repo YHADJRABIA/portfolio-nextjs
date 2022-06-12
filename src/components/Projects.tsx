@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import ProjectCard from "./ProjectCard"
 import projects from "@/data/projects.json"
 

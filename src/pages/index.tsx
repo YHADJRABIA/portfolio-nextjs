@@ -1,3 +1,4 @@
+import { useContext } from "react"
 import type { NextPage } from "next"
 
 // Next tags
@@ -20,7 +21,6 @@ import { ThemeContext } from "@/context/ThemeContext"
 import SeparatorSVG from "@/svgs/SeparatorSVG" // Wave separating sections
 
 import useTranslation from "next-translate/useTranslation" // Translation
-import { useContext } from "react"
 
 const HomePage: NextPage = () => {
   const { t } = useTranslation("meta")

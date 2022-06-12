@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from "react"
+import { FC, useState, useRef, useEffect } from "react"
 import Link from "next/link"
 
 import useTranslation from "next-translate/useTranslation" // Translation
@@ -9,9 +9,12 @@ import cn from "classnames"
 import BurgerMenu from "./BurgerMenu"
 import ThemeToggler from "./ThemeToggler"
 import LanguageSwitch from "./LanguageSwitch"
+import useIsOnMobile from "@/hooks/useIsOnMobile"
 
 const Nav: FC = () => {
   const { t } = useTranslation("common")
+
+  const isOnMobile = useIsOnMobile()
 
   const menuRef = useRef<null | HTMLElement>(null) // To detect if user clicks outside of the menu area, close the menu if so
   const navItems = [
@@ -54,8 +57,8 @@ const Nav: FC = () => {
   const toggleBackground = (): void => setNavbar(window.scrollY >= 975)
 
   // Closes menu if user clicks outside of menu
-  const handleClickOutside = (e: any): void => {
-    !menuRef.current?.contains(e.target) && closeMenu()
+  const handleClickOutside = (e: MouseEvent): void => {
+    !menuRef.current?.contains(e.target as Node) && closeMenu()
   }
 
   const closeMenu = (): void => setToggled(false)
@@ -72,7 +75,9 @@ const Nav: FC = () => {
         </a>
       </Link>
       {/* --- Phone only ---*/}
-      <BurgerMenu toggled={toggled} setToggled={setToggled} navbar={navbar} />
+      {isOnMobile && (
+        <BurgerMenu toggled={toggled} setToggled={setToggled} navbar={navbar} />
+      )}
       {/* --------*/}
 
       <ul className={cn("nav-menu", { toggled: toggled })}>

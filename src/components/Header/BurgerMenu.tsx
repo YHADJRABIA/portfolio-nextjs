@@ -1,10 +1,10 @@
-import React, { FC, Dispatch, useEffect } from "react"
+import { SetStateAction, FC, Dispatch, useEffect } from "react"
 import cn from "classnames"
 
 interface PropTypes {
   toggled: boolean
   navbar: boolean
-  setToggled: Dispatch<React.SetStateAction<boolean>>
+  setToggled: Dispatch<SetStateAction<boolean>>
 }
 
 /* Props from Nav component */
