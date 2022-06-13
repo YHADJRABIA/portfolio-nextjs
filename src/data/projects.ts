@@ -1,6 +1,6 @@
 import { Project } from "@/types/projects"
 
-export const projects: Project[] = [
+const projects = [
   {
     name: "Chefclub.tv",
     img: "https://res.cloudinary.com/yhr-mern-app/image/upload/v1655048429/projects/Chefclub_kcmzb2.png",
@@ -119,3 +119,10 @@ export const projects: Project[] = [
     slug: "electronics",
   },
 ]
+
+export const getAllProjects = (): Project[] => projects
+
+export const getAllSlugs = () => projects.map(project => project.slug)
+
+export const getProjectBySlug = (slug: string) =>
+  projects.find(project => project.slug === slug)
