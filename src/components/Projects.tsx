@@ -1,11 +1,12 @@
 import { FC } from "react"
 import ProjectCard from "./ProjectCard"
-import projects from "@/data/projects.json"
+import { projects } from "@/data/projects"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "./InvisibleAnchor"
+import { Project } from "@/types/projects"
 
 const Projects: FC = () => {
   const { t } = useTranslation("common")
@@ -31,7 +32,7 @@ const Projects: FC = () => {
         </p>
       </div>
       <ul className="projects-card-container">
-        {projects.data.map((project, id) => (
+        {projects?.map((project: Project, id: number) => (
           <ProjectCard
             key={id}
             name={project.name}
