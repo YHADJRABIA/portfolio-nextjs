@@ -1,6 +1,6 @@
 import { FC } from "react"
 import ProjectCard from "./ProjectCard"
-import { projects } from "@/data/projects"
+import { getAllProjects } from "@/data/projects"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"
@@ -10,6 +10,9 @@ import { Project } from "@/types/projects"
 
 const Projects: FC = () => {
   const { t } = useTranslation("common")
+
+  const projects = getAllProjects()
+
   return (
     <section className="projects-section">
       <InvisibleAnchor id="projects" />
@@ -32,7 +35,7 @@ const Projects: FC = () => {
         </p>
       </div>
       <ul className="projects-card-container">
-        {projects?.map((project: Project, id: number) => (
+        {projects.map((project: Project, id: number) => (
           <ProjectCard
             key={id}
             name={project.name}
