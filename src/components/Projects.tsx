@@ -7,6 +7,7 @@ import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "./InvisibleAnchor"
 import { Project } from "@/types/projects"
+import Link from "next/link"
 
 const Projects: FC = () => {
   const { t } = useTranslation("common")
@@ -36,15 +37,19 @@ const Projects: FC = () => {
       </div>
       <ul className="projects-card-container">
         {projects.map((project: Project, id: number) => (
-          <ProjectCard
-            key={id}
-            name={project.name}
-            img={project.img}
-            url={project.url}
-            description={project.description}
-            repo={project.repo}
-            tags={project.tags}
-          />
+          <Link href={`/projects/${project.slug}`} key={id} passHref>
+            <a title={project.name}>
+              <ProjectCard
+                key={id}
+                name={project.name}
+                img={project.img}
+                url={project.url}
+                description={project.description}
+                repo={project.repo}
+                tags={project.tags}
+              />
+            </a>
+          </Link>
         ))}
       </ul>
     </section>
