@@ -3,6 +3,6 @@
   "defaultLocale": "en",
 
   "pages": {
-    "*": ["common", "meta", "pageNotFound"]
+    "*": ["common", "meta", "pageNotFound", "project"]
   }
 }
