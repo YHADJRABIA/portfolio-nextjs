@@ -74,6 +74,12 @@ const skills = [
     category: "architecture",
   },
   {
+    name: "Algolia",
+    slug: "algolia",
+    icon: "fab fa-algolia",
+    category: "api",
+  },
+  {
     name: "GraphQL",
     slug: "graphql",
     icon: "devicon-graphql-plain",
