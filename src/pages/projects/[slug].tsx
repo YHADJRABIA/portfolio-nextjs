@@ -24,7 +24,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 export const getStaticPaths = ({ locales }: StaticPropTypes) => {
   const paths = getAllSlugs()
     .map(project => {
-      return locales?.map(locale => ({
+      return locales.map(locale => ({
         params: { slug: project },
         locale,
       }))
