@@ -1,6 +1,6 @@
 import { FC } from "react"
 import SkillCard from "./SkillCard"
-import skills from "@/data/skills.json"
+import { getAllSkills } from "@/data/skills"
 
 // Translation
 import useTranslation from "next-translate/useTranslation"
@@ -9,6 +9,7 @@ import InvisibleAnchor from "./InvisibleAnchor"
 
 const Skills: FC = () => {
   const { t } = useTranslation("common")
+  const skills = getAllSkills()
   return (
     <section className="skills-section">
       <InvisibleAnchor id="skills" />
@@ -33,7 +34,7 @@ const Skills: FC = () => {
       </div>
       <div className="skills-card-container">
         <ul className="skills-list" data-testid="skills-list">
-          {skills.data.map((skill, id) => (
+          {skills.map((skill, id) => (
             <SkillCard key={id} name={skill.name} icon={skill.icon} />
           ))}
         </ul>
