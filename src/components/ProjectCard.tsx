@@ -7,18 +7,10 @@ interface PropTypes {
   url?: string
   repo?: string
   description: string
-  tags: string[]
   id?: number
 }
 
-const ProjectCard = ({
-  name,
-  img,
-  url,
-  description,
-  repo,
-  tags,
-}: PropTypes) => {
+const ProjectCard = ({ name, img, url, description, repo }: PropTypes) => {
   return (
     <li className="project-card">
       <div className="project-card-image">
@@ -32,7 +24,7 @@ const ProjectCard = ({
           quality={60}
           layout="responsive"
         />
-        <Link href={url ?? repo ?? "/"} passHref>
+        {/*  <Link href={url ?? repo ?? "/"} passHref>
           <a title={url}>
             <div className="project-card-overlay" title={name}>
               <div className="project-overlay">
@@ -48,7 +40,7 @@ const ProjectCard = ({
               </div>
             </div>
           </a>
-        </Link>
+        </Link> */}
       </div>
 
       <div className="project-card-text">
