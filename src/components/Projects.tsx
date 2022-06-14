@@ -46,7 +46,6 @@ const Projects: FC = () => {
                 url={project.url}
                 description={project.description}
                 repo={project.repo}
-                tags={project.tags}
               />
             </a>
           </Link>
