@@ -3,6 +3,8 @@ import { Locale } from "@/types/locales"
 import { Project } from "@/types/projects"
 import { NextPage } from "next"
 
+import styles from "./[slug].module.scss"
+
 interface PropTypes {
   project: Project
 }
@@ -16,7 +18,7 @@ interface ParamsTypes {
 }
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
-  // TO IMPLEMENT
+  return <h1 className={styles.title}>{project.name}</h1>
 }
 
 // Runs during build time only & can only work with getStaticProps
