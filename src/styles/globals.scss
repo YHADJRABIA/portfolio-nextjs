@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+/* Responsive calibration — 1rem = 10px */
+html {
+  font-size: 62.5%;
+  position: relative;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  // Colors
+  --primary-white-color: #fff;
+  --secondary-white-color: #f0f0f0;
+
+  --primary-green-color: #619b8a;
+  --secondary-green-color: #a1c181;
+
+  --primary-black-color: #1a1423;
+  --secondary-black-color: #1b1a1a;
+
+  --primary-gray-color: #f2f2f5;
+  --secondary-gray-color: #adadad;
+
+  --primary-blue-color: #00008c;
+  --secondary-blue-color: #0083ce;
+
+  --primary-yellow-color: #ffea00;
+
+  --primary-red-color: #ed4337;
+  --secondary-red-color: #cb1b16;
+
+  --black-background: #000814;
+
+  // Gradients
+  --black-linear-gradient: linear-gradient(315deg, #000000 0%, #414141 74%);
+}
