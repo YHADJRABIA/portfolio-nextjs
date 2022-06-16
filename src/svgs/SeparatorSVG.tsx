@@ -1,7 +1,5 @@
 import { SVGProps } from "react"
 
-import colors from "@/styles/abstracts/_colors.module.scss"
-
 interface PropTypes extends SVGProps<SVGSVGElement> {
   darkMode: boolean
   direction?: "down" | "up"
@@ -12,13 +10,15 @@ const SeparatorSVG = ({ direction, darkMode, ...rest }: PropTypes) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       style={{
-        backgroundColor: !darkMode ? "" : colors.secondaryBlack,
+        backgroundColor: !darkMode ? "" : "var(--secondary-black-color)",
       }}
       viewBox="0 0 1440 320"
       {...rest}
     >
       <path
-        fill={!darkMode ? colors.primaryGray : colors.primaryBlack}
+        fill={
+          !darkMode ? "var(--primary-gray-color)" : "var(--primary-black-color)"
+        }
         fillOpacity="1"
         d={
           direction === "down"

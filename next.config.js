@@ -6,7 +6,8 @@ const nextTranslate = require("next-translate")
 module.exports = {
   reactStrictMode: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+    includePaths: [path.join(__dirname, "src/styles")],
+    prependData: `@import "utilities.scss";`, // Scss code that'd be prepended to every single scss file.
   },
   images: {
     domains: ["res.cloudinary.com", "flagcdn.com"], // Enables use of images from external URLs

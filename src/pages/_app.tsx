@@ -1,6 +1,6 @@
 // Styles
 import "react-toastify/dist/ReactToastify.css"
-import "@/styles/app.scss"
+import "@/styles/globals.scss"
 
 // React & Next hooks
 import { useEffect } from "react"

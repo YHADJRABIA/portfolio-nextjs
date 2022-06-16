@@ -1,8 +1,6 @@
 import { FC, useContext } from "react"
 import { useRouter } from "next/router"
 
-import colors from "@/styles/abstracts/_colors.module.scss"
-
 import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
 
 // Components
@@ -27,12 +25,14 @@ const Footer: FC<IFooter> = ({ color }) => {
     <>
       <svg
         className="footer-separator-svg"
-        style={{ backgroundColor: !darkMode ? color : colors.secondaryBlack }}
+        style={{
+          backgroundColor: !darkMode ? color : "var(--secondary-black-color)",
+        }}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
         <path
-          fill={colors.primaryBlack}
+          fill="var(--primary-black-color)"
           fillOpacity="1"
           d="M0,64L720,160L1440,64L1440,320L720,320L0,320Z"
         ></path>
