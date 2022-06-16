@@ -1,0 +1,25 @@
+.pageContainer {
+  width: 100vw;
+  height: 100vh;
+  @include flexCenter(column);
+  background-color: var(--primary-gray-color);
+
+  text-align: center;
+
+  svg {
+    height: 25rem;
+    width: 90%;
+    @include respond-to("medium") {
+      height: 30rem;
+      width: 50rem;
+    }
+    @include respond-to("large") {
+      height: 35rem;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    color: var(--secondary-blue-color);
+  }
+}
