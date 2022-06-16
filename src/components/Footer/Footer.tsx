@@ -3,6 +3,8 @@ import { useRouter } from "next/router"
 
 import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
 
+import styles from "./Footer.module.scss"
+
 // Components
 import links from "./links"
 
@@ -13,40 +15,46 @@ import { ThemeContext } from "@/context/ThemeContext"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 
-interface IFooter {
+interface PropTypes {
   color: string
 }
 
-const Footer: FC<IFooter> = ({ color }) => {
-  const { t } = useTranslation("common")
-  const { locale, locales, defaultLocale, asPath } = useRouter()
+const FooterSeparator = ({ color }: PropTypes) => {
   const { darkMode } = useContext(ThemeContext)
   return (
+    <svg
+      className={styles.separatorSvg}
+      style={{
+        backgroundColor: !darkMode ? color : "var(--secondary-black-color)",
+      }}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+    >
+      <path
+        fill="var(--primary-black-color)"
+        fillOpacity="1"
+        d="M0,64L720,160L1440,64L1440,320L720,320L0,320Z"
+      ></path>
+    </svg>
+  )
+}
+
+const Footer = ({ color }: PropTypes) => {
+  const { t } = useTranslation("common")
+  const { locale, locales, defaultLocale, asPath } = useRouter()
+  return (
     <>
-      <svg
-        className="footer-separator-svg"
-        style={{
-          backgroundColor: !darkMode ? color : "var(--secondary-black-color)",
-        }}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="var(--primary-black-color)"
-          fillOpacity="1"
-          d="M0,64L720,160L1440,64L1440,320L720,320L0,320Z"
-        ></path>
-      </svg>
-      <footer>
-        <address className="footer-links">
+      <FooterSeparator color={color} />
+      <footer className={styles.footer}>
+        <address className={styles.links}>
           {links.map((link, id) => (
             <a href={link.path} title={link.name} key={id} target="blank">
               <i className={link.icon}></i>
             </a>
           ))}
         </address>
-        <AttentionSeeker triggerOnce={true} effect="flash">
-          <p className="made-with">
+        <AttentionSeeker triggerOnce effect="flash">
+          <p className={styles.madeWith}>
             <Trans
               i18nKey="common:madeWith"
               components={{
@@ -70,7 +78,7 @@ const Footer: FC<IFooter> = ({ color }) => {
           </p>
         </AttentionSeeker>
 
-        <small className="copyright">
+        <small className={styles.copyright}>
           &copy;{new Date().getFullYear()}{" "}
           {`${t("firstName")} ${t("lastName")}`}
         </small>
