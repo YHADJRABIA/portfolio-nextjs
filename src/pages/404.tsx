@@ -3,6 +3,7 @@ import type { NextPage } from "next"
 import Link from "next/link"
 import { NextRouter, useRouter } from "next/router"
 import Head from "next/head"
+import styles from "./404.module.scss"
 
 // Svg
 import NotFoundImage from "@/resources/NotFoundImage"
@@ -49,7 +50,7 @@ const PageNotFound: NextPage = () => {
         <title>Yacine Hadj Rabia | 404</title>
       </Head>
 
-      <div className="page-not-found">
+      <div className={styles.pageContainer}>
         <NotFoundImage />
         <h3>{t("pageNotFound")}</h3>
         <h4>
