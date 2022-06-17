@@ -20,22 +20,22 @@ const Nav = () => {
   const navItems = [
     {
       title: t("navNames.about"),
-      url: "#about",
+      url: "/#about",
       dataId: "about-link",
     },
     {
       title: t("navNames.skills"),
-      url: "#skills",
+      url: "/#skills",
       dataId: "skills-link",
     },
     {
       title: t("navNames.projects"),
-      url: "#projects",
+      url: "/#projects",
       dataId: "projects-link",
     },
     {
       title: t("navNames.contact"),
-      url: "#contact",
+      url: "/#contact",
       dataId: "contact-link",
     },
   ]
