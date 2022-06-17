@@ -1,20 +1,11 @@
-.form_card {
-  position: relative;
-  background-color: $primary-gray;
-  transition: background-color 0.3s ease;
-  width: 95vw;
-  padding: 4rem 0;
-  border-radius: 5rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  @include flexCenter(column, center);
-
-  & > :last-child {
-    margin-top: 2rem;
-  }
-}
-
 form {
   @include flexCenter(column, center);
+}
+
+label {
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: color 0.3s ease;
 }
 
 textarea {
@@ -27,99 +18,10 @@ textarea {
   height: 15rem;
 
   &::-webkit-input-placeholder {
-    font-family: $secondary-font;
-  }
-}
-
-.form-field {
-  position: relative;
-  @include flexCenter(column-reverse, space-between, flex-start);
-  padding-bottom: 4rem;
-
-  i {
-    cursor: auto;
-    color: $primary-black;
-    position: absolute;
-    left: -55%;
-    top: 25%;
-    font-size: 1.8rem;
-    &.fa-envelope {
-      top: 5rem;
-      left: -10%;
-    }
-  }
-  & input {
-    transition: all 0.3s ease-in-out;
-    transition-property: opacity, border-bottom;
-    font-weight: bold;
-    outline: none;
-    background: none;
-    border: none;
-    border-bottom: 2px solid $secondary-gray;
-
-    &:focus {
-      border-bottom: 2px solid #000;
-    }
-
-    &:placeholder-shown + label {
-      cursor: text;
-      max-width: 78.66%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transform-origin: left bottom;
-      transform: translate(0, 2.125rem) scale(1.2);
-    }
-
-    &::-moz-placeholder {
-      opacity: 0;
-    }
-    &:focus::-moz-placeholder {
-      font-weight: initial;
-      opacity: 0.9;
-    }
-
-    // Placeholder's styles
-    &:focus::-webkit-input-placeholder {
-      font-weight: initial;
-      opacity: 0.9;
-    }
-
-    &:not(:placeholder-shown) + label,
-    &:focus + label {
-      transform: translate(0, 0) scale(1);
-      cursor: pointer;
-    }
+    font-family: var(--secondary-font);
   }
 
-  & label {
-    transition: transform 0.3s ease-in-out;
-    font-family: $secondary-font;
-    color: $secondary-black;
-  }
-}
-
-input::-webkit-input-placeholder {
-  opacity: 0;
-  transition: inherit;
-}
-
-.password-toggler {
-  position: absolute;
-  right: 0%;
-  top: 35%;
-}
-
-.recaptcha-container {
-  height: 11rem;
-  margin-bottom: calc(1rem + 2vw);
-}
-/*------------ Reponsive -----------*/
-@include respond-to("medium") {
-  .form_card {
-    width: 70rem;
-  }
-  textarea {
+  @include respond-to("medium") {
     width: 40rem;
     min-width: 40rem;
     max-width: 40rem;
@@ -127,22 +29,9 @@ input::-webkit-input-placeholder {
     min-height: 5rem;
     max-height: 30rem;
   }
-
-  .form-field {
-    & input {
-      margin-right: 24rem;
-    }
-
-    i {
-      left: -7%;
-      font-size: 1.8rem;
-    }
-  }
-
-  .recaptcha-container {
-    height: 7.4rem;
-    margin-bottom: 0;
-  }
 }
-@include respond-to("large") {
+
+input::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
 }

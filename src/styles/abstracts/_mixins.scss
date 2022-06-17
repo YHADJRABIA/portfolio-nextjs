@@ -1,4 +1,18 @@
-/*- Centred flex -*/
+$breakpoints: (
+  "medium": (
+    min-width: 768px,
+  ),
+  "large": (
+    min-width: 1024px,
+  ),
+  "huge": (
+    min-width: 1200px,
+  ),
+);
+
+$nav-height: 8rem;
+$footer-height: 10rem;
+
 @mixin flexCenter(
   $direction,
   $justify-content: space-evenly,

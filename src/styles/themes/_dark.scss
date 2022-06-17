@@ -1,83 +1,10 @@
-.dark-mode {
+.dark-theme {
   h2,
   h3 {
-    color: $primary-white;
+    color: var(--primary-white-color);
   }
 
   p {
-    color: $secondary-white;
-  }
-
-  /* --------------------------------- About ----------------------------------- */
-
-  .about-section {
-    background-color: $primary-black;
-  }
-
-  /* --------------------------------- Skills ----------------------------------- */
-
-  .skills-section {
-    background-color: $secondary-black;
-    .youtube-link {
-      color: $secondary-blue;
-    }
-    .skills-card-container {
-      .skill-card {
-        background-color: $secondary-black;
-
-        i {
-          color: $primary-gray;
-        }
-        &:hover {
-          background-color: $primary-white;
-          & i,
-          & p {
-            color: initial;
-          }
-        }
-      }
-    }
-  }
-
-  /* --------------------------------- Projects ----------------------------------- */
-  .projects-section {
-    background-color: $primary-black;
-    .projects-card-container {
-      .project-card {
-        background-color: $primary-black;
-        border: 1px solid $secondary-gray;
-      }
-
-      .project-link,
-      .project-repo {
-        i {
-          color: $secondary-white;
-          &:hover {
-            color: $primary-yellow;
-          }
-        }
-      }
-    }
-  }
-
-  /* --------------------------------- Contact ----------------------------------- */
-  .contact-section {
-    background-color: $secondary-black;
-  }
-  .form_card {
-    background-color: $primary-black;
-    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.05);
-    input {
-      color: $secondary-white;
-      &:focus {
-        border-bottom: 2px solid #fff;
-      }
-      &:focus::-webkit-input-placeholder {
-        color: $secondary-white;
-      }
-    }
-    label {
-      color: $secondary-white;
-    }
+    color: var(--secondary-white-color);
   }
 }

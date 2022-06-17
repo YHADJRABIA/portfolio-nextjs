@@ -1,0 +1,15 @@
+header {
+  @include flexCenter(column, space-between);
+  background-color: var(--primary-black-color);
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+footer {
+  @include flexCenter(column);
+  margin-top: -1rem;
+  background: var(--primary-black-color);
+  min-height: $footer-height;
+  color: var(--primary-white-color);
+  padding-bottom: 4rem;
+}
