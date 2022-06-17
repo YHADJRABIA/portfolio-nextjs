@@ -5,8 +5,8 @@ import About from "@/components/About"
 import Projects from "@/components/Projects/Projects"
 import Skills from "@/components/Skills/Skills"
 import Contact from "@/components/Contact"
-import Header from "@/components/Header/Header"
-import Nav from "@/components/Header/Nav"
+import Header from "@/components/Layout/Header"
+import Nav from "@/components/Layout/Nav"
 
 import cn from "classnames"
 
