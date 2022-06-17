@@ -1,5 +1,5 @@
 import { FC } from "react"
-import Footer from "@/components/Footer/Footer"
+import Footer from "@/components/Layout/Footer"
 
 // Global state management
 import ContextTree from "@/context/ContextTree"
