@@ -1,0 +1,7 @@
+.projectsSection {
+  background-color: var(--primary-gray-color);
+  .cardsContainer {
+    width: 95%;
+    @include flexCenter(row, center);
+  }
+}
