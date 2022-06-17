@@ -1,0 +1,125 @@
+.navItems {
+  background-color: var(--primary-black-color);
+  box-shadow: 0 4px 26px -1px rgb(255, 255, 255, 0.13),
+    0 2px 4px 1px rgb(255, 255, 255, 0.5);
+
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+  transition: all 0.3s ease-in;
+  transition-property: background-color, color;
+  height: $nav-height;
+  @include flexCenter(row, space-around);
+
+  & > * {
+    color: white;
+
+    &.active {
+      color: var(--primary-gray-color);
+    }
+  }
+
+  &.active {
+    background-color: var(--primary-blue-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Logo */
+.logo {
+  font-family: var(--secondary-font);
+  text-align: center;
+  font-size: 2rem;
+  &.active {
+    color: var(--primary-gray-color);
+  }
+}
+
+/* Content */
+.menu {
+  @include flexCenter(column, flex-start);
+  position: absolute;
+  top: $nav-height; // Height of nav
+  left: -120%;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  transition-property: left, opacity;
+  width: 100vw;
+  background-color: var(--black-background);
+
+  &.toggled {
+    box-shadow: 0 4px 26px -1px rgba(255, 255, 255, 0.13),
+      0 2px 4px 1px rgba(255, 255, 255, 0.5);
+    background-color: var(--black-background);
+    opacity: 1;
+    left: 0;
+    z-index: 999;
+
+    @include respond-to("medium") {
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+
+  // Language & Theme
+  li:last-child {
+    @include flexCenter(row, space-evenly, center);
+    width: 18rem;
+    margin: 1.5rem 0;
+  }
+
+  @include respond-to("medium") {
+    @include initialProperties;
+    flex-direction: row;
+    justify-content: flex-end;
+    opacity: 1;
+    background-color: initial;
+    width: 81%;
+
+    li a {
+      font-size: 1.8rem;
+    }
+  }
+
+  @include respond-to("large") {
+    li a {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+.links {
+  font-family: lobster;
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  width: 100vw;
+  display: table;
+  color: var(--primary-gray-color);
+  transition: 0.3s ease-out;
+  transition-property: background-color, color;
+  position: relative;
+
+  &:hover {
+    background-color: var(--secondary-blue-color);
+    color: var(--primary-gray-color);
+  }
+
+  @include respond-to("medium") {
+    transition: all 0.3s ease;
+    transition-property: border-radius, background-color, color, left;
+    width: initial;
+    &:hover {
+      border-radius: 0.4rem;
+    }
+    &.active {
+      color: var(--primary-gray-color);
+      &:hover {
+        background-color: transparent;
+        color: var(--primary-yellow-color);
+      }
+    }
+  }
+}

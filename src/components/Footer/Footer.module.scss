@@ -2,14 +2,6 @@
   margin-bottom: -1rem;
 }
 
-.footer {
-  @include flexCenter(column);
-  margin-top: -1rem;
-  background: var(--primary-black-color);
-  min-height: $footer-height;
-  color: var(--primary-white-color);
-  padding-bottom: 4rem;
-}
 .links {
   @include flexCenter(row, space-evenly, flex-start);
   width: 75%;
