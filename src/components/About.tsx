@@ -1,18 +1,18 @@
-import { FC } from "react"
-
-// Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "./InvisibleAnchor"
-import HoverImage from "./HoverImage"
+import HoverImage from "./UI/HoverImage"
 
-const About: FC = () => {
+import styles from "./About.module.scss"
+import SectionHeader from "./UI/SectionHeader"
+
+const About = () => {
   const { t } = useTranslation("common")
 
   return (
-    <section className="about-section">
+    <section className={styles.aboutSection}>
       <InvisibleAnchor id="about" />
-      <div className="about-photo-container">
+      <div className={styles.photoContainer}>
         <HoverImage
           src="/me-with-pysen.jpg"
           hoverSrc="/me.jpg"
@@ -25,12 +25,13 @@ const About: FC = () => {
           quality={60}
         />
       </div>
-      <div className="section-text-container">
-        <h2>{t("about.title")}</h2>
-        <p>
+
+      <SectionHeader
+        title={t("about.title")}
+        content={
           <Trans i18nKey="common:about.content" components={{ br: <br /> }} />
-        </p>
-      </div>
+        }
+      />
     </section>
   )
 }
