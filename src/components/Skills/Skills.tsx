@@ -2,7 +2,7 @@ import SkillCard from "./SkillCard"
 import { getAllSkills } from "@/data/skills"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "../InvisibleAnchor"
+import InvisibleAnchor from "../UI/InvisibleAnchor"
 import styles from "./Skills.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 

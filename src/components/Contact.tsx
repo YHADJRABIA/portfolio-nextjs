@@ -8,7 +8,7 @@ import { notify } from "@/utilities/notification"
 
 import axios from "axios" // API fetcher
 import useTranslation from "next-translate/useTranslation"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "./UI/InvisibleAnchor"
 
 import styles from "./Contact.module.scss"
 import Button from "./UI/Button"

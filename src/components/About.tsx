@@ -1,6 +1,6 @@
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "./UI/InvisibleAnchor"
 import HoverImage from "./UI/HoverImage"
 
 import styles from "./About.module.scss"
