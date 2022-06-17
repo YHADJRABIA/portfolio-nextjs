@@ -1,113 +1,136 @@
-.formCard {
-  position: relative;
-  background-color: var(--primary-gray-color);
-  transition: background-color 0.3s ease;
-  width: 95vw;
-  padding: 4rem 0;
-  border-radius: 5rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  @include flexCenter(column, center);
+.contactSection {
+  &.darkTheme {
+    background-color: var(--secondary-black-color);
 
-  & > :last-child {
-    margin-top: 2rem;
-    @include respond-to("medium") {
-      margin-top: 4rem;
+    .formCard {
+      background-color: var(--primary-black-color);
+      box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.05);
+      input {
+        color: var(--secondary-white-color);
+        &:focus {
+          border-bottom: 2px solid #fff;
+        }
+        &:focus::-webkit-input-placeholder {
+          color: var(--secondary-white-color);
+        }
+      }
+      label {
+        color: var(--secondary-white-color);
+      }
     }
   }
 
-  @include respond-to("medium") {
-    width: 70rem;
-  }
-}
+  .formCard {
+    position: relative;
+    background-color: var(--primary-gray-color);
+    transition: background-color 0.3s ease;
+    width: 95vw;
+    padding: 4rem 0;
+    border-radius: 5rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    @include flexCenter(column, center);
 
-.formField {
-  position: relative;
-  @include flexCenter(column-reverse, space-between, flex-start);
-  padding-bottom: 4rem;
-
-  i {
-    cursor: auto;
-    color: var(--primary-black-color);
-    position: absolute;
-    left: -55%;
-    top: 25%;
-    font-size: 1.8rem;
-    &.fa-envelope {
-      top: 5rem;
-      left: -10%;
+    & > :last-child {
+      margin-top: 2rem;
+      @include respond-to("medium") {
+        margin-top: 4rem;
+      }
     }
+
     @include respond-to("medium") {
-      left: -7%;
+      width: 70rem;
+    }
+  }
+
+  .formField {
+    position: relative;
+    @include flexCenter(column-reverse, space-between, flex-start);
+    padding-bottom: 4rem;
+
+    i {
+      cursor: auto;
+      color: var(--primary-black-color);
+      position: absolute;
+      left: -55%;
+      top: 25%;
       font-size: 1.8rem;
+      &.fa-envelope {
+        top: 5rem;
+        left: -10%;
+      }
+      @include respond-to("medium") {
+        left: -7%;
+        font-size: 1.8rem;
+      }
+    }
+    & input {
+      transition: all 0.3s ease-in-out;
+      transition-property: opacity, border-bottom;
+      font-weight: bold;
+      outline: none;
+      background: none;
+      border: none;
+      border-bottom: 2px solid var(--secondary-gray-color);
+
+      @include respond-to("medium") {
+        margin-right: 24rem;
+      }
+
+      &:focus {
+        border-bottom: 2px solid #000;
+      }
+
+      &:placeholder-shown + label {
+        cursor: text;
+        max-width: 78.66%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transform-origin: left bottom;
+        transform: translate(0, 2.125rem) scale(1.2);
+      }
+
+      &::-moz-placeholder {
+        opacity: 0;
+      }
+
+      &::-webkit-input-placeholder {
+        opacity: 0;
+        transition: inherit;
+      }
+
+      &:focus::-moz-placeholder {
+        font-weight: initial;
+        opacity: 0.9;
+      }
+
+      // Placeholder's styles
+      &:focus::-webkit-input-placeholder {
+        font-weight: initial;
+        opacity: 0.9;
+      }
+
+      &:not(:placeholder-shown) + label,
+      &:focus + label {
+        transform: translate(0, 0) scale(1);
+        cursor: pointer;
+      }
+    }
+
+    & label {
+      transition: transform 0.3s ease-in-out;
+      font-family: var(--secondary-font);
+      color: var(--secondary-black-color);
     }
   }
-  & input {
-    transition: all 0.3s ease-in-out;
-    transition-property: opacity, border-bottom;
-    font-weight: bold;
-    outline: none;
-    background: none;
-    border: none;
-    border-bottom: 2px solid var(--secondary-gray-color);
+
+  .recaptchaContainer {
+    height: 11rem;
+    margin-bottom: calc(1rem + 2vw);
 
     @include respond-to("medium") {
-      margin-right: 24rem;
+      height: 7.4rem;
+      margin-bottom: 0;
     }
-
-    &:focus {
-      border-bottom: 2px solid #000;
-    }
-
-    &:placeholder-shown + label {
-      cursor: text;
-      max-width: 78.66%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transform-origin: left bottom;
-      transform: translate(0, 2.125rem) scale(1.2);
-    }
-
-    &::-moz-placeholder {
-      opacity: 0;
-    }
-
-    &::-webkit-input-placeholder {
-      opacity: 0;
-      transition: inherit;
-    }
-
-    &:focus::-moz-placeholder {
-      font-weight: initial;
-      opacity: 0.9;
-    }
-
-    // Placeholder's styles
-    &:focus::-webkit-input-placeholder {
-      font-weight: initial;
-      opacity: 0.9;
-    }
-
-    &:not(:placeholder-shown) + label,
-    &:focus + label {
-      transform: translate(0, 0) scale(1);
-      cursor: pointer;
-    }
-  }
-
-  & label {
-    transition: transform 0.3s ease-in-out;
-    font-family: var(--secondary-font);
-    color: var(--secondary-black-color);
-  }
-}
-
-.recaptchaContainer {
-  height: 11rem;
-  margin-bottom: calc(1rem + 2vw);
-
-  @include respond-to("medium") {
-    height: 7.4rem;
-    margin-bottom: 0;
   }
 }

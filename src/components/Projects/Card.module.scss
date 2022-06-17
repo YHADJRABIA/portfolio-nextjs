@@ -16,6 +16,21 @@
     width: 48rem;
   }
 
+  &.darkTheme {
+    background-color: var(--primary-black-color);
+    border: 1px solid var(--secondary-gray-color);
+
+    .projectLink,
+    .projectRepo {
+      i {
+        color: var(--secondary-white-color);
+        &:hover {
+          color: var(--primary-yellow-color);
+        }
+      }
+    }
+  }
+
   .imageContainer {
     cursor: pointer;
     position: relative;

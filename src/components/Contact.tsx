@@ -13,10 +13,11 @@ import InvisibleAnchor from "./UI/InvisibleAnchor"
 import styles from "./Contact.module.scss"
 import Button from "./UI/Button"
 import SectionHeader from "./UI/SectionHeader"
+import cn from "classnames"
 
 const Contact = () => {
   const { t } = useTranslation("common")
-  const { darkMode } = useContext(ThemeContext)
+  const { darkTheme } = useContext(ThemeContext)
   const [mobile, setMobile] = useState<boolean | null>(null)
   const { locale } = useRouter()
   const [key, setKey] = useState(0)
@@ -27,7 +28,7 @@ const Contact = () => {
   // Forcing re-mount of reCAPTCHA when language is switched or when view is shrunk
   useEffect(() => {
     setKey(key + 1)
-  }, [locale, darkMode, mobile])
+  }, [locale, darkTheme, mobile])
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
@@ -83,7 +84,9 @@ const Contact = () => {
   }
 
   return (
-    <section className={styles.contactSection}>
+    <section
+      className={cn(styles.contactSection, { [styles.darkTheme]: darkTheme })}
+    >
       <InvisibleAnchor id="contact" />
       <SectionHeader
         title={t("contact.title")}
@@ -126,7 +129,7 @@ const Contact = () => {
         <div className={styles.recaptchaContainer}>
           <ReCAPTCHA
             size={!mobile ? "normal" : "compact"}
-            theme={!darkMode ? "light" : "dark"}
+            theme={!darkTheme ? "light" : "dark"}
             key={key}
             sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_CLIENT}
             ref={reCaptchaRef}

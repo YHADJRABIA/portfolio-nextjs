@@ -5,12 +5,19 @@ import HoverImage from "./UI/HoverImage"
 
 import styles from "./About.module.scss"
 import SectionHeader from "./UI/SectionHeader"
+import { useContext } from "react"
+import { ThemeContext } from "@/context/ThemeContext"
+import cn from "classnames"
 
 const About = () => {
   const { t } = useTranslation("common")
 
+  const { darkTheme } = useContext(ThemeContext)
+
   return (
-    <section className={styles.aboutSection}>
+    <section
+      className={cn(styles.aboutSection, { [styles.darkTheme]: darkTheme })}
+    >
       <InvisibleAnchor id="about" />
       <div className={styles.photoContainer}>
         <HoverImage

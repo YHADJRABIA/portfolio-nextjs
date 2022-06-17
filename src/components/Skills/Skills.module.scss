@@ -1,15 +1,21 @@
-.cardsContainer {
-  .skillsList {
-    margin: auto;
-    @include flexCenter(row, center);
-    width: 95%;
+.skillsSection {
+  &.darkTheme {
+    background-color: var(--secondary-black-color);
+  }
 
-    @include respond-to("large") {
-      width: 75%;
-    }
+  .cardsContainer {
+    .skillsList {
+      margin: auto;
+      @include flexCenter(row, center);
+      width: 95%;
 
-    i {
-      font-size: 5rem;
+      @include respond-to("large") {
+        width: 75%;
+      }
+
+      i {
+        font-size: 5rem;
+      }
     }
   }
 }

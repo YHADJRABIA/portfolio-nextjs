@@ -1,4 +1,4 @@
-import { FC, useContext } from "react"
+import { useContext } from "react"
 import { useRouter } from "next/router"
 
 import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
@@ -20,12 +20,12 @@ interface PropTypes {
 }
 
 const FooterSeparator = ({ color }: PropTypes) => {
-  const { darkMode } = useContext(ThemeContext)
+  const { darkTheme } = useContext(ThemeContext)
   return (
     <svg
       className={styles.separatorSvg}
       style={{
-        backgroundColor: !darkMode ? color : "var(--secondary-black-color)",
+        backgroundColor: !darkTheme ? color : "var(--secondary-black-color)",
       }}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1440 320"

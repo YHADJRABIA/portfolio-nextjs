@@ -1,23 +1,26 @@
-import { SVGProps } from "react"
+import { ThemeContext } from "@/context/ThemeContext"
+import { SVGProps, useContext } from "react"
 
 interface PropTypes extends SVGProps<SVGSVGElement> {
-  darkMode: boolean
   direction?: "down" | "up"
 }
 
-const SeparatorSVG = ({ direction, darkMode, ...rest }: PropTypes) => {
+const SeparatorSVG = ({ direction, ...rest }: PropTypes) => {
+  const { darkTheme } = useContext(ThemeContext)
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       style={{
-        backgroundColor: !darkMode ? "" : "var(--secondary-black-color)",
+        backgroundColor: !darkTheme ? "" : "var(--secondary-black-color)",
       }}
       viewBox="0 0 1440 320"
       {...rest}
     >
       <path
         fill={
-          !darkMode ? "var(--primary-gray-color)" : "var(--primary-black-color)"
+          !darkTheme
+            ? "var(--primary-gray-color)"
+            : "var(--primary-black-color)"
         }
         fillOpacity="1"
         d={
