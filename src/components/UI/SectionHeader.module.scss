@@ -3,14 +3,15 @@
   width: 80%;
   & > p {
     margin-top: 4rem;
-    &:not(.content) {
-      text-align: left;
-    }
   }
 
   & a {
-    &:hover {
-      color: blue;
-    }
+    font-size: 1.8rem;
+    font-family: var(--secondary-font);
+    color: blue;
+  }
+
+  @include respond-to("large") {
+    width: 55%;
   }
 }

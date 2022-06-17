@@ -88,6 +88,7 @@ const Contact = () => {
       <SectionHeader
         title={t("contact.title")}
         content={t("contact.content")}
+        textAlign="center"
       />
 
       <form
