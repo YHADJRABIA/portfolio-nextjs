@@ -1,7 +1,7 @@
-import { FC, useState, useRef, useEffect, useContext } from "react"
+import { useState, useRef, useEffect, useContext } from "react"
 import { useRouter } from "next/router"
 import { ThemeContext } from "@/context/ThemeContext"
-import Animation from "./Animation"
+import Loader from "./UI/Loader"
 import { isEmpty, isEmail } from "@/utilities/formValidator"
 import ReCAPTCHA from "react-google-recaptcha"
 import { notify } from "@/utilities/notification"
@@ -12,8 +12,9 @@ import InvisibleAnchor from "./InvisibleAnchor"
 
 import styles from "./Contact.module.scss"
 import Button from "./UI/Button"
+import SectionHeader from "./UI/SectionHeader"
 
-const Contact: FC = () => {
+const Contact = () => {
   const { t } = useTranslation("common")
   const { darkMode } = useContext(ThemeContext)
   const [mobile, setMobile] = useState<boolean | null>(null)
@@ -84,10 +85,10 @@ const Contact: FC = () => {
   return (
     <section className={styles.contactSection}>
       <InvisibleAnchor id="contact" />
-      <div className={styles.contactHeader}>
-        <h2>{t("contact.title")}</h2>
-        <p className={styles.content}>{t("contact.content")}</p>
-      </div>
+      <SectionHeader
+        title={t("contact.title")}
+        content={t("contact.content")}
+      />
 
       <form
         method="post"
@@ -140,7 +141,7 @@ const Contact: FC = () => {
           testId="submit-contact-form"
           disabled={loading}
         >
-          {!loading ? t("contact.submit") : <Animation />}
+          {!loading ? t("contact.submit") : <Loader />}
         </Button>
       </form>
     </section>
