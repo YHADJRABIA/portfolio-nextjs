@@ -20,7 +20,7 @@ import SEO from "@/components/SEO/SEO"
 const HomePage: NextPage = () => {
   const { t } = useTranslation("meta")
 
-  const { darkMode } = useContext(ThemeContext)
+  const { darkTheme } = useContext(ThemeContext)
 
   return (
     <>
@@ -59,13 +59,13 @@ const HomePage: NextPage = () => {
 
       <Header />
       <Nav />
-      <main className={cn({ "dark-mode": darkMode })}>
+      <main className={cn({ "dark-theme": darkTheme })}>
         <About />
-        <SeparatorSVG darkMode={darkMode} direction="down" />
+        <SeparatorSVG direction="down" />
         <Skills />
-        <SeparatorSVG darkMode={darkMode} direction="up" />
+        <SeparatorSVG direction="up" />
         <Projects />
-        <SeparatorSVG darkMode={darkMode} direction="down" />
+        <SeparatorSVG direction="down" />
         <Contact />
       </main>
     </>

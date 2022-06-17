@@ -1,7 +1,10 @@
+import { ThemeContext } from "@/context/ThemeContext"
 import Image from "next/image"
 import Link from "next/link"
+import { useContext } from "react"
 
 import styles from "./Card.module.scss"
+import cn from "classnames"
 
 interface PropTypes {
   name: string
@@ -14,8 +17,9 @@ interface PropTypes {
 }
 
 const Card = ({ name, img, url, description, repo, slug }: PropTypes) => {
+  const { darkTheme } = useContext(ThemeContext)
   return (
-    <li className={styles.card}>
+    <li className={cn(styles.card, { [styles.darkTheme]: darkTheme })}>
       <Link href={`/projects/${slug}`} passHref>
         <a title={name}>
           <div className={styles.imageContainer}>

@@ -6,14 +6,19 @@ import InvisibleAnchor from "../UI/InvisibleAnchor"
 import { Project } from "@/types/projects"
 import styles from "./Projects.module.scss"
 import SectionHeader from "../UI/SectionHeader"
+import { useContext } from "react"
+import { ThemeContext } from "@/context/ThemeContext"
+import cn from "classnames"
 
 const Projects = () => {
   const { t } = useTranslation("common")
-
+  const { darkTheme } = useContext(ThemeContext)
   const projects = getAllProjects()
 
   return (
-    <section className={styles.projectsSection}>
+    <section
+      className={cn(styles.projectsSection, { [styles.darkTheme]: darkTheme })}
+    >
       <InvisibleAnchor id="projects" />
       <SectionHeader
         title={t("portfolio.title")}

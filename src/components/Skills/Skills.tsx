@@ -5,12 +5,18 @@ import Trans from "next-translate/Trans"
 import InvisibleAnchor from "../UI/InvisibleAnchor"
 import styles from "./Skills.module.scss"
 import SectionHeader from "../UI/SectionHeader"
+import cn from "classnames"
+import { ThemeContext } from "@/context/ThemeContext"
+import { useContext } from "react"
 
 const Skills = () => {
   const { t } = useTranslation("common")
+  const { darkTheme } = useContext(ThemeContext)
   const skills = getAllSkills()
   return (
-    <section className={styles.skillsSection}>
+    <section
+      className={cn(styles.skillsSection, { [styles.darkTheme]: darkTheme })}
+    >
       <InvisibleAnchor id="skills" />
       <SectionHeader
         title={t("skills.title")}

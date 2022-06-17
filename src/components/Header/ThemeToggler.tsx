@@ -1,19 +1,19 @@
-import { FC, useContext } from "react"
+import { useContext } from "react"
 import { ThemeContext } from "@/context/ThemeContext"
 import useTranslation from "next-translate/useTranslation"
 import styles from "./ThemeToggler.module.scss"
 
-const ThemeToggler: FC = () => {
-  const { darkMode, toggleDarkMode } = useContext(ThemeContext)
+const ThemeToggler = () => {
+  const { darkTheme, toggleDarkTheme } = useContext(ThemeContext)
   const { t } = useTranslation("common")
 
   return (
     <div className={styles.themeToggler}>
       <i
-        className={`fas ${darkMode ? "fa-sun" : "fa-moon"}`}
-        data-testid="dark-mode"
+        className={`fas ${darkTheme ? "fa-sun" : "fa-moon"}`}
+        data-testid="dark-theme"
         title={t("navNames.theme")}
-        onClick={toggleDarkMode}
+        onClick={toggleDarkTheme}
       ></i>
     </div>
   )
