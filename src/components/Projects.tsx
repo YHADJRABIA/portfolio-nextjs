@@ -5,7 +5,7 @@ import { getAllProjects } from "@/data/projects"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "./UI/InvisibleAnchor"
 import { Project } from "@/types/projects"
 
 const Projects: FC = () => {
