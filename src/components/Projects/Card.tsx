@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import styles from "./Card.module.scss"
+
 interface PropTypes {
   name: string
   img: string
@@ -11,19 +13,12 @@ interface PropTypes {
   id?: number
 }
 
-const ProjectCard = ({
-  name,
-  img,
-  url,
-  description,
-  repo,
-  slug,
-}: PropTypes) => {
+const Card = ({ name, img, url, description, repo, slug }: PropTypes) => {
   return (
-    <li className="project-card">
+    <li className={styles.card}>
       <Link href={`/projects/${slug}`} passHref>
         <a title={name}>
-          <div className="project-card-image">
+          <div className={styles.imageContainer}>
             <Image
               src={img}
               alt={name}
@@ -36,18 +31,18 @@ const ProjectCard = ({
             />
           </div>
 
-          <div className="project-card-text">
+          <div className={styles.cardContent}>
             <h3>{name}</h3>
-            <div className="project-description">
+            <div className={styles.cardDescription}>
               <p className="ow">{description}</p>
             </div>
           </div>
         </a>
       </Link>
 
-      <div className="project-card-footer">
+      <div className={styles.cardFooter}>
         {url && (
-          <div className="project-link">
+          <div className={styles.projectLink}>
             <Link href={url} passHref>
               <a title={url}>
                 <i className="fas fa-link"></i>
@@ -56,7 +51,7 @@ const ProjectCard = ({
           </div>
         )}
         {repo && (
-          <div className="project-repo">
+          <div className={styles.projectRepo}>
             <Link href={repo} passHref>
               <a title={repo}>
                 <i className="fab fa-github"></i>
@@ -69,4 +64,4 @@ const ProjectCard = ({
   )
 }
 
-export default ProjectCard
+export default Card

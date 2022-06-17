@@ -1,11 +1,11 @@
-import styles from "./SkillCard.module.scss"
+import styles from "./Card.module.scss"
 
 interface PropTypes {
   name: string
   icon: string
 }
 
-const SkillCard = ({ name, icon }: PropTypes) => {
+const Card = ({ name, icon }: PropTypes) => {
   return (
     <li title={name} className={styles.skillCard}>
       <i className={icon}></i>
@@ -14,4 +14,4 @@ const SkillCard = ({ name, icon }: PropTypes) => {
   )
 }
 
-export default SkillCard
+export default Card

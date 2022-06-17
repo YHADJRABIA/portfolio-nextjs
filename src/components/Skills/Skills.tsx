@@ -1,4 +1,4 @@
-import SkillCard from "./SkillCard"
+import Card from "./Card"
 import { getAllSkills } from "@/data/skills"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
@@ -34,7 +34,7 @@ const Skills = () => {
       <div className={styles.cardsContainer}>
         <ul className={styles.skillsList} data-testid="skills-list">
           {skills.map((skill, id) => (
-            <SkillCard key={id} name={skill.name} icon={skill.icon} />
+            <Card key={id} name={skill.name} icon={skill.icon} />
           ))}
         </ul>
       </div>

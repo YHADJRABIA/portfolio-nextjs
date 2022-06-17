@@ -1,24 +1,23 @@
-import { FC } from "react"
-import ProjectCard from "./ProjectCard"
+import Card from "./Card"
 import { getAllProjects } from "@/data/projects"
-
-// Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./UI/InvisibleAnchor"
+import InvisibleAnchor from "../UI/InvisibleAnchor"
 import { Project } from "@/types/projects"
+import styles from "./Projects.module.scss"
+import SectionHeader from "../UI/SectionHeader"
 
-const Projects: FC = () => {
+const Projects = () => {
   const { t } = useTranslation("common")
 
   const projects = getAllProjects()
 
   return (
-    <section className="projects-section">
+    <section className={styles.projectsSection}>
       <InvisibleAnchor id="projects" />
-      <div className="section-text-container">
-        <h2>{t("portfolio.title")}</h2>
-        <p>
+      <SectionHeader
+        title={t("portfolio.title")}
+        content={
           <Trans
             i18nKey="common:portfolio.content"
             components={{
@@ -32,11 +31,12 @@ const Projects: FC = () => {
               ),
             }}
           />
-        </p>
-      </div>
-      <ul className="projects-card-container">
+        }
+      />
+
+      <ul className={styles.cardsContainer}>
         {projects.map((project: Project, id: number) => (
-          <ProjectCard
+          <Card
             key={id}
             name={project.name}
             img={project.img}
