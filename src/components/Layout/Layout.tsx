@@ -1,15 +1,22 @@
-import { FC } from "react"
+import { ReactNode, useContext } from "react"
 import Footer from "@/components/Layout/Footer"
 
-// Global state management
-import ContextTree from "@/context/ContextTree"
+import cn from "classnames"
+import { ThemeContext } from "@/context/ThemeContext"
+import Nav from "./Nav"
 
-const Layout: FC = ({ children }) => {
+interface PropTypes {
+  children: ReactNode
+}
+
+const Layout = ({ children }: PropTypes) => {
+  const { darkTheme } = useContext(ThemeContext)
   return (
-    <ContextTree>
-      <main>{children}</main>
+    <>
+      <Nav />
+      <main className={cn({ "dark-theme": darkTheme })}>{children}</main>
       <Footer color="white" />
-    </ContextTree>
+    </>
   )
 }
 
