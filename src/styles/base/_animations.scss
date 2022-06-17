@@ -18,7 +18,7 @@
   position: absolute;
   width: 0.6rem;
   height: 0.6rem;
-  background: $primary-black;
+  background: var(--primary-black-color);
   border-radius: 50%;
   animation: lds-default 1.2s linear infinite;
 }
