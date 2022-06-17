@@ -24,7 +24,7 @@ const projects = [
     name: "Portfolio",
     img: "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633021468/projects/NextTS_ro8ecm.png",
     description:
-      "Current website with lazy-loading images, internationalisation and SEO emphasis and end-to-end testing with Cypress.",
+      "Current website with lazy-loading images, internationalisation, SEO emphasis and end-to-end testing with Cypress.",
     repo: "https://github.com/YHADJRABIA/portfolio-nextjs",
     tags: [
       "nextjs",
