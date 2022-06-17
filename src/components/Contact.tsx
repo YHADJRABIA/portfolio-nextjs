@@ -1,24 +1,17 @@
 import { FC, useState, useRef, useEffect, useContext } from "react"
 import { useRouter } from "next/router"
-
-// Global state management
 import { ThemeContext } from "@/context/ThemeContext"
-
-// Components
 import Animation from "./Animation"
-
-// Validators
 import { isEmpty, isEmail } from "@/utilities/formValidator"
 import ReCAPTCHA from "react-google-recaptcha"
-
-// Notifications
 import { notify } from "@/utilities/notification"
 
 import axios from "axios" // API fetcher
-
-// Translation
 import useTranslation from "next-translate/useTranslation"
 import InvisibleAnchor from "./InvisibleAnchor"
+
+import styles from "./Contact.module.scss"
+import Button from "./UI/Button"
 
 const Contact: FC = () => {
   const { t } = useTranslation("common")
@@ -89,20 +82,20 @@ const Contact: FC = () => {
   }
 
   return (
-    <section className="contact-section">
+    <section className={styles.contactSection}>
       <InvisibleAnchor id="contact" />
-      <div className="section-text-container">
+      <div className={styles.contactHeader}>
         <h2>{t("contact.title")}</h2>
-        <p className="contact-content">{t("contact.content")}</p>
+        <p className={styles.content}>{t("contact.content")}</p>
       </div>
 
       <form
         method="post"
         onSubmit={handleOnSubmit}
         noValidate
-        className="form_card"
+        className={styles.formCard}
       >
-        <div className="form-field">
+        <div className={styles.formField}>
           <input
             placeholder={t("contact.johnSmith")}
             type="text"
@@ -111,7 +104,7 @@ const Contact: FC = () => {
           />
           <label htmlFor="name">{t("contact.name")}</label>
         </div>
-        <div className="form-field">
+        <div className={styles.formField}>
           <input
             placeholder="email@domain.com"
             type="email"
@@ -120,7 +113,7 @@ const Contact: FC = () => {
           />
           <label htmlFor="email">{t("contact.email")}</label>
         </div>
-        <div className="form-field">
+        <div className={styles.formField}>
           <textarea
             placeholder={t("contact.placeholder")}
             name="message"
@@ -128,7 +121,7 @@ const Contact: FC = () => {
           ></textarea>
         </div>
 
-        <div className="recaptcha-container">
+        <div className={styles.recaptchaContainer}>
           <ReCAPTCHA
             size={!mobile ? "normal" : "compact"}
             theme={!darkMode ? "light" : "dark"}
@@ -142,13 +135,13 @@ const Contact: FC = () => {
           />
         </div>
 
-        <button
-          className="btn btn-primary"
-          data-testid="submit-contact-form"
+        <Button
+          variation="primary"
+          testId="submit-contact-form"
           disabled={loading}
         >
           {!loading ? t("contact.submit") : <Animation />}
-        </button>
+        </Button>
       </form>
     </section>
   )
