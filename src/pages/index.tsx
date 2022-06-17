@@ -1,10 +1,6 @@
 import { useContext } from "react"
 import type { NextPage } from "next"
-
-// Next tags
-import Head from "next/head" // For better SEO
-
-// Components
+import Head from "next/head"
 import About from "@/components/About"
 import Projects from "@/components/Projects/Projects"
 import Skills from "@/components/Skills/Skills"
@@ -14,13 +10,12 @@ import Nav from "@/components/Header/Nav"
 
 import cn from "classnames"
 
-// Theme
 import { ThemeContext } from "@/context/ThemeContext"
 
-// SVG
 import SeparatorSVG from "@/svgs/SeparatorSVG" // Wave separating sections
 
 import useTranslation from "next-translate/useTranslation" // Translation
+import SEO from "@/components/SEO/SEO"
 
 const HomePage: NextPage = () => {
   const { t } = useTranslation("meta")
@@ -30,25 +25,13 @@ const HomePage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{t("title")}</title>
-        <meta name="description" content={t("description")} />
-        <meta
-          name="keywords"
-          content="Yacine Hadj Rabia, portfolio, ReactJS, NodeJS, NextJS, TypeScript, JavaScript, Sass"
+        <SEO
+          title={t("title")}
+          description={t("description")}
+          keywords="Yacine Hadj Rabia, portfolio, ReactJS, NodeJS, NextJS, TypeScript, JavaScript, Sass"
+          ogTitle={t("title")}
+          ogDescription={t("description")}
         />
-        <meta name="author" content="Yacine Hadj Rabia" />
-
-        {/* Open Graph */}
-
-        <meta property="og:title" content={t("title")} />
-        <meta property="og:description" content={t("description")} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/yhr-mern-app/image/upload/v1633269542/projects/N%C3%A4kten_qg7vym.jpg"
-        />
-        <meta property="og:url" content="https://yhadjrabia.vercel.app/" />
-
         {/* Icons */}
         <link rel="icon" href="/favicon.ico" />
         <link
