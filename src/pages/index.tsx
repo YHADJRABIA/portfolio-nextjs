@@ -7,7 +7,7 @@ import Head from "next/head" // For better SEO
 // Components
 import About from "@/components/About"
 import Projects from "@/components/Projects"
-import Skills from "@/components/Skills"
+import Skills from "@/components/Skills/Skills"
 import Contact from "@/components/Contact"
 import Header from "@/components/Header/Header"
 import Nav from "@/components/Header/Nav"

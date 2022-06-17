@@ -1,0 +1,28 @@
+.skillCard {
+  cursor: pointer;
+  min-width: 10rem;
+  min-height: 8rem;
+  border-radius: 15%;
+  margin: 2rem;
+  padding: 1rem 0;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.15);
+  background-color: var(--primary-gray-color);
+  border: 1px solid var(--secondary-gray-color);
+  transition: all 0.5s ease;
+  transition-property: transform color;
+
+  p {
+    margin-top: 5%;
+    font-weight: bold;
+    font-family: var(--primary-font);
+  }
+
+  &:hover {
+    transform: translateY(-20%);
+    background-color: var(--primary-blue-color);
+    & i,
+    & p {
+      color: var(--primary-gray-color);
+    }
+  }
+}

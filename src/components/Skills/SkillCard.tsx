@@ -1,3 +1,5 @@
+import styles from "./SkillCard.module.scss"
+
 interface PropTypes {
   name: string
   icon: string
@@ -5,7 +7,7 @@ interface PropTypes {
 
 const SkillCard = ({ name, icon }: PropTypes) => {
   return (
-    <li title={name} className="skill-card">
+    <li title={name} className={styles.skillCard}>
       <i className={icon}></i>
       <p>{name}</p>
     </li>
