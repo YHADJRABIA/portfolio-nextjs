@@ -1,28 +1,26 @@
-import { FC } from "react"
 import SkillCard from "./SkillCard"
 import { getAllSkills } from "@/data/skills"
-
-// Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "../InvisibleAnchor"
+import styles from "./Skills.module.scss"
+import SectionHeader from "../UI/SectionHeader"
 
-const Skills: FC = () => {
+const Skills = () => {
   const { t } = useTranslation("common")
   const skills = getAllSkills()
   return (
-    <section className="skills-section">
+    <section className={styles.skillsSection}>
       <InvisibleAnchor id="skills" />
-      <div className="section-text-container">
-        <h2>{t("skills.title")}</h2>
-        <p>
+      <SectionHeader
+        title={t("skills.title")}
+        content={
           <Trans
             i18nKey="common:skills.content"
             components={{
               br: <br />,
               a: (
                 <a
-                  className="youtube-link"
                   href="https://www.youtube.com/watch?v=epVV7hEaQkQ"
                   title="YouTube"
                   target="blank"
@@ -30,10 +28,11 @@ const Skills: FC = () => {
               ),
             }}
           />
-        </p>
-      </div>
-      <div className="skills-card-container">
-        <ul className="skills-list" data-testid="skills-list">
+        }
+      />
+
+      <div className={styles.cardsContainer}>
+        <ul className={styles.skillsList} data-testid="skills-list">
           {skills.map((skill, id) => (
             <SkillCard key={id} name={skill.name} icon={skill.icon} />
           ))}
