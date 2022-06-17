@@ -1,7 +1,9 @@
 import { useRouter } from "next/router"
 import Image from "next/image"
 
-import useTranslation from "next-translate/useTranslation" // Translation
+import useTranslation from "next-translate/useTranslation"
+
+import styles from "./LanguageSwitch.module.scss"
 
 import Select, {
   components,
@@ -21,7 +23,7 @@ interface PropTypes {
 const Flag = ({ title, flag }: FlagProps) => {
   return (
     <Image
-      className="flag-img"
+      className={styles.flagImg}
       alt={title}
       title={title}
       src={`https://flagcdn.com/w40/${flag}.png`}
@@ -142,7 +144,7 @@ const LanguageSwitch = ({ setToggled }: PropTypes) => {
   return (
     <Select
       instanceId="long-value-select"
-      className="language-container"
+      className={styles.languageContainer}
       options={options?.filter(option => option.value !== locale)} // Filters out current flag
       defaultValue={locale}
       placeholder={<Flag flag={currentFlag?.flag} title={currentFlag?.title} />}

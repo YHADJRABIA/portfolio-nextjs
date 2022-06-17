@@ -45,7 +45,7 @@ const Footer = ({ color }: PropTypes) => {
   return (
     <>
       <FooterSeparator color={color} />
-      <footer className={styles.footer}>
+      <footer>
         <address className={styles.links}>
           {links.map((link, id) => (
             <a href={link.path} title={link.name} key={id} target="blank">

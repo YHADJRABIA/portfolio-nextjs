@@ -1,0 +1,13 @@
+.flagImg {
+  border: 1px solid rgba(128, 127, 126, 0.4) !important;
+}
+
+.languageContainer {
+  > div {
+    border-color: transparent;
+  }
+
+  @include respond-to("medium") {
+    margin-left: 3rem;
+  }
+}

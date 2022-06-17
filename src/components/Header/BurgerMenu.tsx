@@ -1,5 +1,6 @@
 import { SetStateAction, FC, Dispatch, useEffect } from "react"
 import cn from "classnames"
+import styles from "./BurgerMenu.module.scss"
 
 interface PropTypes {
   toggled: boolean
@@ -28,7 +29,7 @@ const BurgerMenu: FC<PropTypes> = ({ toggled, setToggled, navbar }) => {
 
   return (
     <div
-      className={cn("burger-icon", { "burger-toggled": toggled })}
+      className={cn(styles.icon, { [styles.toggled]: toggled })}
       onClick={toggleMenu}
       data-testid="burger-menu"
       aria-label="Menu"
@@ -36,10 +37,7 @@ const BurgerMenu: FC<PropTypes> = ({ toggled, setToggled, navbar }) => {
       aria-controls="navigation"
     >
       {[1, 2, 3].map(i => (
-        <div
-          className={cn(`burger-line-${i}`, { active: navbar })}
-          key={i}
-        ></div>
+        <div className={cn(styles.line, { active: navbar })} key={i}></div>
       ))}
     </div>
   )

@@ -1,5 +1,14 @@
+$special-font: "Permanent Marker";
+$regular-font: "Poppins", sans-serif;
+$primary-font: "Oswald";
+$secondary-font: "Lobster";
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $regular-font, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 /* Responsive calibration — 1rem = 10px */
 html {
@@ -7,6 +16,7 @@ html {
   position: relative;
   height: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html,
@@ -15,9 +25,86 @@ body {
   margin: 0;
 }
 
+main {
+  @include flexCenter(column);
+}
+
+label {
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+i {
+  cursor: pointer;
+  font-size: 3.2rem;
+  transition: all 0.3s ease;
+}
+
+img {
+  cursor: pointer;
+}
+
+a {
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+small {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
 ul,
 ol {
   list-style: none;
+}
+
+/* Fonts */
+h1 {
+  font-size: 4rem;
+  letter-spacing: 0.8rem;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: $secondary-font;
+  transition: color 0.3s ease;
+}
+
+h3 {
+  font-size: 2.2rem;
+  transition: color 0.3s ease;
+}
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.8rem;
+  font-family: $primary-font;
+}
+
+p {
+  font-size: 1.7rem;
+  color: var(--secondary-black-color);
+  transition: color 0.3s ease;
+}
+
+/* Various */
+
+span {
+  letter-spacing: 0.1rem;
+  color: var(--primary-yellow-color);
+  font-family: $secondary-font;
+}
+
+em {
+  font-family: $primary-font;
+  font-style: normal;
+  color: var(--primary-yellow-color);
 }
 
 :root {
@@ -46,4 +133,77 @@ ol {
 
   // Gradients
   --black-linear-gradient: linear-gradient(315deg, #000000 0%, #414141 74%);
+
+  // Fonts
+  --regular-font: "Poppins", sans-serif;
+  --primary-font: "Oswald", sans-serif;
+  --secondary-font: "Lobster", sans-serif;
+  --special-font: "Permanent Marker", cursive;
+}
+
+.Toastify__toast-body {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.Toastify__toast-container--top-left,
+.Toastify__toast-container--top-right,
+.Toastify__toast-container--top-center {
+  top: $nav-height + 1rem;
+}
+
+section {
+  @include flexCenter(column);
+  text-align: center;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+form {
+  @include flexCenter(column, center);
+}
+
+textarea {
+  outline: none;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  width: 28rem;
+  min-width: 28rem;
+  max-width: 28rem;
+  height: 15rem;
+
+  &::-webkit-input-placeholder {
+    font-family: var(--secondary-font);
+  }
+
+  @include respond-to("medium") {
+    width: 40rem;
+    min-width: 40rem;
+    max-width: 40rem;
+    height: 15rem;
+    min-height: 5rem;
+    max-height: 30rem;
+  }
+}
+
+header {
+  @include flexCenter(column, space-between);
+  background-color: var(--primary-black-color);
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+footer {
+  @include flexCenter(column);
+  margin-top: -1rem;
+  background: var(--primary-black-color);
+  min-height: $footer-height;
+  color: var(--primary-white-color);
+  padding-bottom: 4rem;
+}
+
+.particles-container {
+  position: relative;
+  height: 90rem;
 }
