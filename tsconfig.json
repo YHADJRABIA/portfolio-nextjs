@@ -24,7 +24,7 @@
     "**/*.tsx",
     "**/*.d.ts",
     "**/*.js",
-    "src/components/Header/ParticleConfig.jsx"
+    "src/components/Hero/ParticleConfig.jsx"
   ],
   "exclude": ["node_modules"]
 }

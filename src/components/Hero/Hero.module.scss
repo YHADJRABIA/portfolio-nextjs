@@ -1,7 +1,9 @@
 .container {
-  width: 100vw;
-  min-height: 101vh;
   position: relative;
+  @include flexCenter(column, space-between);
+  background-color: var(--primary-black-color);
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 .content {
