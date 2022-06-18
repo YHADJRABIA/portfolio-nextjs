@@ -1,5 +1,5 @@
 import { ThemeContext } from "@/context/ThemeContext"
-import Image from "next/image"
+import { Image, ResponsiveImageType } from "react-datocms"
 import Link from "next/link"
 import { useContext } from "react"
 
@@ -9,30 +9,21 @@ import useTranslation from "next-translate/useTranslation"
 
 interface PropTypes {
   name: string
-  img: string
+  img: { responsiveImage: ResponsiveImageType }
   slug: string
   url?: string
   repo?: string
-  id?: number
 }
 
 const Card = ({ name, img, url, repo, slug }: PropTypes) => {
   const { darkTheme } = useContext(ThemeContext)
   const { t } = useTranslation("project")
+
   return (
     <li className={cn(styles.card, { [styles.darkTheme]: darkTheme })}>
       <Link href={`/projects/${slug}`} passHref>
         <a className={styles.imageContainer} title={name}>
-          <Image
-            src={img}
-            alt={name}
-            title={name}
-            width={250}
-            height={250}
-            objectFit="cover"
-            quality={60}
-            layout="responsive"
-          />
+          <Image data={img.responsiveImage} />
         </a>
       </Link>
       <h3 className={styles.projectName}>{name}</h3>
