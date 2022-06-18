@@ -1,12 +1,12 @@
 import { Project } from "@/types/models/projects"
 
 export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects {
-  allProjects {
+  allProjects(orderBy: [createdAt_ASC]) {
     name
     description
     image {
       responsiveImage(
-        imgixParams: { fit: crop, w: 300, h: 300, auto: format }
+        imgixParams: { fit: crop, w: "500", h: "500", auto: format }
       ) {
         width
         webpSrcSet
