@@ -1,9 +1,14 @@
 import { getAllSlugs, getProjectBySlug } from "@/data/projects"
+import { getIconBySlug } from "@/data/skills"
 import { Locale } from "@/types/locales"
 import { Project } from "@/types/projects"
 import { NextPage } from "next"
+import cn from "classnames"
+import useTranslation from "next-translate/useTranslation"
 
 import styles from "./[slug].module.scss"
+import { ThemeContext } from "@/context/ThemeContext"
+import { useContext } from "react"
 
 interface PropTypes {
   project: Project
@@ -18,7 +23,42 @@ interface ParamsTypes {
 }
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
-  return <h1 className={styles.title}>{project.name}</h1>
+  const { t } = useTranslation("project")
+  const skills = project.tags
+  const { darkTheme } = useContext(ThemeContext)
+
+  const icons = skills.map(skill => getIconBySlug(skill)?.icon ?? "")
+
+  return (
+    <section
+      className={cn(styles.projectPage, {
+        [styles.darkTheme]: darkTheme,
+      })}
+    >
+      <h1 className={styles.title}>{project.name}</h1>
+      <div className={styles.projectContainer}>
+        <div className={styles.technologiesContainer}>
+          <h2 className={styles.technologiesTitle}>{t("technologies")}</h2>
+          <div className={styles.iconsContainer}>
+            {icons.map(
+              (icon, id) =>
+                icon && (
+                  <i
+                    key={id}
+                    title={skills[id]}
+                    className={cn(icon, styles.icon)}
+                  ></i>
+                )
+            )}
+          </div>
+        </div>
+        <div className={styles.descriptionContainer}>
+          <h2 className={styles.descriptionTitle}> {t("description")}</h2>
+          <p className={styles.description}>{project.description}</p>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 // Runs during build time only & can only work with getStaticProps
