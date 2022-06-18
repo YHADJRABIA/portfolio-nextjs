@@ -37,10 +37,10 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
   return (
     <>
       <SEO
-        title={project.name}
+        title={`${t("project")} — ${project.name}`}
         description={project.description}
         keywords={skills.join(", ")}
-        ogTitle={project.name}
+        ogTitle={`${t("project")} — ${project.name}`}
         ogDescription={project.description}
         ogImage={project.img}
         ogUrl={currentUrl}
