@@ -1,19 +1,21 @@
 import Card from "./Card"
-import { getAllProjects } from "@/data/projects"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "../UI/InvisibleAnchor"
-import { Project } from "@/types/projects"
+import { Project } from "@/types/models/projects"
 import styles from "./Projects.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 import { useContext } from "react"
 import { ThemeContext } from "@/context/ThemeContext"
 import cn from "classnames"
 
-const Projects = () => {
+interface PropTypes {
+  data: Project[]
+}
+
+const Projects = ({ data }: PropTypes) => {
   const { t } = useTranslation("common")
   const { darkTheme } = useContext(ThemeContext)
-  const projects = getAllProjects()
 
   return (
     <section
@@ -40,11 +42,11 @@ const Projects = () => {
       />
 
       <ul className={styles.cardsContainer}>
-        {projects.map((project: Project, id: number) => (
+        {data.map((project: Project, id: number) => (
           <Card
             key={id}
             name={project.name}
-            img={project.img}
+            img={project.image}
             url={project.url}
             repo={project.repo}
             slug={project.slug}
@@ -54,22 +56,5 @@ const Projects = () => {
     </section>
   )
 }
-
-// Fetching from database to be implemented
-// export const getStaticProps = async () => {
-// const username = "YHADJRABIA";
-// try {
-//     const res = await axios.get(
-//       `https://api.github.com/users/${username}/repos`
-//     );
-//     const repos = res.data;
-//     console.log(repos);
-//     return {
-//       props: { projects: projects },
-//     };
-// } catch (err) {
-//
-// }
-// };
 
 export default Projects
