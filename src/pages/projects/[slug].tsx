@@ -9,6 +9,9 @@ import useTranslation from "next-translate/useTranslation"
 import styles from "./[slug].module.scss"
 import { ThemeContext } from "@/context/ThemeContext"
 import { useContext } from "react"
+import SEO from "@/components/SEO/SEO"
+import { websiteUrl } from "@/utilities/general"
+import { useRouter } from "next/router"
 
 interface PropTypes {
   project: Project
@@ -26,38 +29,52 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
   const { t } = useTranslation("project")
   const skills = project.tags
   const { darkTheme } = useContext(ThemeContext)
+  const { locale, asPath } = useRouter()
+  const currentUrl = `${websiteUrl}/${locale}${asPath}`
 
   const icons = skills.map(skill => getIconBySlug(skill)?.icon ?? "")
 
   return (
-    <section
-      className={cn(styles.projectPage, {
-        [styles.darkTheme]: darkTheme,
-      })}
-    >
-      <h1 className={styles.title}>{project.name}</h1>
-      <div className={styles.projectContainer}>
-        <div className={styles.technologiesContainer}>
-          <h2 className={styles.technologiesTitle}>{t("technologies")}</h2>
-          <div className={styles.iconsContainer}>
-            {icons.map(
-              (icon, id) =>
-                icon && (
-                  <i
-                    key={id}
-                    title={skills[id]}
-                    className={cn(icon, styles.icon)}
-                  ></i>
-                )
-            )}
+    <>
+      <SEO
+        title={project.name}
+        description={project.description}
+        keywords={skills.join(", ")}
+        ogTitle={project.name}
+        ogDescription={project.description}
+        ogImage={project.img}
+        ogUrl={currentUrl}
+      />
+
+      <section
+        className={cn(styles.projectPage, {
+          [styles.darkTheme]: darkTheme,
+        })}
+      >
+        <h1 className={styles.title}>{project.name}</h1>
+        <div className={styles.projectContainer}>
+          <div className={styles.technologiesContainer}>
+            <h2 className={styles.technologiesTitle}>{t("technologies")}</h2>
+            <div className={styles.iconsContainer}>
+              {icons.map(
+                (icon, id) =>
+                  icon && (
+                    <i
+                      key={id}
+                      title={skills[id]}
+                      className={cn(icon, styles.icon)}
+                    ></i>
+                  )
+              )}
+            </div>
+          </div>
+          <div className={styles.descriptionContainer}>
+            <h2 className={styles.descriptionTitle}> {t("description")}</h2>
+            <p className={styles.description}>{project.description}</p>
           </div>
         </div>
-        <div className={styles.descriptionContainer}>
-          <h2 className={styles.descriptionTitle}> {t("description")}</h2>
-          <p className={styles.description}>{project.description}</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 
