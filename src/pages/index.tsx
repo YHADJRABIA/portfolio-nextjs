@@ -12,8 +12,17 @@ import SEO from "@/components/SEO/SEO"
 import Layout from "@/components/Layout/Layout"
 import Hero from "@/components/Hero/Hero"
 
-const HomePage: NextPage = () => {
+import { GET_ALL_PROJECTS_QUERY } from "@/graphql/projects"
+import { request } from "@/lib/datoCMS"
+import { Project } from "@/types/models/projects"
+
+interface PropTypes {
+  data: { allProjects: Project[] }
+}
+
+const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   const { t } = useTranslation("meta")
+  const projects = data.allProjects
 
   return (
     <>
@@ -55,12 +64,21 @@ const HomePage: NextPage = () => {
         <SeparatorSVG direction="down" />
         <Skills />
         <SeparatorSVG direction="up" />
-        <Projects />
+        <Projects data={projects} />
         <SeparatorSVG direction="down" />
         <Contact />
       </Layout>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const data = await request({
+    query: GET_ALL_PROJECTS_QUERY,
+  })
+  return {
+    props: { data },
+  }
 }
 
 HomePage.displayName = "HomePage"
