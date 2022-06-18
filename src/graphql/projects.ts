@@ -48,8 +48,11 @@ export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects {
   }
 }`
 
-export const getAllSlugs = (projects: Project[]) =>
-  projects.map(project => project.slug)
+export const GET_ALL_SLUGS_QUERY = `query GetAllSlugs {
+  allProjects {
+    slug
+  }
+}`
 
 export const getProjectBySlug = (projects: Project[], slug: string) =>
   projects.find(project => project.slug === slug)

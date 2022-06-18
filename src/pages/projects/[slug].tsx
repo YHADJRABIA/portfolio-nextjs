@@ -1,7 +1,7 @@
-import { getAllSlugs, getProjectBySlug } from "@/data/projects"
+import { getProjectBySlug } from "@/data/projects"
 import { getIconBySlug } from "@/data/skills"
 import { Locale } from "@/types/locales"
-import { Project } from "@/types/projects"
+import { Project } from "@/types/models/projects"
 import { NextPage } from "next"
 import cn from "classnames"
 import useTranslation from "next-translate/useTranslation"
@@ -12,6 +12,8 @@ import { useContext } from "react"
 import SEO from "@/components/SEO/SEO"
 import { websiteUrl } from "@/utilities/general"
 import { useRouter } from "next/router"
+import { request } from "@/lib/datoCMS"
+import { GET_ALL_SLUGS_QUERY } from "@/graphql/projects"
 
 interface PropTypes {
   project: Project
@@ -42,7 +44,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
         keywords={skills.join(", ")}
         ogTitle={`${t("project")} — ${project.name}`}
         ogDescription={project.description}
-        ogImage={project.img}
+        ogImage={project.image}
         ogUrl={currentUrl}
       />
 
@@ -80,11 +82,14 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 
 // Runs during build time only & can only work with getStaticProps
 // Gets locales from context to generate multilanguage pages for each project
-export const getStaticPaths = ({ locales }: StaticPropTypes) => {
-  const paths = getAllSlugs()
-    .map(project => {
+export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
+  const slugs = await request({
+    query: GET_ALL_SLUGS_QUERY,
+  })
+  const paths = slugs.allProjects
+    .map((project: { slug: string }) => {
       return locales.map(locale => ({
-        params: { slug: project },
+        params: { slug: project.slug },
         locale,
       }))
     })
