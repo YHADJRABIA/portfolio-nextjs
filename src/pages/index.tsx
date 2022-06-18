@@ -13,7 +13,7 @@ import Layout from "@/components/Layout/Layout"
 import Hero from "@/components/Hero/Hero"
 
 import { GET_ALL_PROJECTS_QUERY } from "@/graphql/projects"
-import { request } from "@/lib/datoCMS"
+import { gqlRequest } from "@/lib/datoCMS"
 import { Project } from "@/types/models/projects"
 
 interface PropTypes {
@@ -73,7 +73,7 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
 }
 
 export const getStaticProps = async () => {
-  const data = await request({
+  const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
   })
   return {
