@@ -1,4 +1,3 @@
-import { getProjectBySlug } from "@/data/projects"
 import { getIconBySlug } from "@/data/skills"
 import { Locale } from "@/types/locales"
 import { Project } from "@/types/models/projects"
@@ -12,8 +11,11 @@ import { useContext } from "react"
 import SEO from "@/components/SEO/SEO"
 import { websiteUrl } from "@/utilities/general"
 import { useRouter } from "next/router"
-import { request } from "@/lib/datoCMS"
-import { GET_ALL_SLUGS_QUERY } from "@/graphql/projects"
+import { gqlRequest } from "@/lib/datoCMS"
+import {
+  GET_ALL_SLUGS_QUERY,
+  GET_PROJECT_BY_SLUG_QUERY,
+} from "@/graphql/projects"
 
 interface PropTypes {
   project: Project
@@ -83,7 +85,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 // Runs during build time only & can only work with getStaticProps
 // Gets locales from context to generate multilanguage pages for each project
 export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
-  const slugs = await request({
+  const slugs = await gqlRequest({
     query: GET_ALL_SLUGS_QUERY,
   })
   const paths = slugs.allProjects
@@ -101,10 +103,14 @@ export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
   }
 }
 
-export const getStaticProps = ({ params }: ParamsTypes) => {
-  const project = getProjectBySlug(params.slug)
+export const getStaticProps = async ({ params }: ParamsTypes) => {
+  const data = await gqlRequest({
+    query: GET_PROJECT_BY_SLUG_QUERY,
+    variables: { slug: params.slug },
+  })
+
   return {
-    props: { project },
+    props: { project: data.project },
   }
 }
 

@@ -7,7 +7,7 @@ interface PropTypes {
   excludeInvalid?: boolean
 }
 
-export function request({
+export function gqlRequest({
   query,
   variables,
   includeDrafts,

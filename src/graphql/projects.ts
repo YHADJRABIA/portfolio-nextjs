@@ -1,5 +1,3 @@
-import { Project } from "@/types/models/projects"
-
 export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects {
   allProjects(orderBy: [createdAt_ASC]) {
     name
@@ -54,5 +52,28 @@ export const GET_ALL_SLUGS_QUERY = `query GetAllSlugs {
   }
 }`
 
-export const getProjectBySlug = (projects: Project[], slug: string) =>
-  projects.find(project => project.slug === slug)
+export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!) {
+  project(filter: {slug: {eq: $slug}}) {
+    name
+    description
+    metaData {
+      description
+      title
+      image {
+        responsiveImage {
+          width
+          webpSrcSet
+          title
+          srcSet
+          src
+          sizes
+          height
+          bgColor
+          base64
+          aspectRatio
+          alt
+        }
+      }
+    }
+  }
+}`
