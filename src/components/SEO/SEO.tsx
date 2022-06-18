@@ -1,4 +1,6 @@
 import { websiteUrl } from "@/utilities/general"
+import Head from "next/head"
+import { ReactNode } from "react"
 
 interface PropTypes {
   title: string
@@ -9,11 +11,12 @@ interface PropTypes {
   ogDescription?: string
   ogImage?: string
   ogUrl?: string
+  children?: ReactNode
 }
 
 const SEO = (props: PropTypes) => {
   return (
-    <>
+    <Head>
       <title>{props.title}</title>
       <meta name="description" content={props.description} />
       <meta name="keywords" content={props.keywords} />
@@ -32,7 +35,8 @@ const SEO = (props: PropTypes) => {
         }
       />
       <meta property="og:url" content={props.ogUrl ?? websiteUrl} />
-    </>
+      {props.children}
+    </Head>
   )
 }
 
