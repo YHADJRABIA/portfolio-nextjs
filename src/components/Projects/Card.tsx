@@ -5,6 +5,7 @@ import { useContext } from "react"
 
 import styles from "./Card.module.scss"
 import cn from "classnames"
+import useTranslation from "next-translate/useTranslation"
 
 interface PropTypes {
   name: string
@@ -12,35 +13,33 @@ interface PropTypes {
   slug: string
   url?: string
   repo?: string
-  description: string
   id?: number
 }
 
-const Card = ({ name, img, url, description, repo, slug }: PropTypes) => {
+const Card = ({ name, img, url, repo, slug }: PropTypes) => {
   const { darkTheme } = useContext(ThemeContext)
+  const { t } = useTranslation("project")
   return (
     <li className={cn(styles.card, { [styles.darkTheme]: darkTheme })}>
       <Link href={`/projects/${slug}`} passHref>
-        <a title={name}>
-          <div className={styles.imageContainer}>
-            <Image
-              src={img}
-              alt={name}
-              title={name}
-              width={250}
-              height={250}
-              objectFit="cover"
-              quality={60}
-              layout="responsive"
-            />
-          </div>
+        <a className={styles.imageContainer} title={name}>
+          <Image
+            src={img}
+            alt={name}
+            title={name}
+            width={250}
+            height={250}
+            objectFit="cover"
+            quality={60}
+            layout="responsive"
+          />
+        </a>
+      </Link>
+      <h3 className={styles.projectName}>{name}</h3>
 
-          <div className={styles.cardContent}>
-            <h3>{name}</h3>
-            <div className={styles.cardDescription}>
-              <p className="ow">{description}</p>
-            </div>
-          </div>
+      <Link href={`/projects/${slug}`} passHref>
+        <a className={styles.projectDetails} title={name}>
+          {t("moreDetails")}
         </a>
       </Link>
 
