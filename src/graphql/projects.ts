@@ -33,7 +33,9 @@ export const GET_ALL_SLUGS_QUERY = `query GetAllSlugs {
 export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!) {
   project(filter: {slug: {eq: $slug}}) {
     name
-    description
+    description {
+      value
+    }
     tag
     metaData {
       description
