@@ -6,6 +6,6 @@ export type Project = {
   description: string
   url?: string
   repo?: string
-  tags: string[]
+  tag: string[]
   slug: string
 }
