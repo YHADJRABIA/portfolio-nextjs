@@ -1,7 +1,6 @@
 export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects {
   allProjects(orderBy: [createdAt_ASC]) {
     name
-    description
     image {
       responsiveImage(
         imgixParams: { fit: crop, w: "500", h: "500", auto: format }
@@ -22,27 +21,6 @@ export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects {
     url
     slug
     repo
-    metaData(locale: en) {
-      description
-      title
-      twitterCard
-      image {
-        url
-        responsiveImage {
-          alt
-          width
-          webpSrcSet
-          title
-          srcSet
-          src
-          sizes
-          height
-          bgColor
-          base64
-          aspectRatio
-        }
-      }
-    }
   }
 }`
 
@@ -56,6 +34,7 @@ export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!)
   project(filter: {slug: {eq: $slug}}) {
     name
     description
+    tag
     metaData {
       description
       title
