@@ -16,6 +16,7 @@ import {
   GET_ALL_SLUGS_QUERY,
   GET_PROJECT_BY_SLUG_QUERY,
 } from "@/graphql/projects"
+import { StructuredText } from "react-datocms"
 
 interface PropTypes {
   project: Project
@@ -31,7 +32,7 @@ interface ParamsTypes {
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
   const { t } = useTranslation("project")
-  const skills = project.tags
+  const skills = project.tag
   const { darkTheme } = useContext(ThemeContext)
   const { locale, asPath } = useRouter()
   const currentUrl = `${websiteUrl}/${locale}${asPath}`
@@ -41,12 +42,12 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
   return (
     <>
       <SEO
-        title={`${t("project")} — ${project.name}`}
-        description={project.description}
+        title={project.metaData.title}
+        description={project.metaData.description}
         keywords={skills.join(", ")}
-        ogTitle={`${t("project")} — ${project.name}`}
-        ogDescription={project.description}
-        ogImage={project.image}
+        ogTitle={project.metaData.title}
+        ogDescription={project.metaData.description}
+        ogImage={project.metaData.image.src}
         ogUrl={currentUrl}
       />
 
@@ -74,7 +75,8 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
           </div>
           <div className={styles.descriptionContainer}>
             <h2 className={styles.descriptionTitle}> {t("description")}</h2>
-            <p className={styles.description}>{project.description}</p>
+
+            <StructuredText data={project.description.value} />
           </div>
         </div>
       </section>

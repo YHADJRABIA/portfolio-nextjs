@@ -12,8 +12,7 @@
 }
 
 .title {
-  margin-top: -10rem;
-  margin-bottom: -5rem;
+  margin-top: 3rem;
 }
 
 .projectContainer {
@@ -51,6 +50,10 @@
 
 .descriptionContainer {
   @include flexCenter(column, space-around, stretch);
+}
+
+.descriptionTitle {
+  margin-bottom: 1.5rem;
 }
 
 .description {
