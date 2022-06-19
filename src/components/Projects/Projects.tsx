@@ -8,6 +8,9 @@ import SectionHeader from "../UI/SectionHeader"
 import { useContext } from "react"
 import { ThemeContext } from "@/context/ThemeContext"
 import cn from "classnames"
+import { useRouter } from "next/router"
+import { getProjectNameByLocale } from "@/graphql/projects"
+import { Locale } from "@/types/locales"
 
 interface PropTypes {
   data: Project[]
@@ -15,6 +18,7 @@ interface PropTypes {
 
 const Projects = ({ data }: PropTypes) => {
   const { t } = useTranslation("common")
+  const { locale } = useRouter()
   const { darkTheme } = useContext(ThemeContext)
 
   return (
@@ -45,7 +49,7 @@ const Projects = ({ data }: PropTypes) => {
         {data.map((project: Project, id: number) => (
           <Card
             key={id}
-            name={project.name}
+            name={getProjectNameByLocale(project, locale as Locale)}
             img={project.image}
             url={project.url}
             repo={project.repo}
