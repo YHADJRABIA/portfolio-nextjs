@@ -31,9 +31,10 @@ npm run cypress
 ## Features:
 
 - Fully responsive mobile-first server-side rendered website with emphasis on SEO (Updating HTML lang tag, title and description as the page changes);
+- Jamstack website using Dato CMS for scalability;
 - Available in 4 languages with localised routing (Example: language is automatically set to Russian if "/ru" follows the url);
 - End-to-end tests written with Cypress with video provided on the link above (Cypress dashboard);
-- Lazy-loading images for better performance;
+- Lazy-loaded and blurred images for better performance;
 - 404 routing when trying to access non-existent pages;
 - Fully validated contact form with automatic acknowledgement-of-receipt e-mail in the viewer's language with form validation and error handling;
 - Google reCAPTCHA preventing unwanted use of contact form;
@@ -42,13 +43,15 @@ npm run cypress
 ## Technologies:
 
 - Next.js (a production framework for React);
+- Dato CMS for localisation and scalability & improved SEO;
+- GraphQL for SSG and performances;
 - TypeScript for less error-prone code;
 - Functional ReactJS (with hooks);
 - NodeJS for e-mail API (using Next's Backend-for-frontend);
 - Cypress for end-to-end testing;
 - Axios for HTTP requests to API;
 - next-translate for internationalization;
-- Sass using 7-1 pattern for styles;
+- Sass using a blend of 7-1 pattern and dynamic classes for styles;
 - regex for frontend and backend form validation;
 - Global state management for Authentication and Theme (context providers);
 - Emotion (CSS in JS) for dropdown menu of below `React-select`;
@@ -61,6 +64,5 @@ npm run cypress
 
 ## Upcoming features:
 
-- Make it Jamstack with Strapi CMS & fetch data through GraphQL in SSG;
-- Dynamic route generation;
+- Fully localised website with DatoCMS;
 - Authentication section.
