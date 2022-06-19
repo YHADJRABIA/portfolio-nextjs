@@ -1,28 +1,23 @@
-import { FC, useState, useRef, useEffect, useContext } from "react"
+import { useState, useRef, useEffect, useContext } from "react"
 import { useRouter } from "next/router"
-
-// Global state management
 import { ThemeContext } from "@/context/ThemeContext"
-
-// Components
-import Animation from "./Animation"
-
-// Validators
+import Loader from "./UI/Loader"
 import { isEmpty, isEmail } from "@/utilities/formValidator"
 import ReCAPTCHA from "react-google-recaptcha"
-
-// Notifications
 import { notify } from "@/utilities/notification"
 
 import axios from "axios" // API fetcher
-
-// Translation
 import useTranslation from "next-translate/useTranslation"
-import InvisibleAnchor from "./InvisibleAnchor"
+import InvisibleAnchor from "./UI/InvisibleAnchor"
 
-const Contact: FC = () => {
+import styles from "./Contact.module.scss"
+import Button from "./UI/Button"
+import SectionHeader from "./UI/SectionHeader"
+import cn from "classnames"
+
+const Contact = () => {
   const { t } = useTranslation("common")
-  const { darkMode } = useContext(ThemeContext)
+  const { darkTheme } = useContext(ThemeContext)
   const [mobile, setMobile] = useState<boolean | null>(null)
   const { locale } = useRouter()
   const [key, setKey] = useState(0)
@@ -33,7 +28,7 @@ const Contact: FC = () => {
   // Forcing re-mount of reCAPTCHA when language is switched or when view is shrunk
   useEffect(() => {
     setKey(key + 1)
-  }, [locale, darkMode, mobile])
+  }, [locale, darkTheme, mobile])
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
@@ -89,20 +84,23 @@ const Contact: FC = () => {
   }
 
   return (
-    <section className="contact-section">
+    <section
+      className={cn(styles.contactSection, { [styles.darkTheme]: darkTheme })}
+    >
       <InvisibleAnchor id="contact" />
-      <div className="section-text-container">
-        <h2>{t("contact.title")}</h2>
-        <p className="contact-content">{t("contact.content")}</p>
-      </div>
+      <SectionHeader
+        title={t("contact.title")}
+        content={t("contact.content")}
+        textAlign="center"
+      />
 
       <form
         method="post"
         onSubmit={handleOnSubmit}
         noValidate
-        className="form_card"
+        className={styles.formCard}
       >
-        <div className="form-field">
+        <div className={styles.formField}>
           <input
             placeholder={t("contact.johnSmith")}
             type="text"
@@ -111,7 +109,7 @@ const Contact: FC = () => {
           />
           <label htmlFor="name">{t("contact.name")}</label>
         </div>
-        <div className="form-field">
+        <div className={styles.formField}>
           <input
             placeholder="email@domain.com"
             type="email"
@@ -120,7 +118,7 @@ const Contact: FC = () => {
           />
           <label htmlFor="email">{t("contact.email")}</label>
         </div>
-        <div className="form-field">
+        <div className={styles.formField}>
           <textarea
             placeholder={t("contact.placeholder")}
             name="message"
@@ -128,10 +126,10 @@ const Contact: FC = () => {
           ></textarea>
         </div>
 
-        <div className="recaptcha-container">
+        <div className={styles.recaptchaContainer}>
           <ReCAPTCHA
             size={!mobile ? "normal" : "compact"}
-            theme={!darkMode ? "light" : "dark"}
+            theme={!darkTheme ? "light" : "dark"}
             key={key}
             sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_CLIENT}
             ref={reCaptchaRef}
@@ -142,13 +140,13 @@ const Contact: FC = () => {
           />
         </div>
 
-        <button
-          className="btn btn-primary"
-          data-testid="submit-contact-form"
+        <Button
+          variation="primary"
+          testId="submit-contact-form"
           disabled={loading}
         >
-          {!loading ? t("contact.submit") : <Animation />}
-        </button>
+          {!loading ? t("contact.submit") : <Loader />}
+        </Button>
       </form>
     </section>
   )

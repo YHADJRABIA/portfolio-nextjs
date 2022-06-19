@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useState, useEffect } from "react"
 
 type themeContextType = {
-  darkMode: boolean
-  toggleDarkMode: () => void
+  darkTheme: boolean
+  toggleDarkTheme: () => void
 }
 
 type Props = {
@@ -18,8 +18,8 @@ const getPrefColorScheme = () => {
 
 // Gets previously stored theme if it exists.
 const getInitialMode = () => {
-  const isReturningUser = "dark-mode" in localStorage // Returns true if user already used the website.
-  const savedMode = localStorage.getItem("dark-mode") === "true"
+  const isReturningUser = "dark-theme" in localStorage // Returns true if user already used the website.
+  const savedMode = localStorage.getItem("dark-theme") === "true"
   const userPrefersDark = getPrefColorScheme() // Gets user's colour preference.
 
   // If mode was saved ► return saved mode else get user's general preference.
@@ -32,20 +32,20 @@ export const ThemeContext = createContext<themeContextType>(
 
 export const ThemeProvider = ({ children }: Props) => {
   // The server doesn't have a localStorage so we need to ensure that we are on the browser (window)
-  const [darkMode, setDarkMode] = useState<boolean>(false)
+  const [darkTheme, setDarkTheme] = useState<boolean>(false)
 
   // Getting theme from local storage
-  useEffect(() => setDarkMode(getInitialMode), [])
+  useEffect(() => setDarkTheme(getInitialMode), [])
 
   // Prefered theme stored in local storage
   useEffect(() => {
-    localStorage.setItem("dark-mode", JSON.stringify(darkMode))
-  }, [darkMode])
+    localStorage.setItem("dark-theme", JSON.stringify(darkTheme))
+  }, [darkTheme])
 
-  const toggleDarkMode = () => setDarkMode(!darkMode)
+  const toggleDarkTheme = () => setDarkTheme(!darkTheme)
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <ThemeContext.Provider value={{ darkTheme, toggleDarkTheme }}>
       {children}
     </ThemeContext.Provider>
   )

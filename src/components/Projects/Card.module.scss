@@ -1,0 +1,77 @@
+.card {
+  @include flexCenter(column, space-between);
+  width: calc(90% - 2.5rem);
+  height: 80%;
+  border-radius: 5%;
+  margin: 2rem;
+  box-shadow: 0rem 0.2rem 1.5rem 0.2rem rgba(0, 0, 0, 0.15);
+  background-color: var(--primary-gray-color);
+
+  @include respond-to("medium") {
+    width: 45rem;
+  }
+
+  @include respond-to("large") {
+    width: 50rem;
+  }
+
+  &.darkTheme {
+    background-color: var(--primary-black-color);
+    border: 1px solid var(--secondary-gray-color);
+
+    .projectDetails {
+      color: var(--primary-yellow-color);
+    }
+
+    .projectLink,
+    .projectRepo {
+      i {
+        color: var(--secondary-white-color);
+        &:hover {
+          color: var(--primary-yellow-color);
+        }
+      }
+    }
+  }
+
+  .imageContainer {
+    cursor: pointer;
+    position: relative;
+    height: 65%;
+    width: 100%;
+    padding: 1rem 2rem;
+    img {
+      border-radius: 5%;
+    }
+  }
+
+  .projectName {
+    margin: 3rem 0;
+  }
+
+  .cardFooter {
+    @include flexCenter(row, space-around);
+    border-top: 1.5px solid var(--secondary-gray-color);
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .projectDetails {
+    margin-bottom: 4rem;
+    color: var(--secondary-blue-color);
+    text-decoration: underline;
+  }
+
+  .projectLink,
+  .projectRepo {
+    @include flexCenter(row);
+  }
+
+  i {
+    font-size: 2.5rem;
+    &:hover {
+      color: blue;
+      transform: translateY(-25%);
+    }
+  }
+}

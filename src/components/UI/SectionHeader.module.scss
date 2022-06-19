@@ -1,0 +1,21 @@
+.sectionHeader {
+  margin: 5rem 0;
+  width: 80%;
+  & > p {
+    margin-top: 4rem;
+  }
+
+  & a {
+    font-size: 1.8rem;
+    font-family: var(--secondary-font);
+    color: blue;
+
+    &.darkTheme {
+      color: var(--secondary-blue-color);
+    }
+  }
+
+  @include respond-to("large") {
+    width: 55%;
+  }
+}

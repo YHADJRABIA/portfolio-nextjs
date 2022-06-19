@@ -1,0 +1,35 @@
+.separatorSvg {
+  margin-bottom: -1rem;
+}
+
+.links {
+  @include flexCenter(row, space-evenly, flex-start);
+  width: 75%;
+  min-height: 10rem;
+  & i {
+    opacity: 0.8;
+    &:hover {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+  }
+
+  @include respond-to("medium") {
+    width: 60rem;
+  }
+}
+
+.madeWith {
+  font-family: var(--primary-font);
+  color: var(--primary-white-color);
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 4rem;
+}
+
+.copyright {
+  @include flexCenter(column, flex-end);
+  text-align: center;
+  min-height: 8rem;
+}

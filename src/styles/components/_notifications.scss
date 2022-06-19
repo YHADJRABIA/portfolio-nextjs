@@ -9,9 +9,3 @@
 .Toastify__toast-container--top-center {
   top: $nav-height + 1rem;
 }
-
-/*------------ Reponsive -----------*/
-@include respond-to("medium") {
-}
-@include respond-to("large") {
-}

@@ -1,0 +1,50 @@
+// @author Yacine Hadj Rabia
+
+@import "abstracts/variables";
+
+@import "base/reset", "base/typography", "base/svg";
+
+@import "layout/layout", "layout/forms";
+
+@import "components/notifications";
+
+@import "themes/dark";
+
+section {
+  @include flexCenter(column);
+  text-align: center;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+i {
+  cursor: pointer;
+  font-size: 3.2rem;
+  transition: all 0.3s ease;
+}
+
+a {
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+small {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Various */
+
+span {
+  letter-spacing: 0.1rem;
+  color: var(--primary-yellow-color);
+  font-family: var(--secondary-font);
+}
+
+em {
+  font-family: var(--primary-font);
+  font-style: normal;
+  color: var(--primary-yellow-color);
+}

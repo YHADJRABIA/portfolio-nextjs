@@ -1,0 +1,14 @@
+.aboutSection {
+  &.darkTheme {
+    background-color: var(--primary-black-color);
+  }
+  background-color: var(--primary-gray-color);
+  .photoContainer {
+    margin: 2rem 1rem 0 1rem;
+
+    text-align: center;
+    & img {
+      border-radius: 50%;
+    }
+  }
+}

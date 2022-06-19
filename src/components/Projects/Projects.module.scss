@@ -1,0 +1,11 @@
+.projectsSection {
+  background-color: var(--primary-gray-color);
+  .cardsContainer {
+    width: 95%;
+    @include flexCenter(row, center);
+  }
+
+  &.darkTheme {
+    background-color: var(--primary-black-color);
+  }
+}

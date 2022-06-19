@@ -1,7 +1,6 @@
 const NotFoundImage = () => {
   return (
     <svg
-      className="regular-svg"
       width="1431px"
       height="817px"
       viewBox="0 0 1431 817"

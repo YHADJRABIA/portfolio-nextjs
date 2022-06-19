@@ -1,18 +1,25 @@
-import { FC } from "react"
-
-// Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
-import InvisibleAnchor from "./InvisibleAnchor"
-import HoverImage from "./HoverImage"
+import InvisibleAnchor from "./UI/InvisibleAnchor"
+import HoverImage from "./UI/HoverImage"
 
-const About: FC = () => {
+import styles from "./About.module.scss"
+import SectionHeader from "./UI/SectionHeader"
+import { useContext } from "react"
+import { ThemeContext } from "@/context/ThemeContext"
+import cn from "classnames"
+
+const About = () => {
   const { t } = useTranslation("common")
 
+  const { darkTheme } = useContext(ThemeContext)
+
   return (
-    <section className="about-section">
+    <section
+      className={cn(styles.aboutSection, { [styles.darkTheme]: darkTheme })}
+    >
       <InvisibleAnchor id="about" />
-      <div className="about-photo-container">
+      <div className={styles.photoContainer}>
         <HoverImage
           src="/me-with-pysen.jpg"
           hoverSrc="/me.jpg"
@@ -25,12 +32,13 @@ const About: FC = () => {
           quality={60}
         />
       </div>
-      <div className="section-text-container">
-        <h2>{t("about.title")}</h2>
-        <p>
+
+      <SectionHeader
+        title={t("about.title")}
+        content={
           <Trans i18nKey="common:about.content" components={{ br: <br /> }} />
-        </p>
-      </div>
+        }
+      />
     </section>
   )
 }

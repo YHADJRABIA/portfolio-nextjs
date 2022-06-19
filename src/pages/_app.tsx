@@ -1,8 +1,6 @@
-// Styles
 import "react-toastify/dist/ReactToastify.css"
-import "@/styles/app.scss"
+import "@/styles/globals.scss"
 
-// React & Next hooks
 import { useEffect } from "react"
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router"
@@ -11,6 +9,7 @@ import * as gtag from "@/lib/gtag" // Google Analytics
 
 import Layout from "@/components/Layout/Layout"
 import { isProduction } from "@/utilities/general"
+import ContextTree from "@/context/ContextTree"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -30,18 +29,21 @@ function MyApp({ Component, pageProps }: AppProps) {
   switch (Component.displayName) {
     case "HomePage":
       return (
-        <Layout>
+        <ContextTree>
           <Component {...pageProps} />
-        </Layout>
+        </ContextTree>
       )
+
     case "PageNotFound":
       return <Component {...pageProps} />
 
     default:
       return (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ContextTree>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ContextTree>
       )
   }
 }

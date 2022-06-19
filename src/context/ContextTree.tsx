@@ -10,7 +10,6 @@ interface PropTypes {
   children: ReactNode
 }
 
-// TODO: Wrap with StrapiApolloProvider when Strapi is deployed
 const ContextTree = ({ children }: PropTypes) => {
   return (
     <Provider store={store}>
