@@ -108,7 +108,7 @@ export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false, // TODO: Set it to true or "blocking" when ready to generate new pages on the fly (after better handling errors)
   }
 }
 
