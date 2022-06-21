@@ -33,10 +33,11 @@ interface ParamsTypes {
 }
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
-  const { t } = useTranslation("project")
-  const skills = project.tag
-  const { darkTheme } = useContext(ThemeContext)
   const { locale, asPath } = useRouter()
+  const { t } = useTranslation("project")
+  const { darkTheme } = useContext(ThemeContext)
+
+  const skills = project.tag
   const currentUrl = `${websiteUrl}/${locale}${asPath}`
 
   const icons = skills.map(skill => getIconBySlug(skill)?.icon ?? "")
@@ -107,7 +108,7 @@ export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   }
 }
 
@@ -119,6 +120,7 @@ export const getStaticProps = async ({ params }: ParamsTypes) => {
 
   return {
     props: { project: data.project },
+    revalidate: 3600, // Purge the cache & re-generate the page every hour to update the content without needing to rebuild the site
   }
 }
 
