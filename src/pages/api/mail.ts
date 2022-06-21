@@ -2,12 +2,12 @@ import type { NextApiRequest, NextApiResponse } from "next"
 
 import { isEmpty, isEmail, validateHuman } from "@/utilities/formValidator" // Validators
 import { sendEmail, acknowledgeReceipt } from "@/utilities/sendGrid"
-import { EmailAPIResponse } from "@/types/api"
+import { APIResponse } from "@/types/api"
 import { isProduction } from "@/utilities/general"
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<EmailAPIResponse>
+  res: NextApiResponse<APIResponse>
 ) {
   const { lang, name, email, message, token } = req.body
   const human = await validateHuman(token)

@@ -43,7 +43,7 @@ npm run cypress
 ## Technologies:
 
 - Next.js (a production framework for React);
-- Dato CMS for localisation and scalability & improved SEO;
+- Dato CMS for content edition, localisation, scalability & improved SEO;
 - GraphQL for SSG and performances;
 - TypeScript for less error-prone code;
 - Functional ReactJS (with hooks);
@@ -64,5 +64,5 @@ npm run cypress
 
 ## Upcoming features:
 
-- Fully localised website with DatoCMS;
+- Better ISR with dynamic paths;
 - Authentication section.

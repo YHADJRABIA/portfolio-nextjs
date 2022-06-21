@@ -86,7 +86,7 @@ export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!)
   }
 }`
 
-// Returns project name's in provided locale
+// Return project's name in provided locale
 export const getProjectNameByLocale = (project: Project, locale: Locale) =>
   project._allNameLocales.find((p: LocalisedNames) => p.locale === locale)
     ?.value ?? project.name

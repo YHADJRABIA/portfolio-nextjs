@@ -78,6 +78,7 @@ export const getStaticProps = async () => {
   })
   return {
     props: { data },
+    revalidate: 3600, // Updates cache every hour with new CMS content
   }
 }
 
