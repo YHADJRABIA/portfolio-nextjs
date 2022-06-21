@@ -37,6 +37,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     case "PageNotFound":
       return <Component {...pageProps} />
 
+    case "InternalServerError":
+      return <Component {...pageProps} />
+
     default:
       return (
         <ContextTree>
