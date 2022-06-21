@@ -25,17 +25,18 @@ export default async function handler(
       return res.status(400).json({ status: "error", msg: "Invalid body." })
     }
 
-    // Get slug from body to revalidate
-    const { slug_to_revalidate } = body
+    // Get slug to revalidate from body
+    const slug = body.slug_to_revalidate
 
     // TODO: Replace projects to make path more dynamic + update when unstable_revalidate is no longer in beta
-
-    await res.unstable_revalidate(`/projects/${slug_to_revalidate}`)
-    return res.status(200).json({
-      status: "success",
-      msg: "Successful revalidaiton!",
-      revalidated: true,
-    })
+    if (slug) {
+      await res.unstable_revalidate(`/projects/${slug}`)
+      return res.status(200).json({
+        status: "success",
+        msg: "Successful revalidation!",
+        revalidated: true,
+      })
+    }
   } catch (err) {
     // If there was an error, Next.js will continue to show the last successfully generated page
     return res.status(500).json({ status: "error", msg: "Error revalidating." })
