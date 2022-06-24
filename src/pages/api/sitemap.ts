@@ -1,3 +1,5 @@
+import { GET_ALL_SLUGS_QUERY } from "@/graphql/projects"
+import { gqlRequest } from "@/lib/datoCMS"
 import { locales } from "@/utilities/locales"
 import { NextApiRequest, NextApiResponse } from "next"
 
@@ -5,7 +7,8 @@ import { SitemapStream, streamToPromise } from "sitemap"
 import { Readable } from "stream"
 
 const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
-  const links = locales.map(locale => {
+  // Paths with static urls
+  const staticLinks = locales.map(locale => {
     return {
       lang: locale,
       url: locale !== "en" ? `/${locale}` : "/",
@@ -14,8 +17,29 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
     }
   })
 
+  const PROJECT_SLUGS = await gqlRequest({
+    query: GET_ALL_SLUGS_QUERY,
+  })
+
+  // Project urls with dynamic slugs
+  const dynamicLinks = PROJECT_SLUGS.allProjects.map(
+    (slug: { slug: string }) => {
+      return locales.map(locale => ({
+        lang: locale,
+        url: `/${locale}/projects/${slug.slug}`,
+        changefreq: "weekly",
+        priority: 0.3,
+      }))
+    }
+  )
+
+  // Combine all links
+  const links = [...staticLinks, ...dynamicLinks].flat()
+
   // Create a stream to write to
-  const stream = new SitemapStream({ hostname: `https://${req.headers.host}` })
+  const stream = new SitemapStream({
+    hostname: `https://${req.headers.host}`,
+  })
 
   res.writeHead(200, {
     "Content-Type": "application/xml",
