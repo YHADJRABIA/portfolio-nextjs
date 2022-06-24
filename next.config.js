@@ -23,8 +23,9 @@ module.exports = {
   },
 
   // Redirects sitemap.xml to /api/sitemap
+  // eslint-disable-next-line require-await
   rewrites: async () => [
-    await {
+    {
       source: "/sitemap.xml",
       destination: "/api/sitemap",
     },
