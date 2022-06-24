@@ -22,5 +22,13 @@ module.exports = {
     return config
   },
 
+  // Redirects sitemap.xml to /api/sitemap
+  rewrites: async () => [
+    await {
+      source: "/sitemap.xml",
+      destination: "/api/sitemap",
+    },
+  ],
+
   ...nextTranslate(), // Refers to i18n.json
 }
