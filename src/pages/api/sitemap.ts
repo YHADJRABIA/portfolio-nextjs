@@ -17,16 +17,17 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
     }
   })
 
+  // Paths with dynamic urls
   const PROJECT_SLUGS = await gqlRequest({
     query: GET_ALL_SLUGS_QUERY,
   })
 
   // Project urls with dynamic slugs
   const dynamicLinks = PROJECT_SLUGS.allProjects.map(
-    (slug: { slug: string }) => {
+    (project: { slug: string }) => {
       return locales.map(locale => ({
         lang: locale,
-        url: `/${locale}/projects/${slug.slug}`,
+        url: `/${locale}/projects/${project.slug}`,
         changefreq: "weekly",
         priority: 0.3,
       }))
