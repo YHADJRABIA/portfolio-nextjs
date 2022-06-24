@@ -1,6 +1,6 @@
 import { websiteUrl } from "@/utilities/general"
 import Head from "next/head"
-import { ReactNode } from "react"
+import { FC, ReactNode } from "react"
 
 interface PropTypes {
   title: string
@@ -14,28 +14,38 @@ interface PropTypes {
   children?: ReactNode
 }
 
-const SEO = (props: PropTypes) => {
+const SEO: FC<PropTypes> = ({
+  title,
+  description,
+  keywords,
+  author,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogUrl,
+  children,
+}) => {
   return (
     <Head>
-      <title>{props.title}</title>
-      <meta name="description" content={props.description} />
-      <meta name="keywords" content={props.keywords} />
-      <meta name="author" content={props.author ?? "Yacine Hadj Rabia"} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={author ?? "Yacine Hadj Rabia"} />
 
       {/* Open Graph */}
 
-      <meta property="og:title" content={props.ogTitle} />
-      <meta property="og:description" content={props.ogDescription} />
+      <meta property="og:title" content={ogTitle} />
+      <meta property="og:description" content={ogDescription} />
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
         content={
-          props.ogImage ??
+          ogImage ??
           "https://res.cloudinary.com/yhr-mern-app/image/upload/v1633269542/projects/N%C3%A4kten_qg7vym.jpg"
         }
       />
-      <meta property="og:url" content={props.ogUrl ?? websiteUrl} />
-      {props.children}
+      <meta property="og:url" content={ogUrl ?? websiteUrl} />
+      {children}
     </Head>
   )
 }
