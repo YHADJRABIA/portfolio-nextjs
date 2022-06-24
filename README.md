@@ -31,6 +31,7 @@ npm run cypress
 ## Features:
 
 - Fully responsive mobile-first server-side rendered website with emphasis on SEO (Updating HTML lang tag, title and description as the page changes);
+- Localised sitemap.xml including static and dynamic paths;
 - Jamstack website using Dato CMS for scalability;
 - Available in 4 languages with localised routing (Example: language is automatically set to Russian if "/ru" follows the url);
 - End-to-end tests written with Cypress with video provided on the link above (Cypress dashboard);
