@@ -2,10 +2,10 @@
 
 My portfolio made in 4 languages, with localisation and SEO emphasis (meta tags, favicons, lazy loading images, sitemap, robots.txt ...etc.). Comes with Cypress tests.
 
-Viewable here: 
+Viewable here:
 
-* **Production:** **https://yhr.vercel.app/**;
-* **Development/Preview:** **https://preview-yhr.vercel.app/**.
+- **Production:** **https://yhr.vercel.app/**;
+- **Development/Preview:** **https://preview-yhr.vercel.app/**.
 
 Tests viewable here: **https://dashboard.cypress.io/projects/t4gjjp/runs/2/test-results**
 
