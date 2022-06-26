@@ -11,20 +11,21 @@ import NotFoundImage from "@/resources/NotFoundImage"
 // Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
+import { useIsMounted } from "@/hooks/useIsMounted"
 
 // In seconds
 const TIMER_COUNT = 3
 
 const PageNotFound: NextPage = () => {
   const { t } = useTranslation("pageNotFound")
+  const isMounted = useIsMounted()
   const [counter, setCounter] = useState(TIMER_COUNT)
   const router: NextRouter = useRouter()
 
   // Redirects user after 3 seconds
-  const redirect = (isMounted: boolean): void => {
-    if (isMounted) {
-      // eslint-disable-next-line no-undef
-      const timer: NodeJS.Timeout = setTimeout(() => {
+  useEffect(() => {
+    if (isMounted()) {
+      const timer = setTimeout(() => {
         setCounter(counter - 1)
       }, 1000)
 
@@ -33,16 +34,7 @@ const PageNotFound: NextPage = () => {
         router.push("/")
       }
     }
-  }
-
-  useEffect(() => {
-    let isMounted = true
-    redirect(isMounted)
-
-    return () => {
-      isMounted = false
-    }
-  }, [counter, router])
+  }, [counter, isMounted, router])
 
   return (
     <>
