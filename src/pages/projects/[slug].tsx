@@ -13,7 +13,7 @@ import { websiteUrl } from "@/utilities/general"
 import { useRouter } from "next/router"
 import { gqlRequest } from "@/lib/datoCMS"
 import {
-  GET_ALL_SLUGS_QUERY,
+  GET_ALL_PROJECTS_QUERY,
   GET_PROJECT_BY_SLUG_QUERY,
 } from "@/graphql/projects"
 import { StructuredText } from "react-datocms"
@@ -89,10 +89,10 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 // Runs during build time only & can only work with getStaticProps
 // Gets locales from context to generate multilanguage pages for each project
 export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
-  const slugs = await gqlRequest({
-    query: GET_ALL_SLUGS_QUERY,
+  const data = await gqlRequest({
+    query: GET_ALL_PROJECTS_QUERY,
   })
-  const paths = slugs.allProjects
+  const paths = data.allProjects
     .map((project: { slug: string }) => {
       return locales.map(locale => ({
         params: { slug: project.slug },

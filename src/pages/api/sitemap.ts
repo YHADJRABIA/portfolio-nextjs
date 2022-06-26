@@ -1,4 +1,4 @@
-import { GET_ALL_SLUGS_QUERY } from "@/graphql/projects"
+import { GET_ALL_PROJECTS_QUERY } from "@/graphql/projects"
 import { gqlRequest } from "@/lib/datoCMS"
 import { locales } from "@/utilities/locales"
 import { NextApiRequest, NextApiResponse } from "next"
@@ -18,12 +18,12 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   // Paths with dynamic urls
-  const PROJECT_SLUGS = await gqlRequest({
-    query: GET_ALL_SLUGS_QUERY,
+  const allProjects = await gqlRequest({
+    query: GET_ALL_PROJECTS_QUERY,
   })
 
   // Project urls with dynamic slugs
-  const dynamicLinks = PROJECT_SLUGS.allProjects.map(
+  const dynamicLinks = allProjects.allProjects.map(
     (project: { slug: string }) => {
       return locales.map(locale => ({
         lang: locale,

@@ -1,6 +1,3 @@
-import { Locale } from "@/types/locales"
-import { Project, LocalisedDescription } from "@/types/models/projects"
-
 export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects($locale: SiteLocale) {
   allProjects(orderBy: [createdAt_ASC], locale: $locale) {
     name
@@ -34,12 +31,6 @@ export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects($locale: SiteLocale)
     url
     slug
     repo
-  }
-}`
-
-export const GET_ALL_SLUGS_QUERY = `query GetAllSlugs {
-  allProjects {
-    slug
   }
 }`
 
@@ -81,12 +72,3 @@ export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!,
     }
   }
 }`
-
-// Return project's description in provided locale
-export const getProjectDescriptionByLocale = (
-  project: Project,
-  locale: Locale
-) =>
-  project._allDescriptionLocales.find(
-    (p: LocalisedDescription) => p.locale === locale
-  )?.value.value ?? project.description
