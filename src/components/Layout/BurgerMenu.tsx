@@ -22,9 +22,7 @@ const BurgerMenu: FC<PropTypes> = ({ toggled, setToggled, navbar }) => {
 
   // Closes menu if escape key pressed
   const keyboardHandler = (e: KeyboardEvent): void => {
-    if (e.key === "Escape") {
-      setToggled(false)
-    }
+    if (e.key === "Escape") setToggled(false)
   }
 
   return (
