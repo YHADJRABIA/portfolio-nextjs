@@ -1,4 +1,4 @@
-import type { NextPage } from "next"
+import type { GetStaticProps, NextPage } from "next"
 import About from "@/components/About"
 import Projects from "@/components/Projects/Projects"
 import Skills from "@/components/Skills/Skills"
@@ -15,6 +15,7 @@ import Hero from "@/components/Hero/Hero"
 import { GET_ALL_PROJECTS_QUERY } from "@/graphql/projects"
 import { gqlRequest } from "@/lib/datoCMS"
 import { Project } from "@/types/models/projects"
+import { Locale } from "@/types/locales"
 
 interface PropTypes {
   data: { allProjects: Project[] }
@@ -72,9 +73,10 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }: { locale: Locale }) => {
   const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
+    variables: { locale },
   })
   return {
     props: { data },

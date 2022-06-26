@@ -13,7 +13,6 @@ import { websiteUrl } from "@/utilities/general"
 import { useRouter } from "next/router"
 import { gqlRequest } from "@/lib/datoCMS"
 import {
-  getProjectNameByLocale,
   getProjectDescriptionByLocale,
   GET_ALL_SLUGS_QUERY,
   GET_PROJECT_BY_SLUG_QUERY,
@@ -30,6 +29,7 @@ interface StaticPropTypes {
 
 interface ParamsTypes {
   params: { slug: string }
+  locale: Locale
 }
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
@@ -59,9 +59,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
           [styles.darkTheme]: darkTheme,
         })}
       >
-        <h1 className={styles.title}>
-          {getProjectNameByLocale(project, locale as Locale)}
-        </h1>
+        <h1 className={styles.title}>{project.name}</h1>
         <div className={styles.projectContainer}>
           <div className={styles.technologiesContainer}>
             <h2 className={styles.technologiesTitle}>{t("technologies")}</h2>
@@ -112,10 +110,10 @@ export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
   }
 }
 
-export const getStaticProps = async ({ params }: ParamsTypes) => {
+export const getStaticProps = async ({ params, locale }: ParamsTypes) => {
   const data = await gqlRequest({
     query: GET_PROJECT_BY_SLUG_QUERY,
-    variables: { slug: params.slug },
+    variables: { slug: params.slug, locale },
   })
 
   return {

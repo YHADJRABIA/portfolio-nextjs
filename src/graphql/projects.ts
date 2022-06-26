@@ -1,12 +1,8 @@
 import { Locale } from "@/types/locales"
-import {
-  Project,
-  LocalisedNames,
-  LocalisedDescription,
-} from "@/types/models/projects"
+import { Project, LocalisedDescription } from "@/types/models/projects"
 
-export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects {
-  allProjects(orderBy: [createdAt_ASC]) {
+export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects($locale: SiteLocale) {
+  allProjects(orderBy: [createdAt_ASC], locale: $locale) {
     name
     _allNameLocales {
       locale
@@ -47,8 +43,8 @@ export const GET_ALL_SLUGS_QUERY = `query GetAllSlugs {
   }
 }`
 
-export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!) {
-  project(filter: {slug: {eq: $slug}}) {
+export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!, $locale: SiteLocale) {
+  project(filter: {slug: {eq: $slug}}, locale: $locale) {
     name
     _allNameLocales {
       locale
@@ -85,11 +81,6 @@ export const GET_PROJECT_BY_SLUG_QUERY = `query GetProjectBySlug($slug: String!)
     }
   }
 }`
-
-// Return project's name in provided locale
-export const getProjectNameByLocale = (project: Project, locale: Locale) =>
-  project._allNameLocales.find((p: LocalisedNames) => p.locale === locale)
-    ?.value ?? project.name
 
 // Return project's description in provided locale
 export const getProjectDescriptionByLocale = (
