@@ -50,10 +50,13 @@
 
 .descriptionContainer {
   @include flexCenter(column, space-around, stretch);
+  margin: 0 10%;
+  text-align: left;
 }
 
 .descriptionTitle {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .description {
