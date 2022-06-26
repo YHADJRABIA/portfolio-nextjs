@@ -9,11 +9,11 @@ const useKeyPress = (targetKey: string): boolean => {
   const [keyPressed, setKeyPressed] = useState(false)
 
   const downHandler = ({ key }: KeyProp) => {
-    if (key === targetKey) setKeyPressed(true)
+    if (key.toLowerCase() === targetKey.toLowerCase()) setKeyPressed(true)
   }
 
   const upHandler = ({ key }: KeyProp) => {
-    if (key === targetKey) setKeyPressed(false)
+    if (key.toLowerCase() === targetKey.toLowerCase()) setKeyPressed(false)
   }
 
   useEffect(() => {
