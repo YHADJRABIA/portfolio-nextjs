@@ -4,6 +4,8 @@ interface KeyProp {
   key: string
 }
 
+// TODO: Make type sturdier — it shouldn't be able to accept more than 1 letter
+
 // Returns true as long as the provided key is pressed down
 const useKeyPress = (targetKey: string): boolean => {
   const [keyPressed, setKeyPressed] = useState(false)
