@@ -13,7 +13,6 @@ import { websiteUrl } from "@/utilities/general"
 import { useRouter } from "next/router"
 import { gqlRequest } from "@/lib/datoCMS"
 import {
-  getProjectDescriptionByLocale,
   GET_ALL_SLUGS_QUERY,
   GET_PROJECT_BY_SLUG_QUERY,
 } from "@/graphql/projects"
@@ -79,9 +78,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
           <div className={styles.descriptionContainer}>
             <h2 className={styles.descriptionTitle}> {t("description")}</h2>
 
-            <StructuredText
-              data={getProjectDescriptionByLocale(project, locale as Locale)}
-            />
+            <StructuredText data={project.description} />
           </div>
         </div>
       </section>
