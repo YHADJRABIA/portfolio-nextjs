@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next"
+import type { NextPage } from "next"
 import About from "@/components/About"
 import Projects from "@/components/Projects/Projects"
 import Skills from "@/components/Skills/Skills"
@@ -19,6 +19,10 @@ import { Locale } from "@/types/locales"
 
 interface PropTypes {
   data: { allProjects: Project[] }
+}
+
+interface StaticPropTypes {
+  locale: Locale
 }
 
 const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
@@ -73,7 +77,7 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   )
 }
 
-export const getStaticProps = async ({ locale }: { locale: Locale }) => {
+export const getStaticProps = async ({ locale }: StaticPropTypes) => {
   const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
     variables: { locale },
