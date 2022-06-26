@@ -10,13 +10,12 @@ import ThemeToggler from "./ThemeToggler"
 import LanguageSwitch from "./LanguageSwitch"
 import useIsOnMobile from "@/hooks/useIsOnMobile"
 import styles from "./Nav.module.scss"
+import useOnClickOutside from "@/hooks/useOnClickOutside"
+import useEventListener from "@/hooks/useEventListener"
 
 const Nav = () => {
   const { t } = useTranslation("common")
 
-  const isOnMobile = useIsOnMobile()
-
-  const menuRef = useRef<null | HTMLElement>(null) // To detect if user clicks outside of the menu area, close the menu if so
   const navItems = [
     {
       title: t("navNames.about"),
@@ -40,28 +39,24 @@ const Nav = () => {
     },
   ]
 
+  const isOnMobile = useIsOnMobile()
+
+  const menuRef = useRef(null) // To detect if user clicks outside of the menu area, close the menu if so
+
   const [toggled, setToggled] = useState(false)
   const [navbar, setNavbar] = useState(false)
 
-  // Subscribing to events when components mounts then unsubscribing if component unmounts
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true)
-    window.addEventListener("scroll", toggleBackground)
-    return () => {
-      document.removeEventListener("click", handleClickOutside, true)
-      window.addEventListener("scroll", toggleBackground)
-    }
-  })
-
-  /* Modifies nav's background if user's verical scroll >= hero banner */
+  // Modifies nav's background if user's verical scroll >= hero banner
   const toggleBackground = (): void => setNavbar(window.scrollY >= 975)
 
-  // Closes menu if user clicks outside of menu
-  const handleClickOutside = (e: MouseEvent): void => {
-    !menuRef.current?.contains(e.target as Node) && closeMenu()
-  }
-
   const closeMenu = (): void => setToggled(false)
+
+  // Closes menu if user clicks outside of menu
+  const handleClickOutside = (): void => closeMenu()
+
+  // Handling respective scroll & click-outside-of-nav events
+  useEventListener("scroll", toggleBackground)
+  useOnClickOutside(menuRef, handleClickOutside)
 
   return (
     <nav
