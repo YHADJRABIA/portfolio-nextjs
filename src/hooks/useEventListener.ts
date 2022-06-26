@@ -2,7 +2,7 @@ import { RefObject, useEffect, useRef } from "react"
 
 const useEventListener = (
   eventName: string,
-  handler: () => void,
+  handler: (event: MouseEvent) => void,
   element?: RefObject<HTMLElement>
 ) => {
   // Create a ref that stores handler
