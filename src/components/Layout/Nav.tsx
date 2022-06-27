@@ -10,8 +10,8 @@ import ThemeToggler from "./ThemeToggler"
 import LanguageSwitch from "./LanguageSwitch"
 import useIsOnMobile from "@/hooks/useIsOnMobile"
 import styles from "./Nav.module.scss"
-import useOnClickOutside from "@/hooks/useOnClickOutside"
-import useEventListener from "@/hooks/useEventListener"
+import { useOnClickOutside } from "@/hooks/useOnClickOutside"
+import { useEventListener } from "@/hooks/useEventListener"
 
 const Nav = () => {
   const { t } = useTranslation("common")
