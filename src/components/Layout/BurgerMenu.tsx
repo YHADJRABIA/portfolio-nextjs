@@ -1,6 +1,7 @@
-import { SetStateAction, FC, Dispatch, useEffect } from "react"
+import { SetStateAction, FC, Dispatch } from "react"
 import cn from "classnames"
 import styles from "./BurgerMenu.module.scss"
+import { useEventListener } from "@/hooks/useEventListener"
 
 interface PropTypes {
   toggled: boolean
@@ -10,13 +11,6 @@ interface PropTypes {
 
 /* Props from Nav component */
 const BurgerMenu: FC<PropTypes> = ({ toggled, setToggled, navbar }) => {
-  useEffect(() => {
-    document.addEventListener("keydown", keyboardHandler, true)
-    return () => {
-      document.removeEventListener("keydown", keyboardHandler, true)
-    }
-  })
-
   // On/Off menu button
   const toggleMenu = (): void => setToggled(!toggled)
 
@@ -24,6 +18,8 @@ const BurgerMenu: FC<PropTypes> = ({ toggled, setToggled, navbar }) => {
   const keyboardHandler = (e: KeyboardEvent): void => {
     if (e.key === "Escape") setToggled(false)
   }
+
+  useEventListener("keydown", keyboardHandler)
 
   return (
     <div
