@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useRef } from "react"
 
-const useEventListener = (
+export const useEventListener = (
   eventName: string,
   handler: (event: MouseEvent) => void,
   element?: RefObject<HTMLElement>
@@ -27,5 +27,3 @@ const useEventListener = (
     return () => targetElement.removeEventListener(eventName, eventListener)
   }, [eventName, element, handler])
 }
-
-export default useEventListener

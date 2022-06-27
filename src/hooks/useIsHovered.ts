@@ -1,6 +1,6 @@
 import { RefObject, useState } from "react"
 
-import useEventListener from "./useEventListener"
+import { useEventListener } from "./useEventListener"
 
 // Returns true as long as mouse is hovered over referenced HTML element
 export const useHover = <T extends HTMLElement = HTMLElement>(

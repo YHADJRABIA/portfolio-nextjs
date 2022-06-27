@@ -7,7 +7,7 @@ interface KeyProp {
 // TODO: Make type sturdier — it shouldn't be able to accept more than 1 letter
 
 // Returns true as long as the provided key is pressed down
-const useKeyPress = (targetKey: string): boolean => {
+export const useKeyPress = (targetKey: string): boolean => {
   const [keyPressed, setKeyPressed] = useState(false)
 
   const downHandler = ({ key }: KeyProp) => {
@@ -30,4 +30,3 @@ const useKeyPress = (targetKey: string): boolean => {
 
   return keyPressed
 }
-export default useKeyPress
