@@ -1,8 +1,8 @@
 import { RefObject, useEffect, useRef } from "react"
 
-export const useEventListener = (
+export const useEventListener = <T>(
   eventName: string,
-  handler: (event: MouseEvent) => void,
+  handler: (event: T) => void,
   element?: RefObject<HTMLElement>
 ) => {
   // Create a ref that stores handler
@@ -10,7 +10,8 @@ export const useEventListener = (
 
   useEffect(() => {
     // Define the listening target
-    const targetElement: HTMLElement | Window = element?.current || window
+    const targetElement: HTMLElement | Window | Document =
+      element?.current || window || document
     if (!(targetElement && targetElement.addEventListener)) return
 
     // Update saved handler if necessary

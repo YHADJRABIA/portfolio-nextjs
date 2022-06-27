@@ -11,7 +11,7 @@ export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
   handler: Handler,
   mouseEvent: "mousedown" | "mouseup" = "mousedown"
 ): void => {
-  useEventListener(mouseEvent, event => {
+  useEventListener<MouseEvent>(mouseEvent, event => {
     const el = ref?.current
 
     // Do nothing if referenced element or its children are clicked
