@@ -1,5 +1,4 @@
 import { useContext } from "react"
-import { useRouter } from "next/router"
 
 import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
 
@@ -41,7 +40,6 @@ const FooterSeparator = ({ color }: PropTypes) => {
 
 const Footer = ({ color }: PropTypes) => {
   const { t } = useTranslation("common")
-  const { locale, locales, defaultLocale, asPath } = useRouter()
   return (
     <>
       <FooterSeparator color={color} />
