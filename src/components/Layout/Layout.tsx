@@ -1,6 +1,5 @@
 import { ReactNode, useContext } from "react"
 import Footer from "@/components/Layout/Footer"
-
 import cn from "classnames"
 import { ThemeContext } from "@/context/ThemeContext"
 import Nav from "./Nav"
