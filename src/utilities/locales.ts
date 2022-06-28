@@ -7,7 +7,7 @@ export const generateLocalisedPaths = (
   data: { slug: string }[],
   locales: Locale[]
 ) => {
-  data
+  return data
     .map((element: { slug: string }) => {
       return locales.map(locale => ({
         params: { slug: element.slug },
