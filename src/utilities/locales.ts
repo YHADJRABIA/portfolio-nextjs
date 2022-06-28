@@ -8,9 +8,9 @@ export const generateLocalisedPaths = (
   locales: Locale[]
 ) => {
   data
-    .map((project: { slug: string }) => {
+    .map((element: { slug: string }) => {
       return locales.map(locale => ({
-        params: { slug: project.slug },
+        params: { slug: element.slug },
         locale,
       }))
     })
