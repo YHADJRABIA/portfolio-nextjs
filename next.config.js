@@ -23,6 +23,12 @@ module.exports = {
     return config
   },
 
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
+
   // Redirects sitemap.xml to /api/sitemap
   // eslint-disable-next-line require-await
   rewrites: async () => [
