@@ -26,7 +26,7 @@ const Flag = ({ title, flag }: FlagProps) => {
       className={styles.flagImg}
       alt={title}
       title={title}
-      src={`https://flagcdn.com/w40/${flag}.png`}
+      src={`/flags/${flag}.png`}
       width={35}
       height={25}
       priority
