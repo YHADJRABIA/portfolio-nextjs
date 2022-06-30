@@ -18,6 +18,7 @@ export default async function middleware(req: NextRequest) {
   return res
 }
 
+// Allows to filter out paths on which middleware is run, otherwise it would run on every request
 export const config = {
   matcher: "/",
 }
