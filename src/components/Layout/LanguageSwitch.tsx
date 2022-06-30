@@ -127,7 +127,7 @@ const LanguageSwitch = ({ setToggled }: PropTypes) => {
     return {
       value: locale,
       label: locale.toLocaleUpperCase(),
-      flag: locale === "sv" ? "se" : locale === "en" ? "gb" : locale,
+      flag: locale,
       title: t(`languages.${locale}`),
     }
   })
