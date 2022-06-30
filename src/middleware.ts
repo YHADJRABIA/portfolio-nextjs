@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse, userAgent } from "next/server"
 
-// Triggers up following every request
+// Runs on edge runtime and gets triggered following every request
 export default async function middleware(req: NextRequest) {
   const res = NextResponse.next()
   const time = Date.now()
