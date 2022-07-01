@@ -29,13 +29,15 @@ const SEO: FC<PropTypes> = ({
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <meta name="author" content={author ?? "Yacine Hadj Rabia"} />
 
       {/* Open Graph */}
 
-      <meta property="og:title" content={ogTitle} />
-      <meta property="og:description" content={ogDescription} />
+      {ogTitle && <meta property="og:title" content={ogTitle} />}
+      {ogDescription && (
+        <meta property="og:description" content={ogDescription} />
+      )}
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
