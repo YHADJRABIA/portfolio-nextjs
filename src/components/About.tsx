@@ -26,6 +26,7 @@ const About = () => {
           alt={t("myself")}
           title={t("myself")}
           data-testid="about-photo"
+          objectFit="cover"
           width={400}
           height={400}
           quality={60}
