@@ -2,13 +2,12 @@ import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "./UI/InvisibleAnchor"
 import HoverImage from "./UI/HoverImage"
+
 import styles from "./About.module.scss"
 import SectionHeader from "./UI/SectionHeader"
 import { useContext } from "react"
 import { ThemeContext } from "@/context/ThemeContext"
 import cn from "classnames"
-import mePic from "~/me.jpg"
-import meNPysen from "~/me-with-pysen.jpg"
 
 const About = () => {
   const { t } = useTranslation("common")
@@ -22,8 +21,8 @@ const About = () => {
       <InvisibleAnchor id="about" />
       <div className={styles.photoContainer}>
         <HoverImage
-          src={meNPysen}
-          hoverSrc={mePic}
+          src="/me-with-pysen.jpg"
+          hoverSrc="/me.jpg"
           alt={t("myself")}
           title={t("myself")}
           data-testid="about-photo"
