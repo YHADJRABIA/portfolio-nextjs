@@ -3,7 +3,7 @@ import Image, { ImageProps } from "next/image"
 import useIsOnMobile from "@/hooks/useIsOnMobile"
 
 interface PropTypes extends ImageProps {
-  hoverSrc: string
+  hoverSrc: string // New src for as long as the mouse is hovered over the Image
 }
 
 // Next's Image component with 2 srcs depending on mouse hovering state
