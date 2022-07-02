@@ -48,7 +48,11 @@ const PageNotFound: NextPage = () => {
         <h4>
           <Trans
             i18nKey={t("redirectionIn")}
-            components={[<Link key={0} href="/" title="Home page"></Link>]}
+            components={[
+              <Link key={0} href="/" passHref>
+                <a title="Home page"></a>
+              </Link>,
+            ]}
             values={{ counter }}
             defaultTrans={t("redirectionIn")}
           />
