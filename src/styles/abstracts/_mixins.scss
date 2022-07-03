@@ -29,6 +29,21 @@ $footer-height: 10rem;
   align-content: center;
 }
 
+// To conceal overflowing elements and add "..." at the end
+@mixin truncated {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// For long words, making them complete on the next line
+@mixin ow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
 /*- Reset params -*/
 @mixin initialProperties {
   position: initial;
