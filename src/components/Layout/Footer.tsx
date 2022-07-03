@@ -1,17 +1,8 @@
 import { useContext } from "react"
-import { useRouter } from "next/router"
-
 import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
-
 import styles from "./Footer.module.scss"
-
-// Components
 import links from "./links"
-
-// Global state management
 import { ThemeContext } from "@/context/ThemeContext"
-
-// Translation
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 
@@ -41,7 +32,6 @@ const FooterSeparator = ({ color }: PropTypes) => {
 
 const Footer = ({ color }: PropTypes) => {
   const { t } = useTranslation("common")
-  const { locale, locales, defaultLocale, asPath } = useRouter()
   return (
     <>
       <FooterSeparator color={color} />

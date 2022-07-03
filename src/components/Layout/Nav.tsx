@@ -1,10 +1,7 @@
 import { useState, useRef } from "react"
 import Link from "next/link"
-
 import useTranslation from "next-translate/useTranslation"
-
 import cn from "classnames"
-
 import BurgerMenu from "./BurgerMenu"
 import ThemeToggler from "./ThemeToggler"
 import LanguageSwitch from "./LanguageSwitch"
@@ -16,28 +13,13 @@ import { useEventListener } from "@/hooks/useEventListener"
 const Nav = () => {
   const { t } = useTranslation("common")
 
-  const navItems = [
-    {
-      title: t("navNames.about"),
-      url: "/#about",
-      dataId: "about-link",
-    },
-    {
-      title: t("navNames.skills"),
-      url: "/#skills",
-      dataId: "skills-link",
-    },
-    {
-      title: t("navNames.projects"),
-      url: "/#projects",
-      dataId: "projects-link",
-    },
-    {
-      title: t("navNames.contact"),
-      url: "/#contact",
-      dataId: "contact-link",
-    },
-  ]
+  const navItems = ["about", "skills", "projects", "contact"].map(item => {
+    return {
+      title: t(`navNames.${item}`),
+      url: `/#${item}`,
+      dataId: `${item}-link`,
+    }
+  })
 
   const isOnMobile = useIsOnMobile()
 

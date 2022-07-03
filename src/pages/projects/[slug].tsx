@@ -17,6 +17,7 @@ import {
   GET_PROJECT_BY_SLUG_QUERY,
 } from "@/graphql/projects"
 import { StructuredText } from "react-datocms"
+import { generateLocalisedPaths } from "@/utilities/locales"
 
 interface PropTypes {
   project: Project
@@ -92,14 +93,7 @@ export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
   const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
   })
-  const paths = data.allProjects
-    .map((project: { slug: string }) => {
-      return locales.map(locale => ({
-        params: { slug: project.slug },
-        locale,
-      }))
-    })
-    .flat() // Flatten array to avoid nested arrays
+  const paths = generateLocalisedPaths(data.allProjects, locales)
 
   return {
     paths,
