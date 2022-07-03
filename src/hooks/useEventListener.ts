@@ -1,8 +1,8 @@
 import { RefObject, useEffect, useRef } from "react"
 
-const useEventListener = (
+export const useEventListener = <T>(
   eventName: string,
-  handler: () => void,
+  handler: (event: T) => void,
   element?: RefObject<HTMLElement>
 ) => {
   // Create a ref that stores handler
@@ -10,7 +10,8 @@ const useEventListener = (
 
   useEffect(() => {
     // Define the listening target
-    const targetElement: HTMLElement | Window = element?.current || window
+    const targetElement: HTMLElement | Window | Document =
+      element?.current || window || document
     if (!(targetElement && targetElement.addEventListener)) return
 
     // Update saved handler if necessary
@@ -18,8 +19,7 @@ const useEventListener = (
 
     // Create event listener that calls handler function stored in ref
     const eventListener = (event: Event) => {
-      // eslint-disable-next-line no-extra-boolean-cast
-      if (!!savedHandler?.current) savedHandler.current(event)
+      if (savedHandler?.current) savedHandler.current(event)
     }
 
     targetElement.addEventListener(eventName, eventListener)
@@ -28,5 +28,3 @@ const useEventListener = (
     return () => targetElement.removeEventListener(eventName, eventListener)
   }, [eventName, element, handler])
 }
-
-export default useEventListener

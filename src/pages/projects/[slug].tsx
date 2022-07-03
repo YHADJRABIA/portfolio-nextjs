@@ -13,12 +13,11 @@ import { websiteUrl } from "@/utilities/general"
 import { useRouter } from "next/router"
 import { gqlRequest } from "@/lib/datoCMS"
 import {
-  getProjectNameByLocale,
-  getProjectDescriptionByLocale,
-  GET_ALL_SLUGS_QUERY,
+  GET_ALL_PROJECTS_QUERY,
   GET_PROJECT_BY_SLUG_QUERY,
 } from "@/graphql/projects"
 import { StructuredText } from "react-datocms"
+import { generateLocalisedPaths } from "@/utilities/locales"
 
 interface PropTypes {
   project: Project
@@ -30,6 +29,7 @@ interface StaticPropTypes {
 
 interface ParamsTypes {
   params: { slug: string }
+  locale: Locale
 }
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
@@ -59,9 +59,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
           [styles.darkTheme]: darkTheme,
         })}
       >
-        <h1 className={styles.title}>
-          {getProjectNameByLocale(project, locale as Locale)}
-        </h1>
+        <h1 className={styles.title}>{project.name}</h1>
         <div className={styles.projectContainer}>
           <div className={styles.technologiesContainer}>
             <h2 className={styles.technologiesTitle}>{t("technologies")}</h2>
@@ -81,9 +79,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
           <div className={styles.descriptionContainer}>
             <h2 className={styles.descriptionTitle}> {t("description")}</h2>
 
-            <StructuredText
-              data={getProjectDescriptionByLocale(project, locale as Locale)}
-            />
+            <StructuredText data={project.description} />
           </div>
         </div>
       </section>
@@ -94,17 +90,10 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 // Runs during build time only & can only work with getStaticProps
 // Gets locales from context to generate multilanguage pages for each project
 export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
-  const slugs = await gqlRequest({
-    query: GET_ALL_SLUGS_QUERY,
+  const data = await gqlRequest({
+    query: GET_ALL_PROJECTS_QUERY,
   })
-  const paths = slugs.allProjects
-    .map((project: { slug: string }) => {
-      return locales.map(locale => ({
-        params: { slug: project.slug },
-        locale,
-      }))
-    })
-    .flat() // Flatten array to avoid nested arrays
+  const paths = generateLocalisedPaths(data.allProjects, locales)
 
   return {
     paths,
@@ -112,10 +101,10 @@ export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
   }
 }
 
-export const getStaticProps = async ({ params }: ParamsTypes) => {
+export const getStaticProps = async ({ params, locale }: ParamsTypes) => {
   const data = await gqlRequest({
     query: GET_PROJECT_BY_SLUG_QUERY,
-    variables: { slug: params.slug },
+    variables: { slug: params.slug, locale },
   })
 
   return {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import useEventListener from "./useEventListener"
+import { useEventListener } from "./useEventListener"
 
 const useIsOnMobile = (): boolean => {
   const [isCompact, setIsCompact] = useState(true)

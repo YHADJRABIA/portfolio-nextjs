@@ -1,3 +1,4 @@
+import { ComponentType } from "react"
 import { useRouter } from "next/router"
 import Image from "next/image"
 
@@ -8,12 +9,15 @@ import styles from "./LanguageSwitch.module.scss"
 import Select, {
   components,
   CSSObjectWithLabel,
+  OptionProps,
+  SingleValueProps,
   StylesConfig,
 } from "react-select"
 
 type FlagProps = {
   title?: string
   flag?: string
+  label?: string
 }
 
 interface PropTypes {
@@ -26,7 +30,7 @@ const Flag = ({ title, flag }: FlagProps) => {
       className={styles.flagImg}
       alt={title}
       title={title}
-      src={`https://flagcdn.com/w40/${flag}.png`}
+      src={`/flags/${flag}.png`}
       width={35}
       height={25}
       priority
@@ -36,14 +40,14 @@ const Flag = ({ title, flag }: FlagProps) => {
 
 const { Option } = components
 
-const CustomSelectOption = (props: any) => (
+const CustomSelectOption = (props: { data: FlagProps } & OptionProps) => (
   <Option {...props}>
     <Flag title={props.data.title} flag={props.data.flag} />
     <small title={props.data.title}>{props.data.label}</small>
   </Option>
 )
 
-const CustomSelectValue = ({ data }: any) => (
+const CustomSelectValue = ({ data }: { data: FlagProps }) => (
   <Flag title={data.title} flag={data.flag} />
 )
 
@@ -127,7 +131,7 @@ const LanguageSwitch = ({ setToggled }: PropTypes) => {
     return {
       value: locale,
       label: locale.toLocaleUpperCase(),
-      flag: locale === "sv" ? "se" : locale === "en" ? "gb" : locale,
+      flag: locale,
       title: t(`languages.${locale}`),
     }
   })
@@ -148,10 +152,10 @@ const LanguageSwitch = ({ setToggled }: PropTypes) => {
       options={options?.filter(option => option.value !== locale)} // Filters out current flag
       defaultValue={locale}
       placeholder={<Flag flag={currentFlag?.flag} title={currentFlag?.title} />}
-      onChange={changeLanguage as any}
+      onChange={changeLanguage as () => void}
       components={{
-        Option: CustomSelectOption,
-        SingleValue: CustomSelectValue,
+        Option: CustomSelectOption as ComponentType<OptionProps>,
+        SingleValue: CustomSelectValue as ComponentType<SingleValueProps>,
       }}
       isSearchable={false}
       styles={customStyles}
