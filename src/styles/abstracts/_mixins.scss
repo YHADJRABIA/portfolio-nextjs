@@ -29,6 +29,26 @@ $footer-height: 10rem;
   align-content: center;
 }
 
+@mixin multiLineEllipsisCommon($line-height, $lines-to-show) {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 100%;
+  overflow: hidden;
+
+  line-height: $line-height;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+}
+
+@mixin multiLineEllipsis($line-height, $lines-to-show) {
+  @include multiLineEllipsisCommon($line-height, $lines-to-show);
+
+  max-height: calc(
+    1em * #{$line-height * $lines-to-show}
+  ); /* Fallback for non-webkit */
+}
+
 // To conceal overflowing elements and add "..." at the end
 @mixin truncated {
   width: 100%;
@@ -50,6 +70,19 @@ $footer-height: 10rem;
   height: initial;
   width: initial;
   transform: none;
+}
+
+// Prevents user from selecting or highlighting element
+@mixin preventUserSelect {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+
+  /* The rule below is not implemented in browsers yet */
+  -o-user-select: none;
+
+  /* The rule below is implemented in most browsers by now */
+  user-select: none;
 }
 
 /* Responsive Breakpoints */
