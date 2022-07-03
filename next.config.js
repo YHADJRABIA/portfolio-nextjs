@@ -16,6 +16,7 @@ module.exports = {
     // Allows use of SVGs as dynamic component without being compelled to use Next Image
     config.module.rules.push({
       test: /\.svg$/, // If file is SVG...
+      issuer: /\.[jt]sx?$/, // ...and is used in a .js/ts or .jsx/tsx file...
       use: ["@svgr/webpack"], // use SVGR
     })
 
