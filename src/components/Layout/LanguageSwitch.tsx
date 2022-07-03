@@ -28,6 +28,7 @@ const Flag = ({ title, flag }: FlagProps) => {
   return (
     <Image
       className={styles.flagImg}
+      loading="eager"
       alt={title}
       title={title}
       src={`/flags/${flag}.png`}
