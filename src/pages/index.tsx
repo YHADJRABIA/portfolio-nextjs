@@ -30,7 +30,8 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   const projects = data.allProjects
 
   // TODO remove console.log
-  console.log(projects)
+  console.log("data", data)
+  console.log("projects", projects)
 
   return (
     <>
