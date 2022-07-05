@@ -23,7 +23,7 @@ interface PropTypes {
 
 const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   const { t } = useTranslation("meta")
-  const projects = data?.allProjects
+  const projects = data.allProjects
 
   return (
     <>
