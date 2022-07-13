@@ -26,6 +26,7 @@ interface PropTypes {
 
 interface StaticPropTypes {
   locales: Locale[]
+  preview: boolean
 }
 
 interface ParamsTypes extends ContextProps {
@@ -89,9 +90,10 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 
 // Runs during build time only & can only work with getStaticProps
 // Gets locales from context to generate multilanguage pages for each project
-export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
+export const getStaticPaths = async ({ locales, preview }: StaticPropTypes) => {
   const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
+    includeDrafts: preview,
   })
   const paths = generateLocalisedPaths(data.allProjects, locales)
 
