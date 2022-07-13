@@ -15,15 +15,10 @@ import Hero from "@/components/Hero/Hero"
 import { GET_ALL_PROJECTS_QUERY } from "@/graphql/projects"
 import { gqlRequest } from "@/lib/datoCMS"
 import { Project } from "@/types/models/projects"
-import { Locale } from "@/types/locales"
+import { ContextProps } from "@/types/context"
 
 interface PropTypes {
   data: { allProjects: Project[] }
-}
-
-interface StaticPropTypes {
-  locale: Locale
-  preview: boolean
 }
 
 const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
@@ -78,7 +73,7 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   )
 }
 
-export const getStaticProps = async ({ locale, preview }: StaticPropTypes) => {
+export const getStaticProps = async ({ locale, preview }: ContextProps) => {
   const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
     variables: { locale },

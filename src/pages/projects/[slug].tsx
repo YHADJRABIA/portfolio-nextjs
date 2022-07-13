@@ -18,6 +18,7 @@ import {
 } from "@/graphql/projects"
 import { StructuredText } from "react-datocms"
 import { generateLocalisedPaths } from "@/utilities/locales"
+import { ContextProps } from "@/types/context"
 
 interface PropTypes {
   project: Project
@@ -27,10 +28,8 @@ interface StaticPropTypes {
   locales: Locale[]
 }
 
-interface ParamsTypes {
+interface ParamsTypes extends ContextProps {
   params: { slug: string }
-  locale: Locale
-  preview: boolean
 }
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
