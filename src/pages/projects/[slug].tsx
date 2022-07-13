@@ -43,6 +43,8 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 
   const icons = skills.map(skill => getIconBySlug(skill)?.icon ?? "")
 
+  const hasName = project.name.length
+
   return (
     <>
       <SEO
@@ -60,7 +62,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
           [styles.darkTheme]: darkTheme,
         })}
       >
-        <h1 className={styles.title}>{project.name}</h1>
+        {hasName && <h1 className={styles.title}>{project.name}</h1>}
         <div className={styles.projectContainer}>
           <div className={styles.technologiesContainer}>
             <h2 className={styles.technologiesTitle}>{t("technologies")}</h2>
