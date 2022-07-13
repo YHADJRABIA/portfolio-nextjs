@@ -18,7 +18,7 @@ interface PropTypes {
 const Card = ({ name, img, url, repo, slug }: PropTypes) => {
   const { darkTheme } = useContext(ThemeContext)
   const { t } = useTranslation("project")
-  const contentExists = img && name && slug
+  const contentExists = img && name && slug && (url || repo)
 
   return (
     <>
