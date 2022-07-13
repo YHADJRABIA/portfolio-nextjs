@@ -78,7 +78,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
             </div>
           </div>
           <div className={styles.descriptionContainer}>
-            <h2 className={styles.descriptionTitle}> {t("description")}</h2>
+            <h2 className={styles.descriptionTitle}>{t("description")}</h2>
 
             <StructuredText data={project.description} />
           </div>
