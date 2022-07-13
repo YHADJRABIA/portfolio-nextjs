@@ -23,6 +23,7 @@ interface PropTypes {
 
 interface StaticPropTypes {
   locale: Locale
+  preview: boolean
 }
 
 const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
@@ -77,10 +78,11 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   )
 }
 
-export const getStaticProps = async ({ locale }: StaticPropTypes) => {
+export const getStaticProps = async ({ locale, preview }: StaticPropTypes) => {
   const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
     variables: { locale },
+    includeDrafts: preview,
   })
   return {
     props: { data },

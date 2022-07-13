@@ -30,6 +30,7 @@ interface StaticPropTypes {
 interface ParamsTypes {
   params: { slug: string }
   locale: Locale
+  preview: boolean
 }
 
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
@@ -101,10 +102,15 @@ export const getStaticPaths = async ({ locales }: StaticPropTypes) => {
   }
 }
 
-export const getStaticProps = async ({ params, locale }: ParamsTypes) => {
+export const getStaticProps = async ({
+  params,
+  locale,
+  preview,
+}: ParamsTypes) => {
   const data = await gqlRequest({
     query: GET_PROJECT_BY_SLUG_QUERY,
     variables: { slug: params.slug, locale },
+    includeDrafts: preview,
   })
 
   return {
