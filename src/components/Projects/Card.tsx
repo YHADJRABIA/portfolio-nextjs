@@ -21,44 +21,46 @@ const Card = ({ name, img, url, repo, slug }: PropTypes) => {
   const contentExists = img && name && slug
 
   return (
-    contentExists && (
-      <li className={cn(styles.card, { [styles.darkTheme]: darkTheme })}>
-        <Link href={`/projects/${slug}`} passHref>
-          <a className={styles.imageContainer} title={name}>
-            <Image data={img.responsiveImage} />
-          </a>
-        </Link>
+    <>
+      {contentExists && (
+        <li className={cn(styles.card, { [styles.darkTheme]: darkTheme })}>
+          <Link href={`/projects/${slug}`} passHref>
+            <a className={styles.imageContainer} title={name}>
+              <Image data={img.responsiveImage} />
+            </a>
+          </Link>
 
-        <h3 className={styles.projectName}>{name}</h3>
+          <h3 className={styles.projectName}>{name}</h3>
 
-        <Link href={`/projects/${slug}`} passHref>
-          <a className={styles.projectDetails} title={name}>
-            {t("moreDetails")}
-          </a>
-        </Link>
+          <Link href={`/projects/${slug}`} passHref>
+            <a className={styles.projectDetails} title={name}>
+              {t("moreDetails")}
+            </a>
+          </Link>
 
-        <div className={styles.cardFooter}>
-          {url && (
-            <div className={styles.projectLink}>
-              <Link href={url} passHref>
-                <a title={url}>
-                  <i className="fas fa-link"></i>
-                </a>
-              </Link>
-            </div>
-          )}
-          {repo && (
-            <div className={styles.projectRepo}>
-              <Link href={repo} passHref>
-                <a title={repo}>
-                  <i className="fab fa-github"></i>
-                </a>
-              </Link>
-            </div>
-          )}
-        </div>
-      </li>
-    )
+          <div className={styles.cardFooter}>
+            {url && (
+              <div className={styles.projectLink}>
+                <Link href={url} passHref>
+                  <a title={url}>
+                    <i className="fas fa-link"></i>
+                  </a>
+                </Link>
+              </div>
+            )}
+            {repo && (
+              <div className={styles.projectRepo}>
+                <Link href={repo} passHref>
+                  <a title={repo}>
+                    <i className="fab fa-github"></i>
+                  </a>
+                </Link>
+              </div>
+            )}
+          </div>
+        </li>
+      )}
+    </>
   )
 }
 
