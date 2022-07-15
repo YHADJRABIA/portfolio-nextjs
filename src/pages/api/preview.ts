@@ -1,13 +1,13 @@
 import { APIResponse } from "@/types/api"
 import { NextApiRequest, NextApiResponse } from "next"
 
-// Endpoint to enable preview mode. Useful to preview a headless CMS draft. The preview is rendered at request time instead of build time
-// The preview mode will remain enabled unless another endpoint to disable it is called
+// Endpoint to enable/disable preview mode. Useful to preview a headless CMS draft. The preview is rendered at request time instead of build time
+// The preview mode will remain enabled unless called with a `?disable=true` query parameter
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<APIResponse>
 ) {
-  if (req.query.mode === "disable") {
+  if (req.query.disable === "true") {
     res.clearPreviewData() // Clears browser's cookies to disable preview mode.
     res.end("Preview mode disabled")
   }
