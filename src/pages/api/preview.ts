@@ -12,7 +12,7 @@ export default function handler(
   // Disable mode
   if (disable === "true" && !secret) {
     res.clearPreviewData() // Clears browser's cookies to disable preview mode.
-    res.end("Preview mode disabled")
+    return res.end("Preview mode disabled")
   }
 
   // Enable mode
