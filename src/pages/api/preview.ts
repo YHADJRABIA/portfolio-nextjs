@@ -2,7 +2,7 @@ import { APIResponse } from "@/types/api"
 import { NextApiRequest, NextApiResponse } from "next"
 
 // Endpoint to enable/disable preview mode. Useful to preview a headless CMS draft. The preview is rendered at request time instead of build time
-// The preview mode will remain enabled unless called with a `?disable=true` query parameter
+// The preview mode will remain enabled unless the endpoint is called with a `?disable=(anything-here)` query parameter
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<APIResponse>
