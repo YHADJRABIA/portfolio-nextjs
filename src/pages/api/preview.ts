@@ -7,7 +7,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<APIResponse>
 ) {
-  if (req.query.disable === "true") {
+  if (req.query.disable) {
     res.clearPreviewData() // Clears browser's cookies to disable preview mode.
     res.end("Preview mode disabled")
   }
