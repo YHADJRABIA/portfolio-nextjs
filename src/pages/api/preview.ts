@@ -12,6 +12,5 @@ export default function handler(
     return res.status(401).json({ status: "error", msg: "Invalid token" })
   }
   res.setPreviewData({}) // Sets browser's cookie to enable preview mode. Any request containing this cookie will be rendered in preview mode
-
   res.end("Preview mode enabled")
 }
