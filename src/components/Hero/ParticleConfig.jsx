@@ -2,11 +2,12 @@ import Particles from "react-tsparticles"
 
 const ParticlesConfig = () => (
   <Particles
-    style={{
-      position: "relative",
-      height: "90rem",
-    }}
     params={{
+      style: {
+        cursor: "pointer",
+        position: "relative",
+        height: "90rem",
+      },
       fullScreen: { enable: false, zIndex: 0 },
       detectRetina: false,
       fpsLimit: 60,
