@@ -1,5 +1,6 @@
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
+
 const ParticlesConfig = () => {
   const particlesInit = async main => {
     await loadFull(main)
@@ -10,7 +11,7 @@ const ParticlesConfig = () => {
       init={particlesInit}
       className="particles-container"
       options={{
-        fullScreen: { enable: false },
+        fullScreen: { enable: false, zIndex: 0 },
         detectRetina: false,
         fpsLimit: 60,
         interactivity: {
@@ -67,12 +68,12 @@ const ParticlesConfig = () => {
             straight: false,
           },
           number: {
+            value: 200,
+            limit: 200,
             density: {
               enable: false,
-              area: 2000,
+              value_area: 200,
             },
-            limit: 0,
-            value: 75,
           },
           opacity: {
             animation: {
