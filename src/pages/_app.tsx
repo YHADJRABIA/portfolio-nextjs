@@ -25,6 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [router.events])
 
+  console.log(Component.displayName)
+
   // Applying different layouts depending on page
   switch (Component.displayName) {
     case "HomePage":
