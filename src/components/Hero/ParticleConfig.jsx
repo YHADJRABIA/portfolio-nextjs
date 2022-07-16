@@ -4,6 +4,7 @@ const ParticlesConfig = () => (
   <Particles
     className="particles-container"
     params={{
+      fullScreen: { enable: false, zIndex: 0 },
       detectRetina: false,
       fpsLimit: 60,
       interactivity: {
