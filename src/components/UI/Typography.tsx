@@ -1,7 +1,15 @@
-import React from "react"
+import { createElement, ReactNode } from "react"
+import { Tag, TextAlign } from "@/types/ui"
 
-const Typography = ({ as = "p", children, className, ...props }) => {
-  return React.createElement(
+interface PropTypes {
+  as?: Tag
+  children?: ReactNode
+  className?: string
+  align?: TextAlign
+}
+
+const Typography = ({ as = "p", children, className, ...props }: PropTypes) => {
+  return createElement(
     as,
     {
       className: `${className}`,
