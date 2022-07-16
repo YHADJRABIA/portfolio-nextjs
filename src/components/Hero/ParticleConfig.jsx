@@ -25,10 +25,10 @@ const ParticlesConfig = () => {
           },
           modes: {
             bubble: {
-              distance: 40,
+              distance: 30,
               duration: 2,
-              opacity: 7,
-              size: 4,
+              opacity: 5,
+              size: 3,
               speed: 3,
             },
           },
@@ -38,7 +38,7 @@ const ParticlesConfig = () => {
             value: "#ff0000",
             animation: {
               enable: true,
-              speed: 20,
+              speed: 5,
               sync: true,
             },
           },
@@ -47,7 +47,7 @@ const ParticlesConfig = () => {
             color: "random",
             consent: false,
             distance: 30,
-            enable: true,
+            enable: false,
             opacity: 0.3,
             width: 0.5,
           },
@@ -59,7 +59,7 @@ const ParticlesConfig = () => {
                 y: 1200,
               },
             },
-            bounce: false,
+            bounce: true,
             direction: "none",
             enable: true,
             outMode: "bounce",
@@ -68,12 +68,12 @@ const ParticlesConfig = () => {
             straight: false,
           },
           number: {
-            value: 200,
-            limit: 200,
             density: {
               enable: false,
-              value_area: 200,
+              value_area: 1000,
             },
+            limit: 0,
+            value: 10,
           },
           opacity: {
             animation: {
