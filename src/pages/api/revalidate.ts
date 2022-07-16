@@ -28,7 +28,7 @@ export default async function handler(
     // Get slug to revalidate from body
     const slug = body.slug_to_revalidate
 
-    // TODO: Replace projects to make path more dynamic + update when unstable_revalidate is no longer in beta
+    // TODO: Replace projects to make path more dynamic
     if (slug) {
       await res.revalidate(`/projects/${slug}`)
       return res.status(200).json({
