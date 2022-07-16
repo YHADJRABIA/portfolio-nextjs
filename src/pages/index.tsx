@@ -69,7 +69,7 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
         <SeparatorSVG direction="down" />
         <Skills />
         <SeparatorSVG direction="up" />
-        <Projects data={projects} />
+        {/* <Projects data={projects} /> */}
         <SeparatorSVG direction="down" />
         <Contact />
       </Layout>
