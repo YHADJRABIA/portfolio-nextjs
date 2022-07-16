@@ -10,6 +10,7 @@ const ParticlesConfig = () => {
       init={particlesInit}
       className="particles-container"
       options={{
+        fullScreen: { enable: false },
         detectRetina: false,
         fpsLimit: 60,
         interactivity: {
