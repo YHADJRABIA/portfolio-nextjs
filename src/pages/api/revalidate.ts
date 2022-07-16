@@ -30,7 +30,7 @@ export default async function handler(
 
     // TODO: Replace projects to make path more dynamic + update when unstable_revalidate is no longer in beta
     if (slug) {
-      await res.unstable_revalidate(`/projects/${slug}`)
+      await res.revalidate(`/projects/${slug}`)
       return res.status(200).json({
         status: "success",
         msg: "Successful revalidation!",
