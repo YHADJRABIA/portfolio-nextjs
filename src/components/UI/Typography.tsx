@@ -5,6 +5,7 @@ interface PropTypes {
   as?: Tag
   children?: ReactNode
   className?: string
+  semiBold?: boolean
   align?: TextAlign
 }
 
