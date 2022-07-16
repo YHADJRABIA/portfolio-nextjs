@@ -2,7 +2,10 @@ import Particles from "react-tsparticles"
 
 const ParticlesConfig = () => (
   <Particles
-    className="particles-container"
+    style={{
+      position: "relative",
+      height: "90rem",
+    }}
     params={{
       fullScreen: { enable: false, zIndex: 0 },
       detectRetina: false,
