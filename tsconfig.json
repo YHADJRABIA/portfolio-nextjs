@@ -3,7 +3,8 @@
     "target": "es2021",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["public/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
