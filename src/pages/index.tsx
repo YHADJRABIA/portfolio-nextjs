@@ -77,7 +77,7 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   )
 }
 
-export const getStaticProps = async ({ locale, preview }: ContextProps) => {
+/* export const getStaticProps = async ({ locale, preview }: ContextProps) => {
   const data = await gqlRequest({
     query: GET_ALL_PROJECTS_QUERY,
     variables: { locale },
@@ -87,7 +87,7 @@ export const getStaticProps = async ({ locale, preview }: ContextProps) => {
     props: { data },
     revalidate: 3600, // Updates cache every hour with new CMS content
   }
-}
+} */
 
 HomePage.displayName = "HomePage"
 
