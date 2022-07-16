@@ -23,11 +23,11 @@ interface PropTypes {
 
 const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   const { t } = useTranslation("meta")
-  const projects = data.allProjects
+  /*  const projects = data.allProjects */
 
   // TODO remove console.log
-  console.log("data", data)
-  console.log("projects", projects)
+  /*   console.log("data", data)
+  console.log("projects", projects) */
 
   return (
     <>
