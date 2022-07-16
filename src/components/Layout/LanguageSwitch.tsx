@@ -140,7 +140,6 @@ const LanguageSwitch = ({ setToggled }: PropTypes) => {
   const currentFlag = options?.filter(option => option.value === locale)[0]
 
   const changeLanguage = (e: { value: string }) => {
-    // LocalStorage
     setToggled(false)
     const locale = e.value
     router.push(pathname, asPath, { locale, scroll: false })
