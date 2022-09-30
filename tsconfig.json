@@ -19,12 +19,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.d.ts",
-    "**/*.js",
-    "src/components/Hero/ParticleConfig.jsx"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", "**/*.js"],
   "exclude": ["node_modules"]
 }

@@ -2,8 +2,13 @@ import Particles from "react-tsparticles"
 
 const ParticlesConfig = () => (
   <Particles
-    className="particles-container"
     params={{
+      style: {
+        cursor: "pointer",
+        position: "relative",
+        height: "90rem",
+      },
+      fullScreen: { enable: false, zIndex: 0 },
       detectRetina: false,
       fpsLimit: 60,
       interactivity: {
@@ -21,7 +26,6 @@ const ParticlesConfig = () => (
             duration: 2,
             opacity: 7,
             size: 4,
-            speed: 3,
           },
         },
       },
@@ -102,7 +106,7 @@ const ParticlesConfig = () => (
         },
         inlineArrangement: "equidistant",
         scale: 0.45,
-        type: "inline",
+        type: "inline" as any,
         url: "https://particles.js.org/images/smalldeer.svg",
       },
     }}
