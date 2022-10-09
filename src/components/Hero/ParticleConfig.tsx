@@ -1,5 +1,4 @@
 import Particles from "react-tsparticles"
-import { PolygonMaskType } from "tsparticles"
 
 const ParticlesConfig = () => (
   <Particles
@@ -107,7 +106,7 @@ const ParticlesConfig = () => (
         },
         inlineArrangement: "equidistant",
         scale: 0.45,
-        type: "inline" as PolygonMaskType,
+        type: "inline" as unknown,
         url: "https://particles.js.org/images/smalldeer.svg",
       },
     }}
