@@ -63,7 +63,7 @@ const Nav = () => {
       <ul className={cn(styles.menu, { [styles.toggled]: toggled })}>
         {navItems.map((item, id) => (
           <li key={id}>
-            <Link href={item.url} passHref>
+            <Link href={item.url} passHref scroll={false}>
               <a
                 title={item.title}
                 data-testid={item.dataId}
