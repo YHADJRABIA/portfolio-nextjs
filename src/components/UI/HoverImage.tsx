@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Image, { ImageProps } from "next/image"
 import useIsOnMobile from "@/hooks/useIsOnMobile"
+import styles from "./HoverImage.module.scss"
 
 interface PropTypes extends ImageProps {
   hoverSrc: string // New src for as long as the mouse is hovered over the Image
@@ -13,6 +14,7 @@ const HoverImage = ({ src, hoverSrc, alt, ...rest }: PropTypes) => {
 
   return (
     <Image
+      className={styles.image}
       src={!isHovered ? src : hoverSrc}
       alt={alt}
       onMouseEnter={!isOnMobile ? () => setIsHovered(true) : undefined}
