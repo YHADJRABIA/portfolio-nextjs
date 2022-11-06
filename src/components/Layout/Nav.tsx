@@ -45,14 +45,13 @@ const Nav = () => {
       ref={menuRef}
       className={cn(styles.navItems, { [styles.active]: navbar })}
     >
-      <Link href="/" passHref>
-        <a
-          className={cn(styles.logo, { [styles.active]: navbar })}
-          title="Logo"
-          data-testid="logo"
-        >
-          Y H R
-        </a>
+      <Link
+        href="/"
+        className={cn(styles.logo, { [styles.active]: navbar })}
+        title="Logo"
+        data-testid="logo"
+      >
+        Y H R
       </Link>
       {/* --- Phone only ---*/}
       {isOnMobile && (
@@ -63,15 +62,15 @@ const Nav = () => {
       <ul className={cn(styles.menu, { [styles.toggled]: toggled })}>
         {navItems.map((item, id) => (
           <li key={id}>
-            <Link href={item.url} passHref scroll={false}>
-              <a
-                title={item.title}
-                data-testid={item.dataId}
-                className={cn(styles.links, { [styles.active]: navbar })}
-                onClick={closeMenu}
-              >
-                {item.title}
-              </a>
+            <Link
+              href={item.url}
+              title={item.title}
+              data-testid={item.dataId}
+              className={cn(styles.links, { [styles.active]: navbar })}
+              onClick={closeMenu}
+              scroll={false}
+            >
+              {item.title}
             </Link>
           </li>
         ))}

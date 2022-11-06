@@ -28,7 +28,6 @@ const About = () => {
           data-testid="about-photo"
           width={400}
           height={400}
-          objectFit="cover"
           quality={60}
         />
       </div>
