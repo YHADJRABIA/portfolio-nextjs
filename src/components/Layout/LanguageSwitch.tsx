@@ -15,7 +15,7 @@ import Select, {
 } from "react-select"
 
 type FlagProps = {
-  title?: string
+  title: string
   flag?: string
   label?: string
 }
@@ -146,20 +146,22 @@ const LanguageSwitch = ({ setToggled }: PropTypes) => {
   }
 
   return (
-    <Select
-      instanceId="long-value-select"
-      className={styles.languageContainer}
-      options={options?.filter(option => option.value !== locale)} // Filters out current flag
-      defaultValue={locale}
-      placeholder={<Flag flag={currentFlag?.flag} title={currentFlag?.title} />}
-      onChange={changeLanguage as () => void}
-      components={{
-        Option: CustomSelectOption as ComponentType<OptionProps>,
-        SingleValue: CustomSelectValue as ComponentType<SingleValueProps>,
-      }}
-      isSearchable={false}
-      styles={customStyles}
-    />
+    currentFlag && (
+      <Select
+        instanceId="long-value-select"
+        className={styles.languageContainer}
+        options={options.filter(option => option.value !== locale)} // Filters out current flag
+        defaultValue={locale}
+        placeholder={<Flag flag={currentFlag.flag} title={currentFlag.title} />}
+        onChange={changeLanguage as () => void}
+        components={{
+          Option: CustomSelectOption as ComponentType<OptionProps>,
+          SingleValue: CustomSelectValue as ComponentType<SingleValueProps>,
+        }}
+        isSearchable={false}
+        styles={customStyles}
+      />
+    )
   )
 }
 
