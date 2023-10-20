@@ -16,6 +16,7 @@ import { GET_ALL_PROJECTS_QUERY } from "@/graphql/projects"
 import { gqlRequest } from "@/lib/datoCMS"
 import { Project } from "@/types/models/projects"
 import { ContextProps } from "@/types/context"
+import { sortByKey } from "@/utilities/array"
 
 interface PropTypes {
   data: { allProjects: Project[] }
@@ -23,7 +24,7 @@ interface PropTypes {
 
 const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   const { t } = useTranslation("meta")
-  const projects = data.allProjects
+  const projects = sortByKey(data.allProjects, "position")
 
   return (
     <>
