@@ -19,16 +19,13 @@ const Card = ({ name, img, url, repo, slug }: PropTypes) => {
   const { darkTheme } = useContext(ThemeContext)
   const { t } = useTranslation("project")
   const contentExists = img && name && slug && (url || repo)
+  const href = url ? url : repo ? repo : `/projects/${slug}`
 
   return (
     <>
       {contentExists && (
         <li className={cn(styles.card, { [styles.darkTheme]: darkTheme })}>
-          <Link
-            href={`/projects/${slug}`}
-            className={styles.imageContainer}
-            title={name}
-          >
+          <Link href={href} className={styles.imageContainer} title={name}>
             <Image data={img.responsiveImage} />
           </Link>
 
