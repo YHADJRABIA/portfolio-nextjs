@@ -1,6 +1,7 @@
 export const GET_ALL_PROJECTS_QUERY = `query GetAllProjects($locale: SiteLocale) {
   allProjects(orderBy: [createdAt_ASC], locale: $locale) {
     name
+    position
     _allNameLocales {
       locale
       value
