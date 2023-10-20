@@ -15,6 +15,7 @@ export type LocalisedDescription = {
 
 export type Project = {
   name: string
+  position: number
   _allNameLocales: LocalisedNames[]
   _allDescriptionLocales: LocalisedDescription[]
   image: { responsiveImage: ResponsiveImageType }
