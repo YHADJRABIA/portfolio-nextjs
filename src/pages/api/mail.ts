@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 
 import { isEmpty, isEmail, validateHuman } from "@/utilities/formValidator" // Validators
-import { sendEmail, acknowledgeReceipt } from "@/utilities/sendGrid"
 import { EmailAPIResponse } from "@/types/api"
 import { isProduction } from "@/utilities/general"
+import { acknowledgeReceipt, sendEmail } from "@/utilities/mailer"
 
 export default async function handler(
   req: NextApiRequest,
