@@ -59,7 +59,7 @@ npm run cypress
 - React-select for dropdown menu;
 - Google reCAPTCHA for spam protection;
 - Google Analytics for... analytics;
-- SendGrid for sending e-mails;
+- Nodemailer for sending e-mails;
 - Husky, ESLint and Prettier, for git hooks, better code consistency and security.
 
 ## Upcoming features:
