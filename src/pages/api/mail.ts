@@ -36,7 +36,7 @@ export default async function handler(
 
   try {
     // Sending e-mail & acknowledging receipt (only in production)
-    /*     if (isProduction) */
+   if (isProduction)
     await Promise.all([
       sendEmail(name, email, message),
       acknowledgeReceipt(name, email, lang),
