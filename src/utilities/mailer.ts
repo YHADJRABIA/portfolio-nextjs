@@ -1,7 +1,18 @@
 import { Locale } from "@/types/locales"
+import nodemailer from "nodemailer"
 
-const sendgrid = require("@sendgrid/mail")
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
+const sender = process.env.NODEMAILER_SENDER_EMAIL
+const pass = process.env.NODEMAILER_SENDER_EMAIL_PASSWORD
+const service = process.env.NODEMAILER_SERVICE
+const recipient = process.env.RECEIVING_EMAIL
+
+const transporter = nodemailer.createTransport({
+  service,
+  auth: {
+    user: sender,
+    pass,
+  },
+})
 
 interface ISendEmail {
   (name: string, email: string, message: string): Promise<void>
@@ -17,9 +28,9 @@ export const sendEmail: ISendEmail = async (name, email, message) => {
     Email: ${email}\r\n
     Message: ${message}
   `
-  await sendgrid.send({
-    to: process.env.RECEIVING_EMAIL,
-    from: process.env.SENDGRID_SENDER_EMAIL,
+  await transporter.sendMail({
+    from: sender,
+    to: recipient,
     subject: "New portfolio message!",
     text: incomingEmail,
     html: incomingEmail.replace(/\r\n/g, "<br>"),
@@ -88,9 +99,9 @@ export const acknowledgeReceipt: IAcknowledgeReceipt = async (
       break
   }
 
-  await sendgrid.send({
+  await transporter.sendMail({
+    from: sender,
     to: email,
-    from: process.env.SENDGRID_SENDER_EMAIL,
     subject: outgoingEmail.title,
     text: outgoingEmail.content,
     html: outgoingEmail.content.replace(/\r\n/g, "<br>"),
