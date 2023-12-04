@@ -36,11 +36,11 @@ export default async function handler(
 
   try {
     // Sending e-mail & acknowledging receipt (only in production)
-   if (isProduction)
-    await Promise.all([
-      sendEmail(name, email, message),
-      acknowledgeReceipt(name, email, lang),
-    ])
+    if (isProduction)
+      await Promise.all([
+        sendEmail(name, email, message),
+        acknowledgeReceipt(name, email, lang),
+      ])
 
     return res.status(200).json({ status: "success", msg: "E-mail sent!" })
   } catch (err) {
