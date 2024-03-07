@@ -10,7 +10,8 @@ module.exports = {
     prependData: `@import "utilities.scss";`, // Scss code that'd be prepended to every single scss file.
   },
   images: {
-    remotePatterns: [ // Enables use of images from external URLs
+    remotePatterns: [
+      // Enables use of images from external URLs
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
