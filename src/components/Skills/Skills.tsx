@@ -1,19 +1,20 @@
 import Card from "./Card"
-import { getAllSkills } from "@/data/skills"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "../UI/InvisibleAnchor"
 import styles from "./Skills.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 import cn from "classnames"
+import { Skill } from "@/models/skill"
 
 interface PropTypes {
+  skills: Skill[]
   isDarkTheme: boolean
 }
 
-const Skills = ({ isDarkTheme }: PropTypes) => {
+const Skills = ({ skills, isDarkTheme }: PropTypes) => {
   const { t } = useTranslation("common")
-  const skills = getAllSkills()
+
   return (
     <section
       className={cn(styles.skillsSection, { [styles.darkTheme]: isDarkTheme })}
