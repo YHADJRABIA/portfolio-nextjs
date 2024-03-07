@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react"
 import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
 
-// Shortcut for setTimeout and clearTimeout, callback function is executed after the delay
-// Note that 0 is a valid delay value
+/**
+ * Shortcut for setTimeout and clearTimeout, callback function is executed after the delay
+ * Note that 0 is a valid delay value
+ */
 export const useTimeout = (callback: () => void, delay: number | null) => {
   const savedCallback = useRef(callback)
 

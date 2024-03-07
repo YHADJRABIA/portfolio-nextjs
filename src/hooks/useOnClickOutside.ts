@@ -4,8 +4,9 @@ import { useEventListener } from "./useEventListener"
 
 type Handler = (event: MouseEvent) => void
 
-// Calls a handler function whenever the referenced HTML element is clicked outside of
-// Requires a ref to the element to listen to
+/**
+ * Calls handler function whenever user clicks outside of the referenced HTML element (ref)
+ */
 export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
   ref: RefObject<T>,
   handler: Handler,
