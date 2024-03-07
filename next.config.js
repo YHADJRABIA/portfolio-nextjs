@@ -15,13 +15,12 @@ module.exports = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '', // For security reasons: keep empty instead of omiting it, else defaults to ** (wildcard)
-        pathname: '', // Same as the above
+        // Omitted pathname here defaults to wildcard
       },
       {
         protocol: 'https',
         hostname: 'www.datocms-assets.com',
         port: '',
-        pathname: '',
       },
     ],
   },
