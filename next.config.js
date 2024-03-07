@@ -12,15 +12,15 @@ module.exports = {
   images: {
     remotePatterns: [ // Enables use of images from external URLs
       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        port: '', // For security reasons: keep empty instead of omiting it, else defaults to ** (wildcard)
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "", // For security reasons: keep empty instead of omiting it, else defaults to ** (wildcard)
         // Omitted pathname here defaults to wildcard
       },
       {
-        protocol: 'https',
-        hostname: 'www.datocms-assets.com',
-        port: '',
+        protocol: "https",
+        hostname: "www.datocms-assets.com",
+        port: "",
       },
     ],
   },
