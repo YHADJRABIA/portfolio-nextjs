@@ -4,7 +4,7 @@ import useTranslation from "next-translate/useTranslation"
 import styles from "./ThemeToggler.module.scss"
 
 const ThemeToggler = () => {
-  const { darkTheme, toggleDarkTheme } = useContext(ThemeContext)
+  const { isDarkTheme: darkTheme, toggleDarkTheme } = useContext(ThemeContext)
   const { t } = useTranslation("common")
 
   return (

@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useState, useEffect } from "react"
 
 type themeContextType = {
-  darkTheme: boolean
+  isDarkTheme: boolean
   toggleDarkTheme: () => void
 }
 
@@ -32,20 +32,22 @@ export const ThemeContext = createContext<themeContextType>(
 
 export const ThemeProvider = ({ children }: Props) => {
   // The server doesn't have a localStorage so we need to ensure that we are on the browser (window)
-  const [darkTheme, setDarkTheme] = useState<boolean>(false)
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
 
   // Getting theme from local storage
-  useEffect(() => setDarkTheme(getInitialMode), [])
+  useEffect(() => setIsDarkTheme(getInitialMode), [])
 
   // Prefered theme stored in local storage
   useEffect(() => {
-    localStorage.setItem("dark-theme", JSON.stringify(darkTheme))
-  }, [darkTheme])
+    localStorage.setItem("dark-theme", JSON.stringify(isDarkTheme))
+  }, [isDarkTheme])
 
-  const toggleDarkTheme = () => setDarkTheme(!darkTheme)
+  const toggleDarkTheme = () => setIsDarkTheme(!isDarkTheme)
 
   return (
-    <ThemeContext.Provider value={{ darkTheme, toggleDarkTheme }}>
+    <ThemeContext.Provider
+      value={{ isDarkTheme: isDarkTheme, toggleDarkTheme }}
+    >
       {children}
     </ThemeContext.Provider>
   )

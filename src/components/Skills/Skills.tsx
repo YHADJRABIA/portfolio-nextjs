@@ -6,16 +6,17 @@ import InvisibleAnchor from "../UI/InvisibleAnchor"
 import styles from "./Skills.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 import cn from "classnames"
-import { ThemeContext } from "@/context/ThemeContext"
-import { useContext } from "react"
 
-const Skills = () => {
+interface PropTypes {
+  isDarkTheme: boolean
+}
+
+const Skills = ({ isDarkTheme }: PropTypes) => {
   const { t } = useTranslation("common")
-  const { darkTheme } = useContext(ThemeContext)
   const skills = getAllSkills()
   return (
     <section
-      className={cn(styles.skillsSection, { [styles.darkTheme]: darkTheme })}
+      className={cn(styles.skillsSection, { [styles.darkTheme]: isDarkTheme })}
     >
       <InvisibleAnchor id="skills" />
       <SectionHeader
@@ -40,7 +41,12 @@ const Skills = () => {
       <div className={styles.cardsContainer}>
         <ul className={styles.skillsList} data-testid="skills-list">
           {skills.map((skill, id) => (
-            <Card key={id} name={skill.name} icon={skill.icon} />
+            <Card
+              key={id}
+              name={skill.name}
+              icon={skill.icon}
+              isDarkTheme={isDarkTheme}
+            />
           ))}
         </ul>
       </div>

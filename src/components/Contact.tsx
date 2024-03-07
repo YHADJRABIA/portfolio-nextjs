@@ -1,6 +1,5 @@
-import { useState, useRef, useEffect, useContext } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useRouter } from "next/router"
-import { ThemeContext } from "@/context/ThemeContext"
 import Loader from "./UI/Loader"
 import { isEmpty, isEmail } from "@/utilities/formValidator"
 import ReCAPTCHA from "react-google-recaptcha"
@@ -15,20 +14,24 @@ import Button from "./UI/Button"
 import SectionHeader from "./UI/SectionHeader"
 import cn from "classnames"
 
-const Contact = () => {
+interface PropTypes {
+  isDarkTheme: boolean
+}
+
+const Contact = ({ isDarkTheme }: PropTypes) => {
   const { t } = useTranslation("common")
-  const { darkTheme } = useContext(ThemeContext)
-  const [mobile, setMobile] = useState<boolean | null>(null)
+
+  const [isMobile, setIsMobile] = useState<boolean | null>(null)
   const { locale } = useRouter()
   const [key, setKey] = useState(0)
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState<string | null>(null) // reCAPTCHA's token (sent to backend to be validated by Google)
   const reCaptchaRef = useRef<ReCAPTCHA>(null)
 
   // Forcing re-mount of reCAPTCHA when language is switched or when view is shrunk
   useEffect(() => {
     setKey(key + 1)
-  }, [locale, darkTheme, mobile])
+  }, [locale, isDarkTheme, isMobile])
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
@@ -36,7 +39,7 @@ const Contact = () => {
     return () => window.removeEventListener("resize", handleResize)
   })
 
-  const handleResize = (): void => setMobile(window.innerWidth < 400)
+  const handleResize = (): void => setIsMobile(window.innerWidth < 400)
 
   // Validating form + API call
   const handleOnSubmit = async (e: any) => {
@@ -52,7 +55,7 @@ const Contact = () => {
 
     if (isEmpty(name) || isEmpty(email) || isEmpty(message)) {
       notify("error", t("contact.emptyFields"))
-      setLoading(false)
+      setIsLoading(false)
       return null
     }
 
@@ -68,13 +71,13 @@ const Contact = () => {
 
     // Validation before sending email
     try {
-      setLoading(true)
+      setIsLoading(true)
       await axios.post("/api/mail", formData)
-      setLoading(false)
+      setIsLoading(false)
       notify("success", t("contact.emailSent"))
     } catch (err) {
       console.error(err)
-      setLoading(false)
+      setIsLoading(false)
       notify("error", t("contact.error"))
     }
 
@@ -85,7 +88,7 @@ const Contact = () => {
 
   return (
     <section
-      className={cn(styles.contactSection, { [styles.darkTheme]: darkTheme })}
+      className={cn(styles.contactSection, { [styles.darkTheme]: isDarkTheme })}
     >
       <InvisibleAnchor id="contact" />
       <SectionHeader
@@ -128,8 +131,8 @@ const Contact = () => {
 
         <div className={styles.recaptchaContainer}>
           <ReCAPTCHA
-            size={!mobile ? "normal" : "compact"}
-            theme={!darkTheme ? "light" : "dark"}
+            size={isMobile ? "compact" : "normal"}
+            theme={isDarkTheme ? "dark" : "light"}
             key={key}
             sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_CLIENT}
             ref={reCaptchaRef}
@@ -143,9 +146,9 @@ const Contact = () => {
         <Button
           variation="primary"
           testId="submit-contact-form"
-          disabled={loading}
+          disabled={isLoading}
         >
-          {!loading ? t("contact.submit") : <Loader />}
+          {!isLoading ? t("contact.submit") : <Loader />}
         </Button>
       </form>
     </section>

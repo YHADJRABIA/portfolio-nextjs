@@ -1,22 +1,20 @@
-import { useContext } from "react"
 import { AttentionSeeker } from "react-awesome-reveal" // Reveal effect
 import styles from "./Footer.module.scss"
 import links from "./links"
-import { ThemeContext } from "@/context/ThemeContext"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 
 interface PropTypes {
   color: string
+  isDarkTheme: boolean
 }
 
-const FooterSeparator = ({ color }: PropTypes) => {
-  const { darkTheme } = useContext(ThemeContext)
+const FooterSeparator = ({ color, isDarkTheme }: PropTypes) => {
   return (
     <svg
       className={styles.separatorSvg}
       style={{
-        backgroundColor: !darkTheme ? color : "var(--secondary-black-color)",
+        backgroundColor: !isDarkTheme ? color : "var(--secondary-black-color)",
       }}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1440 320"
@@ -30,11 +28,11 @@ const FooterSeparator = ({ color }: PropTypes) => {
   )
 }
 
-const Footer = ({ color }: PropTypes) => {
+const Footer = ({ color, isDarkTheme }: PropTypes) => {
   const { t } = useTranslation("common")
   return (
     <>
-      <FooterSeparator color={color} />
+      <FooterSeparator color={color} isDarkTheme={isDarkTheme} />
       <footer>
         <address className={styles.links}>
           {links.map((link, id) => (

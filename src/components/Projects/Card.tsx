@@ -1,7 +1,5 @@
-import { ThemeContext } from "@/context/ThemeContext"
 import { Image, ResponsiveImageType } from "react-datocms"
 import Link from "next/link"
-import { useContext } from "react"
 
 import styles from "./Card.module.scss"
 import cn from "classnames"
@@ -13,10 +11,10 @@ interface PropTypes {
   slug: string
   url?: string
   repo?: string
+  isDarkTheme: boolean
 }
 
-const Card = ({ name, img, url, repo, slug }: PropTypes) => {
-  const { darkTheme } = useContext(ThemeContext)
+const Card = ({ name, img, url, repo, slug, isDarkTheme }: PropTypes) => {
   const { t } = useTranslation("project")
   const contentExists = img && name && slug && (url || repo)
   const href = url ? url : repo ?? `/projects/${slug}`
@@ -24,7 +22,7 @@ const Card = ({ name, img, url, repo, slug }: PropTypes) => {
   return (
     <>
       {contentExists && (
-        <li className={cn(styles.card, { [styles.darkTheme]: darkTheme })}>
+        <li className={cn(styles.card, { [styles.darkTheme]: isDarkTheme })}>
           <Link
             href={href}
             className={styles.imageContainer}
