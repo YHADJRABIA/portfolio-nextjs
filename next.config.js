@@ -10,7 +10,20 @@ module.exports = {
     prependData: `@import "utilities.scss";`, // Scss code that'd be prepended to every single scss file.
   },
   images: {
-    domains: ["res.cloudinary.com", "www.datocms-assets.com"], // Enables use of images from external URLs
+    remotePatterns: [ // Enables use of images from external URLs
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.datocms-assets.com',
+        port: '',
+        pathname: '',
+      },
+    ],
   },
   webpack(config) {
     // Allows use of SVGs as dynamic component without being compelled to use Next Image
