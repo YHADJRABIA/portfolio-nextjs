@@ -14,8 +14,8 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '',
+        port: '', // For security reasons: keep empty instead of omiting it, else defaults to ** (wildcard)
+        pathname: '', // Same as the above
       },
       {
         protocol: 'https',
