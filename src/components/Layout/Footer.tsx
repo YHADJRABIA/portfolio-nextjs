@@ -3,10 +3,10 @@ import styles from "./Footer.module.scss"
 import links from "./links"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
+import { DarkTheme } from "@/types/context"
 
-interface PropTypes {
+interface PropTypes extends DarkTheme {
   color: string
-  isDarkTheme: boolean
 }
 
 const FooterSeparator = ({ color, isDarkTheme }: PropTypes) => {

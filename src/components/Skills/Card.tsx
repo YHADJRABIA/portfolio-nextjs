@@ -1,10 +1,10 @@
+import { DarkTheme } from "@/types/context"
 import styles from "./Card.module.scss"
 import cn from "classnames"
 
-interface PropTypes {
+interface PropTypes extends DarkTheme {
   name: string
   icon: string
-  isDarkTheme: boolean
 }
 
 const Card = ({ name, icon, isDarkTheme }: PropTypes) => {

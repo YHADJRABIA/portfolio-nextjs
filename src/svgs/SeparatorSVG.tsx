@@ -1,8 +1,8 @@
+import { DarkTheme } from "@/types/context"
 import { SVGProps } from "react"
 
-interface PropTypes extends SVGProps<SVGSVGElement> {
+interface PropTypes extends SVGProps<SVGSVGElement>, DarkTheme {
   direction?: "down" | "up"
-  isDarkTheme: boolean
 }
 
 const SeparatorSVG = ({ direction, isDarkTheme, ...rest }: PropTypes) => {

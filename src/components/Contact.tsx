@@ -13,12 +13,9 @@ import styles from "./Contact.module.scss"
 import Button from "./UI/Button"
 import SectionHeader from "./UI/SectionHeader"
 import cn from "classnames"
+import { DarkTheme } from "@/types/context"
 
-interface PropTypes {
-  isDarkTheme: boolean
-}
-
-const Contact = ({ isDarkTheme }: PropTypes) => {
+const Contact = ({ isDarkTheme }: DarkTheme) => {
   const { t } = useTranslation("common")
 
   const [isMobile, setIsMobile] = useState<boolean | null>(null)

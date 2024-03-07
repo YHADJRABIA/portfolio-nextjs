@@ -6,12 +6,9 @@ import HoverImage from "./UI/HoverImage"
 import styles from "./About.module.scss"
 import SectionHeader from "./UI/SectionHeader"
 import cn from "classnames"
+import { DarkTheme } from "@/types/context"
 
-interface PropTypes {
-  isDarkTheme: boolean
-}
-
-const About = ({ isDarkTheme }: PropTypes) => {
+const About = ({ isDarkTheme }: DarkTheme) => {
   const { t } = useTranslation("common")
 
   return (

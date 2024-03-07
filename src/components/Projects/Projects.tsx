@@ -6,10 +6,10 @@ import { Project } from "@/types/models/projects"
 import styles from "./Projects.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 import cn from "classnames"
+import { DarkTheme } from "@/types/context"
 
-interface PropTypes {
+interface PropTypes extends DarkTheme {
   data: Project[]
-  isDarkTheme: boolean
 }
 
 const Projects = ({ data, isDarkTheme }: PropTypes) => {

@@ -4,14 +4,14 @@ import Link from "next/link"
 import styles from "./Card.module.scss"
 import cn from "classnames"
 import useTranslation from "next-translate/useTranslation"
+import { DarkTheme } from "@/types/context"
 
-interface PropTypes {
+interface PropTypes extends DarkTheme {
   name: string
   img: { responsiveImage: ResponsiveImageType }
   slug: string
   url?: string
   repo?: string
-  isDarkTheme: boolean
 }
 
 const Card = ({ name, img, url, repo, slug, isDarkTheme }: PropTypes) => {

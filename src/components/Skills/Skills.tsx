@@ -6,10 +6,10 @@ import styles from "./Skills.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 import cn from "classnames"
 import { Skill } from "@/models/skill"
+import { DarkTheme } from "@/types/context"
 
-interface PropTypes {
+interface PropTypes extends DarkTheme {
   skills: Skill[]
-  isDarkTheme: boolean
 }
 
 const Skills = ({ skills, isDarkTheme }: PropTypes) => {
