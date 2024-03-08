@@ -17,6 +17,9 @@ import { gqlRequest } from "@/lib/datoCMS"
 import { Project } from "@/types/models/projects"
 import { ContextProps } from "@/types/context"
 import { sortByKey } from "@/utilities/array"
+import { useContext } from "react"
+import { ThemeContext } from "@/context/ThemeContext"
+import { getAllSkills } from "@/data/skills"
 
 interface PropTypes {
   data: { allProjects: Project[] }
@@ -24,6 +27,8 @@ interface PropTypes {
 
 const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
   const { t } = useTranslation("meta")
+  const skills = getAllSkills()
+  const { isDarkTheme } = useContext(ThemeContext)
   const projects = sortByKey(data.allProjects, "position")
 
   return (
@@ -62,13 +67,13 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
 
       <Hero />
       <Layout>
-        <About />
-        <SeparatorSVG direction="down" />
-        <Skills />
-        <SeparatorSVG direction="up" />
-        <Projects data={projects} />
-        <SeparatorSVG direction="down" />
-        <Contact />
+        <About isDarkTheme={isDarkTheme} />
+        <SeparatorSVG direction="down" isDarkTheme={isDarkTheme} />
+        <Skills isDarkTheme={isDarkTheme} skills={skills} />
+        <SeparatorSVG direction="up" isDarkTheme={isDarkTheme} />
+        <Projects data={projects} isDarkTheme={isDarkTheme} />
+        <SeparatorSVG direction="down" isDarkTheme={isDarkTheme} />
+        <Contact isDarkTheme={isDarkTheme} />
       </Layout>
     </>
   )

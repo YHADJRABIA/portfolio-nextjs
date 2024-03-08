@@ -2,7 +2,10 @@ import { useEffect, useState } from "react"
 
 const DEFAULT_DEBOUNCE_TIME = 500 // in ms
 
-// Limits the rate at which a callback is called, to prevent application lag due to too many re-renders.
+/**
+ * Prevents application lag due to excessive re-renders.
+ * Limits the rate at which a callback is called.
+ */
 export const useDebounce = <T>(value: T, delay?: number): T => {
   const [debouncedValue, setDebouncedValue] = useState<T>(value)
 

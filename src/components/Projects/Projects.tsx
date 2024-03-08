@@ -5,21 +5,21 @@ import InvisibleAnchor from "../UI/InvisibleAnchor"
 import { Project } from "@/types/models/projects"
 import styles from "./Projects.module.scss"
 import SectionHeader from "../UI/SectionHeader"
-import { useContext } from "react"
-import { ThemeContext } from "@/context/ThemeContext"
 import cn from "classnames"
+import { DarkTheme } from "@/types/context"
 
-interface PropTypes {
+interface PropTypes extends DarkTheme {
   data: Project[]
 }
 
-const Projects = ({ data }: PropTypes) => {
+const Projects = ({ data, isDarkTheme }: PropTypes) => {
   const { t } = useTranslation("common")
-  const { darkTheme } = useContext(ThemeContext)
 
   return (
     <section
-      className={cn(styles.projectsSection, { [styles.darkTheme]: darkTheme })}
+      className={cn(styles.projectsSection, {
+        [styles.darkTheme]: isDarkTheme,
+      })}
     >
       <InvisibleAnchor id="projects" />
       <SectionHeader
@@ -50,6 +50,7 @@ const Projects = ({ data }: PropTypes) => {
             url={project.url}
             repo={project.repo}
             slug={project.slug}
+            isDarkTheme={isDarkTheme}
           />
         ))}
       </ul>

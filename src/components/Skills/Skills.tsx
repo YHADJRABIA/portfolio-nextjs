@@ -1,21 +1,23 @@
 import Card from "./Card"
-import { getAllSkills } from "@/data/skills"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import InvisibleAnchor from "../UI/InvisibleAnchor"
 import styles from "./Skills.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 import cn from "classnames"
-import { ThemeContext } from "@/context/ThemeContext"
-import { useContext } from "react"
+import { Skill } from "@/models/skill"
+import { DarkTheme } from "@/types/context"
 
-const Skills = () => {
+interface PropTypes extends DarkTheme {
+  skills: Skill[]
+}
+
+const Skills = ({ skills, isDarkTheme }: PropTypes) => {
   const { t } = useTranslation("common")
-  const { darkTheme } = useContext(ThemeContext)
-  const skills = getAllSkills()
+
   return (
     <section
-      className={cn(styles.skillsSection, { [styles.darkTheme]: darkTheme })}
+      className={cn(styles.skillsSection, { [styles.darkTheme]: isDarkTheme })}
     >
       <InvisibleAnchor id="skills" />
       <SectionHeader
@@ -40,7 +42,12 @@ const Skills = () => {
       <div className={styles.cardsContainer}>
         <ul className={styles.skillsList} data-testid="skills-list">
           {skills.map((skill, id) => (
-            <Card key={id} name={skill.name} icon={skill.icon} />
+            <Card
+              key={id}
+              name={skill.name}
+              icon={skill.icon}
+              isDarkTheme={isDarkTheme}
+            />
           ))}
         </ul>
       </div>

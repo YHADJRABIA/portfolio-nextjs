@@ -1,5 +1,8 @@
 import { RefObject, useEffect, useRef } from "react"
 
+/**
+ * Shortcut for addEventListener and removeEventListener, calls handler function when eventName is recorded on element
+ */
 export const useEventListener = <T>(
   eventName: string,
   handler: (event: T) => void,

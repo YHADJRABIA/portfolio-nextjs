@@ -9,12 +9,12 @@ interface PropTypes {
 }
 
 const Layout = ({ children }: PropTypes) => {
-  const { darkTheme } = useContext(ThemeContext)
+  const { isDarkTheme } = useContext(ThemeContext)
   return (
     <>
       <Nav />
-      <main className={cn({ "dark-theme": darkTheme })}>{children}</main>
-      <Footer color="white" />
+      <main className={cn({ "dark-theme": isDarkTheme })}>{children}</main>
+      <Footer color="white" isDarkTheme={isDarkTheme} />
     </>
   )
 }
