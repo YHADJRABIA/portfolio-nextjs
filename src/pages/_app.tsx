@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     default:
       return (
         <ContextTree>
-          <Layout isDarkTheme={isDarkTheme}>
+          <Layout>
             <Component {...pageProps} />
           </Layout>
         </ContextTree>
