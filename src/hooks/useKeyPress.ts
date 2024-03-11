@@ -4,27 +4,26 @@ interface KeyProp {
   key: string
 }
 
-// TODO: Make type sturdier — it shouldn't be able to accept more than 1 letter
+// TODO: Make type sturdier — targetKey should be a single letter instead of a string
 
-// Returns true as long as the provided key is pressed down
+/**
+ * Returns true as long as the provided key is pressed down
+ */
 export const useKeyPress = (targetKey: string): boolean => {
   const [keyPressed, setKeyPressed] = useState(false)
 
-  const downHandler = ({ key }: KeyProp) => {
-    if (key.toLowerCase() === targetKey.toLowerCase()) setKeyPressed(true)
-  }
-
-  const upHandler = ({ key }: KeyProp) => {
-    if (key.toLowerCase() === targetKey.toLowerCase()) setKeyPressed(false)
+  const keyHandler = ({ key }: KeyProp) => {
+    const keyIsPressed = key.toLowerCase() === targetKey.toLowerCase() // True if pressed, false if released
+    setKeyPressed(keyIsPressed)
   }
 
   useEffect(() => {
-    window.addEventListener("keydown", downHandler)
-    window.addEventListener("keyup", upHandler)
+    window.addEventListener("keydown", keyHandler)
+    window.addEventListener("keyup", keyHandler)
 
     return () => {
-      window.removeEventListener("keydown", downHandler)
-      window.removeEventListener("keyup", upHandler)
+      window.removeEventListener("keydown", keyHandler)
+      window.removeEventListener("keyup", keyHandler)
     }
   }, [])
 

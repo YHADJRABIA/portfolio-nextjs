@@ -4,13 +4,26 @@ const path = require("path")
 const nextTranslate = require("next-translate")
 
 module.exports = {
-  reactStrictMode: true, // Development mode only feature to highlight potential problems.
+  reactStrictMode: true, // Development mode only – highlights potential problems.
   sassOptions: {
     includePaths: [path.join(__dirname, "src/styles")],
     prependData: `@import "utilities.scss";`, // Scss code that'd be prepended to every single scss file.
   },
   images: {
-    domains: ["res.cloudinary.com", "www.datocms-assets.com"], // Enables use of images from external URLs
+    remotePatterns: [
+      // Enables use of images from external URLs
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "", // For security reasons: keep empty instead of omiting it, else defaults to ** (wildcard)
+        // Omitted pathname here defaults to wildcard
+      },
+      {
+        protocol: "https",
+        hostname: "www.datocms-assets.com",
+        port: "",
+      },
+    ],
   },
   webpack(config) {
     // Allows use of SVGs as dynamic component without being compelled to use Next Image

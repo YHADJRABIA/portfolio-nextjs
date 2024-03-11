@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 
-// Equivalent to testing if typeof window !== "undefined"
-// Used to prevent errors when running on the server
-
+/**
+ * Used to prevent errors when code is running on server
+ * Equivalent to testing if typeof window !== "undefined"
+ * Returns true if called on client.
+ */
 export const useIsClient = (): boolean => {
   const [isClient, setClient] = useState(false)
 

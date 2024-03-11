@@ -36,7 +36,7 @@ interface ParamsTypes extends ContextProps {
 const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
   const { locale, asPath } = useRouter()
   const { t } = useTranslation("project")
-  const { darkTheme } = useContext(ThemeContext)
+  const { isDarkTheme } = useContext(ThemeContext)
 
   const skills = project.tag
   const currentUrl = `${websiteUrl}/${locale}${asPath}`
@@ -59,7 +59,7 @@ const ProjectPage: NextPage<PropTypes> = ({ project }: PropTypes) => {
 
       <section
         className={cn(styles.projectPage, {
-          [styles.darkTheme]: darkTheme,
+          [styles.darkTheme]: isDarkTheme,
         })}
       >
         {hasName && <h1 className={styles.title}>{project.name}</h1>}
@@ -101,7 +101,7 @@ export const getStaticPaths = async ({ locales, preview }: StaticPropTypes) => {
 
   return {
     paths,
-    fallback: false, // TODO: Set it to true or "blocking" when ready to generate new pages on the fly (after better handling errors)
+    fallback: false, // TODO: Set it to true or "blocking" when ready to generate new pages on the fly (after better error handling)
   }
 }
 

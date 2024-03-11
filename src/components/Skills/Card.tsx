@@ -1,19 +1,17 @@
-import { ThemeContext } from "@/context/ThemeContext"
-import { useContext } from "react"
+import { DarkTheme } from "@/types/context"
 import styles from "./Card.module.scss"
 import cn from "classnames"
 
-interface PropTypes {
+interface PropTypes extends DarkTheme {
   name: string
   icon: string
 }
 
-const Card = ({ name, icon }: PropTypes) => {
-  const { darkTheme } = useContext(ThemeContext)
+const Card = ({ name, icon, isDarkTheme }: PropTypes) => {
   return (
     <li
       title={name}
-      className={cn(styles.skillCard, { [styles.darkTheme]: darkTheme })}
+      className={cn(styles.skillCard, { [styles.darkTheme]: isDarkTheme })}
     >
       <i className={icon}></i>
       <p>{name}</p>

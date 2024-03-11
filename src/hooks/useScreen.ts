@@ -3,7 +3,9 @@ import { useState } from "react"
 import { useEventListener } from "./useEventListener"
 import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
 
-// Returns window.screen object — this also get updated on screen resize
+/**
+ * Returns window.screen object — this also gets updated on screen resize
+ */
 export const useScreen = () => {
   const getScreen = () => {
     return isClient && window.screen ? window.screen : undefined
@@ -15,7 +17,7 @@ export const useScreen = () => {
 
   useEventListener("resize", handleSize)
 
-  // Set size at the first client-side load
+  // Sets size at the first client-side load
   useIsomorphicLayoutEffect(() => {
     handleSize()
   }, [])
