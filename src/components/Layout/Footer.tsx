@@ -4,6 +4,7 @@ import links from "./links"
 import useTranslation from "next-translate/useTranslation"
 import Trans from "next-translate/Trans"
 import { DarkTheme } from "@/types/context"
+import { getCurrentYear } from "@/utilities/time"
 
 interface PropTypes extends DarkTheme {
   color: string
@@ -67,8 +68,7 @@ const Footer = ({ color, isDarkTheme }: PropTypes) => {
         </AttentionSeeker>
 
         <small className={styles.copyright}>
-          &copy;{new Date().getFullYear()}{" "}
-          {`${t("firstName")} ${t("lastName")}`}
+          &copy;{getCurrentYear()} {`${t("firstName")} ${t("lastName")}`}
         </small>
       </footer>
     </>
