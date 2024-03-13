@@ -44,8 +44,6 @@ jobs:
 
       - name: Run TypeScript check
         run: tsc --noEmit
-        with:
-          typescript: true
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
