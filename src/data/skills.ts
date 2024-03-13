@@ -128,6 +128,12 @@ const skills = [
     category: "testing",
   },
   {
+    name: "Cypress",
+    slug: "cypress",
+    icon: "devicon-cypressio-plain colored",
+    category: "testing",
+  },
+  {
     name: "MongoDB",
     slug: "mongodb",
     icon: "devicon-mongodb-plain",
