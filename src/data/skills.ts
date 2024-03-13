@@ -98,7 +98,7 @@ const skills = [
     category: "ide",
   },
   {
-    name: "Tailwind",
+    name: "Tailwind CSS",
     slug: "tailwind",
     icon: "devicon-tailwindcss-original",
     category: "frontend",
@@ -125,7 +125,7 @@ const skills = [
     name: "Storybook",
     slug: "storybook",
     icon: "devicon-storybook-plain",
-    category: "testing",
+    category: ["ux,ui", "testing"],
   },
   {
     name: "Cypress",
