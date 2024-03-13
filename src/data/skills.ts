@@ -122,6 +122,12 @@ const skills = [
     category: "testing",
   },
   {
+    name: "Storybook",
+    slug: "storybook",
+    icon: "devicon-storybook-plain",
+    category: "testing",
+  },
+  {
     name: "MongoDB",
     slug: "mongodb",
     icon: "devicon-mongodb-plain",
