@@ -1,6 +1,6 @@
 import { Skill } from "@/types/models/skill"
 
-const skills = [
+const skills: Skill[] = [
   {
     name: "NextJS",
     slug: "nextjs",
@@ -125,7 +125,7 @@ const skills = [
     name: "Storybook",
     slug: "storybook",
     icon: "devicon-storybook-plain",
-    category: ["ux,ui", "testing"],
+    category: ["ux-ui", "testing"],
   },
   {
     name: "Cypress",
