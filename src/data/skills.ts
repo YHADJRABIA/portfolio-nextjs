@@ -1,4 +1,4 @@
-import { Skill } from "@/models/skill"
+import { Skill } from "@/types/models/skill"
 
 const skills = [
   {
