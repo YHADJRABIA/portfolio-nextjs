@@ -5,7 +5,7 @@ import InvisibleAnchor from "../UI/InvisibleAnchor"
 import styles from "./Skills.module.scss"
 import SectionHeader from "../UI/SectionHeader"
 import cn from "classnames"
-import { Skill } from "@/models/skill"
+import { Skill } from "@/types/models/skill"
 import { DarkTheme } from "@/types/context"
 
 interface PropTypes extends DarkTheme {
