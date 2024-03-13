@@ -4,7 +4,7 @@ const skills = [
   {
     name: "NextJS",
     slug: "nextjs",
-    icon: "devicon-nextjs-original colored",
+    icon: "devicon-nextjs-plain colored",
     category: ["frontend", "backend"],
   },
   {
@@ -86,10 +86,22 @@ const skills = [
     category: "api",
   },
   {
+    name: "Postman",
+    slug: "postman",
+    icon: "devicon-postman-plain",
+    category: "api",
+  },
+  {
     name: "npm",
     slug: "npm",
     icon: "devicon-npm-original-wordmark",
     category: "ide",
+  },
+  {
+    name: "Tailwind",
+    slug: "tailwind",
+    icon: "devicon-tailwindcss-original",
+    category: "frontend",
   },
   {
     name: "Bootstrap",
