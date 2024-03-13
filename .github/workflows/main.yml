@@ -11,31 +11,52 @@ on:
       - development
     paths-ignore:
       - "**/README.md"
+
   pull_request:
     branches:
       - main
       - development
+    paths-ignore:
+      - "**/README.md"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains 2 jobs called "run-linters" & "build"
+  # This workflow contains 3 jobs called "run-linters", "Typecheck" & "build"
   run-linters:
     name: Run linters
+    timeout-minutes: 2 # Job fails after 2 minutes if not completed
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18.17
 
       # ESLint and Prettier must be in `package.json`
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
+
+  tsc:
+    name: Typecheck
+    timeout-minutes: 2 # Job fails after 2 minutes if not completed
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
       - name: Install Node.js dependencies
         run: npm ci
 
@@ -45,13 +66,8 @@ jobs:
       - name: Run TypeScript check
         run: tsc --noEmit
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          prettier: true
   build:
-    # The type of runner that the job will run on
+    # The type of runner the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
