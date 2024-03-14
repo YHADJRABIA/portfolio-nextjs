@@ -26,10 +26,11 @@ on:
 jobs:
   # This workflow contains 3 jobs called "run-linters", "Typecheck" & "build"
   run-linters:
-    name: Run linters
+    name: Run linters # Name shown on GitHub actions
     timeout-minutes: 2 # Job fails after 2 minutes if not completed
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Machine the job is triggered on
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
@@ -41,7 +42,7 @@ jobs:
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
-        run: npm ci
+        run: npm ci # Cleaner alternative to npm install
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
@@ -51,7 +52,7 @@ jobs:
 
   tsc:
     name: Typecheck
-    timeout-minutes: 2 # Job fails after 2 minutes if not completed
+    timeout-minutes: 2
     runs-on: ubuntu-latest
 
     steps:
@@ -67,11 +68,9 @@ jobs:
         run: tsc --noEmit
 
   build:
-    # The type of runner the job will run on
     name: Build
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
