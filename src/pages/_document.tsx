@@ -31,7 +31,8 @@ export default class MyDocument extends Document {
 
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css"
           />
 
           <link
