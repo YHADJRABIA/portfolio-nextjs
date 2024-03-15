@@ -1,7 +1,7 @@
 import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.scss"
 
-import { useContext, useEffect } from "react"
+import { useEffect } from "react"
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router"
 
@@ -10,11 +10,9 @@ import * as gtag from "@/lib/gtag" // Google Analytics
 import Layout from "@/components/Layout/Layout"
 import { isProduction } from "@/utilities/general"
 import ContextTree from "@/context/ContextTree"
-import { ThemeContext } from "@/context/ThemeContext"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-  const { isDarkTheme } = useContext(ThemeContext)
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {

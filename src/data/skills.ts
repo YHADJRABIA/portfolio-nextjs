@@ -1,10 +1,10 @@
-import { Skill } from "@/models/skill"
+import { Skill } from "@/types/models/skill"
 
-const skills = [
+const skills: Skill[] = [
   {
     name: "NextJS",
     slug: "nextjs",
-    icon: "devicon-nextjs-original colored",
+    icon: "devicon-nextjs-plain colored",
     category: ["frontend", "backend"],
   },
   {
@@ -86,10 +86,22 @@ const skills = [
     category: "api",
   },
   {
+    name: "Postman",
+    slug: "postman",
+    icon: "devicon-postman-plain",
+    category: "api",
+  },
+  {
     name: "npm",
     slug: "npm",
     icon: "devicon-npm-original-wordmark",
     category: "ide",
+  },
+  {
+    name: "Tailwind CSS",
+    slug: "tailwind",
+    icon: "devicon-tailwindcss-original",
+    category: "frontend",
   },
   {
     name: "Bootstrap",
@@ -107,6 +119,18 @@ const skills = [
     name: "Jest",
     slug: "jest",
     icon: "devicon-jest-plain",
+    category: "testing",
+  },
+  {
+    name: "Storybook",
+    slug: "storybook",
+    icon: "devicon-storybook-plain",
+    category: ["ux-ui", "testing"],
+  },
+  {
+    name: "Cypress",
+    slug: "cypress",
+    icon: "devicon-cypressio-plain colored",
     category: "testing",
   },
   {
