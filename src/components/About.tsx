@@ -7,9 +7,13 @@ import styles from "./About.module.scss"
 import SectionHeader from "./UI/SectionHeader"
 import cn from "classnames"
 import { DarkTheme } from "@/types/context"
+import useIsOnMobile from "@/hooks/useIsOnMobile"
 
 const About = ({ isDarkTheme }: DarkTheme) => {
   const { t } = useTranslation("common")
+  const isOnMobile = useIsOnMobile()
+
+  const imageDimension = isOnMobile ? 320 : 400
 
   return (
     <section
@@ -23,8 +27,8 @@ const About = ({ isDarkTheme }: DarkTheme) => {
           alt={t("myself")}
           title={t("myself")}
           data-testid="about-photo"
-          width={400}
-          height={400}
+          width={imageDimension}
+          height={imageDimension}
           quality={60}
         />
       </div>
