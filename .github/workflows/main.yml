@@ -38,6 +38,7 @@ jobs:
         with:
           node-version: 18.17
 
+      # Prevents dependencies from being reinstalled at every job. If key matches restore-key (cache hit), then files don't need to be reinstalled and time is gained
       - name: Cache Node.js dependencies
         uses: actions/cache@v3
         with:
