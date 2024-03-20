@@ -72,6 +72,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - if: steps.npm-cache.outputs.cache-hit != 'true'
         name: Install Node.js dependencies
         run: npm ci
