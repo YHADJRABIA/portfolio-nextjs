@@ -45,7 +45,8 @@ jobs:
             ${{ runner.os }}-node-
 
       # ESLint and Prettier must be in `package.json`
-      - if: steps.npm-cache.outputs.cache-hit != true # Only installs depencendies if cache miss
+      # Only installs depencendies if cache miss
+      - if: steps.npm-cache.outputs.cache-hit != 'true'
         name: Install Node.js dependencies
         run: npm ci # Cleaner alternative to npm install
 
@@ -71,7 +72,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - if: steps.npm-cache.outputs.cache-hit != true
+      - if: steps.npm-cache.outputs.cache-hit != 'true'
         name: Install Node.js dependencies
         run: npm ci
 
