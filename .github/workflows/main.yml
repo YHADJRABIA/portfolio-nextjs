@@ -4,16 +4,12 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" & "development" branches
   push:
-    branches:
-      - main
-      - development
+    branches: [main, development]
     paths-ignore:
       - "**/README.md"
 
   pull_request:
-    branches:
-      - main
-      - development
+    branches: [main, development]
     paths-ignore:
       - "**/README.md"
 
