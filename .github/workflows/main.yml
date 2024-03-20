@@ -85,7 +85,7 @@ jobs:
 
   build:
     name: Build
-    needs: run-linters
+    needs: tsc
     runs-on: ubuntu-latest
 
     steps:
