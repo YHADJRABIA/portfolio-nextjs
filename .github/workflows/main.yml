@@ -36,6 +36,7 @@ jobs:
 
       # Prevents dependencies from being reinstalled at every job. If key matches restore-key (cache hit), then files don't need to be reinstalled and time is gained
       - name: Cache Node.js dependencies
+        id: cache-dependencies
         uses: actions/cache@v3
         with:
           path: node_modules
@@ -62,6 +63,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Cache Node.js dependencies
+        id: cache-dependencies
         uses: actions/cache@v3
         with:
           path: node_modules
@@ -87,6 +89,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Cache Node.js dependencies
+        id: cache-dependencies
         uses: actions/cache@v3
         with:
           path: node_modules
