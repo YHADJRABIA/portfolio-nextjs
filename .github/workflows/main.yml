@@ -37,19 +37,19 @@ jobs:
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
 
-      # ESLint and Prettier must be in `package.json`
-      - name: Install Node.js dependencies
-        run: npm ci # Cleaner alternative to npm install
-
       # Prevents dependencies from being reinstalled at every job. If key matches restore-key (cache hit), then files don't need to be reinstalled and time is gained
       - name: Cache Node.js dependencies
         id: npm-cache
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: ./node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      # ESLint and Prettier must be in `package.json`
+      - name: Install Node.js dependencies
+        run: npm ci # Cleaner alternative to npm install
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
@@ -65,17 +65,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "16"
-          check-latest: true
-          cache: "npm"
-
       - name: Cache Node.js dependencies
         id: npm-cache
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: ./node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-*
@@ -104,7 +98,7 @@ jobs:
         id: npm-cache
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: ./node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
