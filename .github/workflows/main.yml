@@ -35,6 +35,7 @@ jobs:
           node-version: "16"
           check-latest: true
           cache: "npm"
+          cache-dependency-path: "**/package-lock.json"
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
@@ -64,6 +65,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "16"
+          check-latest: true
+          cache: "npm"
 
       - name: Cache Node.js dependencies
         id: npm-cache
