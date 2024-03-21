@@ -49,6 +49,7 @@ jobs:
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci # Cleaner alternative to npm install
 
       - name: Run linters
