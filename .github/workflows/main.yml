@@ -73,9 +73,9 @@ jobs:
             ${{ runner.os }}-node-*
 
       # Only installs depencendies if cache miss
-      - if: steps.npm-cache.outputs.cache-hit != 'true'
+      - run: npm ci
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         name: Install Node.js dependencies
-        run: npm ci
 
       - name: Install TypeScript
         run: npm install -g typescript
