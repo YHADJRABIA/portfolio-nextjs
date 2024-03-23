@@ -1,21 +1,15 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" & "development" branches
   push:
-    branches:
-      - main
-      - development
+    branches: [main, development]
     paths-ignore:
       - "**/README.md"
 
   pull_request:
-    branches:
-      - main
-      - development
+    branches: [main, development]
     paths-ignore:
       - "**/README.md"
 
@@ -26,22 +20,37 @@ on:
 jobs:
   # This workflow contains 3 jobs called "run-linters", "Typecheck" & "build"
   run-linters:
-    name: Run linters
+    name: Run linters # Name shown on GitHub actions
     timeout-minutes: 2 # Job fails after 2 minutes if not completed
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Machine the job is triggered on
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.17
+          node-version: "18.17.x"
+          check-latest: true
+          cache: "npm"
+          cache-dependency-path: "**/package-lock.json"
+
+      # Prevents dependencies from being reinstalled at every job. If key matches restore-key (cache hit), then files don't need to be reinstalled and time is gained
+      - name: Cache Node.js dependencies
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
-        run: npm ci
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm ci # Cleaner alternative to npm install
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
@@ -51,13 +60,24 @@ jobs:
 
   tsc:
     name: Typecheck
-    timeout-minutes: 2 # Job fails after 2 minutes if not completed
+    needs: run-linters
+    timeout-minutes: 2
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Cache Node.js dependencies
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-*
 
+      # Only installs depencendies if cache miss
       - name: Install Node.js dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Install TypeScript
@@ -67,13 +87,22 @@ jobs:
         run: tsc --noEmit
 
   build:
-    # The type of runner the job will run on
+    name: Build
+    needs: tsc
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - name: Cache Node.js dependencies
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
