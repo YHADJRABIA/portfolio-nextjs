@@ -9,6 +9,9 @@ import cn from "classnames"
 import { DarkTheme } from "@/types/context"
 import useIsOnMobile from "@/hooks/useIsOnMobile"
 
+const PRIMARY_IMAGE = "/me-with-pysen.jpg"
+const SECONDARY_IMAGE = "/me.jpg"
+
 const About = ({ isDarkTheme }: DarkTheme) => {
   const { t } = useTranslation("common")
   const isOnMobile = useIsOnMobile()
@@ -22,8 +25,8 @@ const About = ({ isDarkTheme }: DarkTheme) => {
       <InvisibleAnchor id="about" />
       <div className={styles.photoContainer}>
         <HoverImage
-          src="/me-with-pysen.jpg"
-          hoverSrc="/me.jpg"
+          src={PRIMARY_IMAGE}
+          hoverSrc={SECONDARY_IMAGE}
           alt={t("myself")}
           title={t("myself")}
           data-testid="about-photo"
