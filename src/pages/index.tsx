@@ -36,7 +36,7 @@ const HomePage: NextPage<PropTypes> = ({ data }: PropTypes) => {
       <SEO
         title={t("title")}
         description={t("description")}
-        keywords="YHR, Yacine Hadj Rabia, portfolio, ReactJS, NodeJS, NextJS, TypeScript, JavaScript, Sass"
+        keywords={t("keywords")}
         ogTitle={t("title")}
         ogDescription={t("description")}
       >
